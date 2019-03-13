@@ -1,0 +1,90 @@
+/* 
+  Localized.strings
+  Diet
+
+  Created by Даниил on 20/12/2018.
+  Copyright © 2018 Даниил. All rights reserved.
+*/
+
+// Notifications
+"New recipes!" = "Новые рецепты";
+"Check out new recipes" = "Посмотрите новые рецепты";
+
+// Subscription offer
+"All access" = "Полный доступ";
+"3 days for FREE" = "3 дня БЕСПЛАТНО";
+"Your trial period has expired." = "Ваш пробный период истек.";
+"Free period available" = "Бесплатный период доступен";
+"Only healthy food" = "Только здоровая пища";
+"Helps you stay fit" = "Помогает поддерживать фигуру";
+"Noticeable changes after first month" = "Заметные изменения после первого месяца";
+"Get full access to diets with paid version" = "Получите полный доступ к диетам с платной версией";
+"No Ads" = "Без рекламы";
+" per week" = " в неделю";
+"skip" = "отмена";
+"restore" = "восстановить";
+"START" = "НАЧАТЬ";
+"Terms of Service" = "Условия Обслуживания";
+"Privacy Policy" = "Политика конфиденциальности";
+"Could not load data" = "Невозможно загрузить данные";
+" after 3 days" = " после 3 дней";
+" per " = " в ";
+" after " = " после ";
+"7 days" = "7 дней";
+"3 days" = "3 дней";
+"1 week" = "1 недели";
+"1 month" = "1 месяц";
+
+//Welcome screen
+"Obesity index" = "Индекс ожирения";
+"Find out your obesity index. Our app precisely calculates index just for you!" = "Узнайте ваш индекс ожирения. Наше приложение  точно вычислит индекс ожирения для вас";
+"Test" =  "Тест";
+"Take a simple test and we will do our best to help you with diets." = "Пройдите простой тест и мы сделаем все необходимое, чтобы помочь вам в подборе диет";
+"Stats" = "Статистика";
+"Get statistics of your parameters during your diet." = "Получите свои параметры после прохождения теста";
+"Result" = "Результат";
+"With our help you can rapidly lose weight. Get started right now!" = "С нашей помощью вы можете быстро сбросить лишний вес. Начинайте прямо сейчас!";
+"skip" = "пропустить";
+
+"Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "Оплата будет произведена по вашему iTunes аккаунту после подверждения покупки. Подписка будет автоматически обновлена, если не была отменена в течение 24 часов перед окончанием текущего периода. Автообновление подписки может быть отключено в настройках аккаунта после покупки. Любая неиспользованная часть пробного периода будет аннулирована после покупки подписки.";
+"FINISH" = "Начать тест";
+"NEXT" = "Дальше";
+
+// Test pages
+"Select your age" = "Укажите ваш возраст";
+"Select your weight" = "Укажите ваш вес";
+"kg" = "кг";
+"How much do you want to lose in weight" = "Сколько вы хотите сбросить";
+"Select your height" = "Укажите ваш рост";
+"cm." = "см.";
+"Error" = "Ошибка";
+"Male" = "Мужчина";
+"Female" = "Женщина";
+"You cant set goal bigger then your current weight" = "Вы не можете сбросить вес больше вашего текущего";
+"Next" = "Дальше";
+"Finish" = "Завершить";
+"Step " = "Шаг ";
+" of 5" = " из 5";
+
+// Obesity index screen
+"Underweight" = "Недостаток веса";
+"Normal weight" = "Норма";
+"Excess obesity" = "Излишний вес";
+"Obesity" = "Ожирение";
+"Severe obesity" = "Сильное ожирение";
+
+// Diets screen
+"Your meal plan" = "Ваш рацион";
+"Choose one of the days to see all dishes" = "Выберите один из дней, чтобы увидеть блюда";
+"Monday" = "Понедельник";
+"Tuesday" = "Вторник";
+"Wednesday" = "Среда";
+"Thursday" = "Четверг";
+"Friday" = "Пятница";
+"Saturday" = "Суббота";
+"Sunday" = "Воскресенье";
+" kCal." = " ККал.";
+"g." = "г.";
+
+// Recipe screen
+"Close" = "Закрыть";

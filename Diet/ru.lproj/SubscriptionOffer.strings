@@ -1,0 +1,35 @@
+
+/* Class = "UILabel"; text = "New dishes every week"; ObjectID = "0Sq-HV-hjK"; */
+"0Sq-HV-hjK.text" = "Новые блюда каждую неделю";
+
+/* Class = "UILabel"; text = "The cheapest plan"; ObjectID = "94n-x4-iMK"; */
+"94n-x4-iMK.text" = "Выгодный план";
+
+/* Class = "UIButton"; normalTitle = "restore"; ObjectID = "CBd-iV-Lkl"; */
+"CBd-iV-Lkl.normalTitle" = "восстан.";
+
+/* Class = "UILabel"; text = "First 3 days for free. After first 3 days subscription renews automaticly unless canceled before the end of 3 days trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription."; ObjectID = "G7O-T3-jYe"; */
+"G7O-T3-jYe.text" = "После пробного периода подписка автоматически обновится, если не будет отменена перед окончанием бесплатного периода. Оплата будет произведена по вашему iTunes аккаунту после подверждения покупки. Подписка будет автоматически обновлена, если не была отменена в течение 24 часов перед окончанием текущего периода. Автообновление подписки может быть отключено в настройках аккаунта после покупки. Любая неиспользованная часть пробного периода будет аннулирована после покупки подписки.";
+
+/* Class = "UIButton"; normalTitle = "back"; ObjectID = "GCm-jB-NmT"; */
+"GCm-jB-NmT.normalTitle" = "назад";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "MpP-u6-VJZ"; */
+"MpP-u6-VJZ.normalTitle" = "Условия обсл.";
+
+/* Class = "UILabel"; text = "Unlimited access to all diets"; ObjectID = "WsZ-83-k8T"; */
+"WsZ-83-k8T.text" = "Неограниченный доступ к диетам";
+
+/* Class = "UILabel"; text = "Features"; ObjectID = "ZSo-Td-d2I"; */
+"ZSo-Td-d2I.text" = "Особенности";
+
+/* Class = "UILabel"; text = "Detailed cooking recipes"; ObjectID = "anf-uY-YEm"; */
+"anf-uY-YEm.text" = "Подробные рецепты приготовления блюда";
+
+/* Class = "UILabel"; text = "Popular plan"; ObjectID = "n1i-VE-mSC"; */
+"n1i-VE-mSC.text" = "Популярный план";
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "ppq-7Y-nbj"; */
+"ppq-7Y-nbj.normalTitle" = "Политика конф.";
+
+"Hzg-AN-dym.normalTitle" = "НАЧАТЬ";

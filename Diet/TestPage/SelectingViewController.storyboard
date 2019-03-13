@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Selecting View Controller-->
+        <scene sceneID="0hz-Jk-6Kr">
+            <objects>
+                <viewController storyboardIdentifier="SelectingViewController" id="d7e-9L-UEc" customClass="SelectingViewController" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tPJ-GU-Z2R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1P-3c-vqJ">
+                                <rect key="frame" x="0.0" y="19" width="58" height="65"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="lQT-gE-0Zm"/>
+                                    <constraint firstAttribute="height" constant="65" id="wJ2-Gd-pbK"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="bnu-HA-FKx"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZBz-Cw-ajG" appends="YES" id="Wqt-XW-dna"/>
+                                </connections>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avocado" translatesAutoresizingMaskIntoConstraints="NO" id="14d-Cl-FWz">
+                                <rect key="frame" x="131" y="473" width="350" height="329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="dVW-t0-3yO"/>
+                                    <constraint firstAttribute="height" constant="329" id="hj6-rs-gfp"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaf_1" translatesAutoresizingMaskIntoConstraints="NO" id="Ynf-QB-WuJ">
+                                <rect key="frame" x="316" y="415" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="7BQ-Mw-yB9"/>
+                                    <constraint firstAttribute="height" constant="25" id="KOa-53-VIs"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaf_2" translatesAutoresizingMaskIntoConstraints="NO" id="M0S-y0-4aZ">
+                                <rect key="frame" x="150" y="193" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="D6r-tg-1oO"/>
+                                    <constraint firstAttribute="height" constant="25" id="ova-DV-QLm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8S9-aj-y1E">
+                                <rect key="frame" x="43" y="50" width="289" height="148"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="148" id="hck-Jd-F6A"/>
+                                </constraints>
+                                <string key="text">Please select
+your gender</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmH-s7-Ric">
+                                <rect key="frame" x="191" y="581" width="150" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="0lt-xj-TpD"/>
+                                    <constraint firstAttribute="height" constant="50" id="Nkm-uq-pv9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <state key="normal" title="Дальше">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="d7e-9L-UEc" eventType="touchUpInside" id="sQ4-be-F0R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qG-jG-Bf3">
+                                <rect key="frame" x="16" y="34" width="25" height="35"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ar0-z0-Qs7"/>
+                                    <constraint firstAttribute="width" constant="25" id="pvR-ix-oQL"/>
+                                </constraints>
+                                <state key="normal" image="arrow"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="d7e-9L-UEc" eventType="touchUpInside" id="f7W-ya-DOO"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIQ-AU-W5J" customClass="DefaultPickerView" customModule="Diet" customModuleProvider="target">
+                                <rect key="frame" x="33.5" y="235.5" width="308" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="308" id="8iA-Pe-39e"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NV-4w-EnZ">
+                                <rect key="frame" x="30" y="594" width="44" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaf_3" translatesAutoresizingMaskIntoConstraints="NO" id="XSn-Z7-ChC">
+                                <rect key="frame" x="17" y="342" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="4Tb-2r-crd"/>
+                                    <constraint firstAttribute="height" constant="25" id="yXe-ds-0dy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="yFj-jX-vUY" firstAttribute="bottom" secondItem="9NV-4w-EnZ" secondAttribute="bottom" constant="49" id="9Yy-py-yS8"/>
+                            <constraint firstItem="8S9-aj-y1E" firstAttribute="top" secondItem="yFj-jX-vUY" secondAttribute="top" constant="30" id="C34-nS-4Sz"/>
+                            <constraint firstItem="O1P-3c-vqJ" firstAttribute="leading" secondItem="yFj-jX-vUY" secondAttribute="leading" id="DKd-76-uej"/>
+                            <constraint firstItem="8S9-aj-y1E" firstAttribute="leading" secondItem="yFj-jX-vUY" secondAttribute="leading" constant="43" id="DYY-Cw-VOv"/>
+                            <constraint firstItem="sIQ-AU-W5J" firstAttribute="centerY" secondItem="yFj-jX-vUY" secondAttribute="centerY" id="H40-zb-Q9A"/>
+                            <constraint firstItem="9NV-4w-EnZ" firstAttribute="leading" secondItem="yFj-jX-vUY" secondAttribute="leading" constant="30" id="Ipt-7c-9ok"/>
+                            <constraint firstItem="14d-Cl-FWz" firstAttribute="top" secondItem="Ynf-QB-WuJ" secondAttribute="bottom" constant="33" id="J8L-C7-OQa"/>
+                            <constraint firstItem="lmH-s7-Ric" firstAttribute="centerY" secondItem="9NV-4w-EnZ" secondAttribute="centerY" id="LhK-CY-shj"/>
+                            <constraint firstItem="M0S-y0-4aZ" firstAttribute="leading" secondItem="yFj-jX-vUY" secondAttribute="leading" constant="150" id="MRL-xx-z1m"/>
+                            <constraint firstAttribute="trailing" secondItem="14d-Cl-FWz" secondAttribute="trailing" constant="-106" id="RdU-vY-2Re"/>
+                            <constraint firstItem="9NV-4w-EnZ" firstAttribute="top" secondItem="XSn-Z7-ChC" secondAttribute="bottom" constant="227" id="XAg-if-4cG"/>
+                            <constraint firstItem="4qG-jG-Bf3" firstAttribute="top" secondItem="yFj-jX-vUY" secondAttribute="top" constant="14" id="aOO-sE-aE5"/>
+                            <constraint firstItem="O1P-3c-vqJ" firstAttribute="top" secondItem="tPJ-GU-Z2R" secondAttribute="top" constant="19" id="daF-fY-hLt"/>
+                            <constraint firstItem="yFj-jX-vUY" firstAttribute="trailing" secondItem="Ynf-QB-WuJ" secondAttribute="trailing" constant="34" id="ezC-oH-Ccw"/>
+                            <constraint firstItem="XSn-Z7-ChC" firstAttribute="leading" secondItem="yFj-jX-vUY" secondAttribute="leading" constant="17" id="f7h-j0-N9f"/>
+                            <constraint firstItem="yFj-jX-vUY" firstAttribute="trailing" secondItem="8S9-aj-y1E" secondAttribute="trailing" constant="43" id="gDZ-To-PmW"/>
+                            <constraint firstItem="sIQ-AU-W5J" firstAttribute="centerX" secondItem="yFj-jX-vUY" secondAttribute="centerX" id="m5l-uB-Amx"/>
+                            <constraint firstItem="yFj-jX-vUY" firstAttribute="trailing" secondItem="lmH-s7-Ric" secondAttribute="trailing" constant="34" id="qBw-7y-FGy"/>
+                            <constraint firstAttribute="bottom" secondItem="14d-Cl-FWz" secondAttribute="bottom" constant="-135" id="qL2-a3-kPu"/>
+                            <constraint firstItem="4qG-jG-Bf3" firstAttribute="leading" secondItem="yFj-jX-vUY" secondAttribute="leading" constant="16" id="sS4-Ih-orD"/>
+                            <constraint firstItem="M0S-y0-4aZ" firstAttribute="top" secondItem="yFj-jX-vUY" secondAttribute="top" constant="173" id="ulv-k0-vPn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yFj-jX-vUY"/>
+                    </view>
+                    <connections>
+                        <outlet property="answersPickerView" destination="sIQ-AU-W5J" id="ALG-UB-s2n"/>
+                        <outlet property="backButton" destination="4qG-jG-Bf3" id="8dk-Vq-MgM"/>
+                        <outlet property="bottomLeafImageView" destination="Ynf-QB-WuJ" id="nWD-qZ-9BF"/>
+                        <outlet property="foodImageView" destination="14d-Cl-FWz" id="64b-EL-B4b"/>
+                        <outlet property="midLeafImageView" destination="XSn-Z7-ChC" id="99I-Hg-ki7"/>
+                        <outlet property="nextButton" destination="lmH-s7-Ric" id="a55-oe-fZ7"/>
+                        <outlet property="stepLabel" destination="9NV-4w-EnZ" id="fSd-Ke-fx0"/>
+                        <outlet property="titleLabel" destination="8S9-aj-y1E" id="IHU-q6-JdY"/>
+                        <outlet property="topLeafImageView" destination="M0S-y0-4aZ" id="MjV-wk-7OU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbX-pf-qOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZBz-Cw-ajG">
+                    <connections>
+                        <action selector="backButtonPressed:" destination="d7e-9L-UEc" id="bzX-L1-fHp"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="8.8000000000000007" y="-349.47526236881561"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow" width="36" height="62"/>
+        <image name="avocado" width="600" height="600"/>
+        <image name="leaf_1" width="418.90908813476562" height="418.90908813476562"/>
+        <image name="leaf_2" width="418.90908813476562" height="418.90908813476562"/>
+        <image name="leaf_3" width="418.90908813476562" height="418.90908813476562"/>
+    </resources>
+</document>

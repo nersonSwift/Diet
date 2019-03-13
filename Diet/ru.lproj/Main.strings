@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "your goal"; ObjectID = "1vQ-a6-xfX"; */
+"Mjt-Gj-u0e.text" = "Ваша цель";
+
+/* Class = "UILabel"; text = "gender"; ObjectID = "2uR-pL-6TI"; */
+"2uR-pL-6TI.text" = "пол";
+
+/* Class = "UILabel"; text = "Recipe"; ObjectID = "6KT-XG-j8w"; */
+"6KT-XG-j8w.text" = "Рецепт";
+
+/* Class = "UIButton"; normalTitle = "Ok? Go!"; ObjectID = "8CF-Kx-XwQ"; */
+"8CF-Kx-XwQ.normalTitle" = "Ок? Вперед!";
+
+/* Class = "UILabel"; text = "current weight"; ObjectID = "GaH-KK-C7F"; */
+"Xhe-nG-t0l.text" = "Ваш вес";
+
+/* Class = "UILabel"; text = "We have calculated your obesity index"; ObjectID = "Ij1-4L-IH1"; */
+"Ij1-4L-IH1.text" = "Мы подсчитали ваш индекс ожирения";
+
+/* Class = "UIButton"; normalTitle = "Get diets"; ObjectID = "LxY-vj-ZPj"; */
+"LxY-vj-ZPj.normalTitle" = "Получить диеты";
+
+/* Class = "UILabel"; text = "Choose one of the days to see all dishes"; ObjectID = "NxQ-CS-7kO"; */
+"NxQ-CS-7kO.text" = "Выберите день, чтобы увидеть блюда";
+
+/* Class = "UIButton"; normalTitle = "Monday"; ObjectID = "WZf-PU-prq"; */
+"WZf-PU-prq.normalTitle" = "Понедельник";
+
+/* Class = "UIButton"; normalTitle = "пропустить"; ObjectID = "YVz-92-fjL"; */
+"YVz-92-fjL.normalTitle" = "пропустить";
+
+/* Class = "UILabel"; text = "Your meal plan"; ObjectID = "a2G-cq-cEj"; */
+"a2G-cq-cEj.text" = "Ваш рацион питания";
+
+/* Class = "UILabel"; text = "your age"; ObjectID = "eg9-h7-LQP"; */
+"mFW-3X-xD2.text" = "Ваш возраст";
+
+/* Class = "UILabel"; text = "your height"; ObjectID = "euh-5w-68Y"; */
+"92n-Y0-JfP.text" = "Ваш рост";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "kfd-No-EJw"; */
+"kfd-No-EJw.normalTitle" = "Закрыть";
+
+/* Class = "UIButton"; normalTitle = "Take the test again"; ObjectID = "xze-AY-Q0v"; */
+"xze-AY-Q0v.normalTitle" = "Пройти тест заново";
