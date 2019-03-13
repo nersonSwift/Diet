@@ -23,11 +23,8 @@ class SubscriptionOfferViewController: UIViewController {
     @IBOutlet weak var trialTermsLabel: UILabel!
     @IBOutlet weak var termsAndServiceButton: UIButton!
     @IBOutlet weak var privacyPolicyButton: UIButton!
-    @IBOutlet weak var cheapPlanContainerView: UIView!
     @IBOutlet weak var popularPlanPriceLabel: UILabel!
-    @IBOutlet weak var cheapPlanLabel: UILabel!
     @IBOutlet weak var pupularPlanButton: UIButton!
-    @IBOutlet weak var cheapPlanButton: UIButton!
     @IBOutlet weak var discountLabel: TestResultLabel!
     @IBOutlet weak var purchaseButton: UIButton!
     
@@ -76,9 +73,6 @@ class SubscriptionOfferViewController: UIViewController {
             if #available(iOS 11.2, *), let period = self.cheapPlan.subscriptionPeriod, let trial = self.cheapPlan.introductoryPrice?.subscriptionPeriod {
                 let subscriptionPeriodText = period.unit.description(capitalizeFirstLetter: false, numberOfUnits: period.numberOfUnits).localized
                 let trialPeriodText = trial.unit.description(capitalizeFirstLetter: false, numberOfUnits: period.numberOfUnits).localized
-                self.cheapPlanLabel.text = self.cheapPlan.localizedPrice! + self.perText + subscriptionPeriodText + self.afterText + trialPeriodText
-            } else {
-                self.cheapPlanLabel.text = self.cheapPlan.localizedPrice! + self.perText + self.weekDurationText + self.afterText + "1 week".localized
             }
         }
     }
@@ -118,9 +112,6 @@ class SubscriptionOfferViewController: UIViewController {
         popularPlanContainerView.makeCornerRadius(5)
         popularPlanContainerView.layer.borderWidth = 1
         popularPlanContainerView.layer.borderColor = UIColor(red: 0, green: 234 / 255, blue: 134 / 255, alpha: 1).cgColor
-        cheapPlanContainerView.makeCornerRadius(5)
-        cheapPlanContainerView.layer.borderWidth = 1
-        cheapPlanContainerView.layer.borderColor = UIColor(red: 0, green: 234 / 255, blue: 134 / 255, alpha: 1).cgColor
         discountLabel.makeCornerRadius(5)
         discountLabel.layer.borderWidth = 1
         discountLabel.layer.borderColor = UIColor(red: 0, green: 169 / 255, blue: 97 / 255, alpha: 1).cgColor
@@ -223,16 +214,6 @@ class SubscriptionOfferViewController: UIViewController {
 //
 //            loadingVc.remove()
 //        }
-    }
-    
-    @IBAction func selectCheapPlanButtonPressed(_ sender: Any) {
-        cheapPlanButton.isSelected = !cheapPlanButton.isSelected
-        pupularPlanButton.isSelected = !pupularPlanButton.isSelected
-    }
-    
-    @IBAction func selectPopularPlanButtonPressed(_ sender: Any) {
-        cheapPlanButton.isSelected = !cheapPlanButton.isSelected
-        pupularPlanButton.isSelected = !pupularPlanButton.isSelected
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
