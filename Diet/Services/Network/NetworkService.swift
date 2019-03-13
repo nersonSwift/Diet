@@ -58,7 +58,13 @@ extension NetworkService: DietNetworkService {
         let queue = DispatchQueue.global(qos: .utility)
         let parameters = DietApi.diet(type: type).parameters
         
-        request(DietApi.baseUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+        print(DietApi.baseUrl)
+        
+        request(DietApi.baseUrl,
+                method: .get,
+                parameters: parameters,
+                encoding: URLEncoding.default,
+                headers: nil)
             .response(queue: queue, responseSerializer: DataRequest.jsonResponseSerializer()) { [weak self] response in
                 
                 guard let unwrappedSelf = self else { print("self is nil"); return }
@@ -70,16 +76,22 @@ extension NetworkService: DietNetworkService {
                 
                 let json = JSON(responseValue)["diet"]
                 
-                let days = json["weeks"][0]["days"].array?.map { jsonDays -> DietWeek.Day in DietWeek.Day(name: "", dishes: jsonDays.array?.map { jsonDish -> Dish in
-                    Dish.init(name: jsonDish["name"].stringValue, imagePath: jsonDish["image"].stringValue,
-                              nutritionValue: NutritionalValue.init(
-                                calories: jsonDish["calories"].doubleValue, protein: jsonDish["protein"].doubleValue,
-                                carbs: jsonDish["carbs"].doubleValue, fats: jsonDish["fats"].doubleValue),
-                              recipe: jsonDish["reciept"].array?.map { jsonRecipe -> RecieptSteps in
-                                RecieptSteps.init(name: jsonRecipe["name"].stringValue,
-                                                  description: jsonRecipe["description"].stringValue,
-                                                  imagePaths: [jsonRecipe["images"].stringValue]) } ?? [])
-                    } ?? [])}
+                let days = json["weeks"][0]["days"].array?.map { jsonDays -> DietWeek.Day in
+                    DietWeek.Day(name:   "",
+                                 dishes: jsonDays.array?.map { jsonDish -> Dish in
+                        Dish.init(name:           jsonDish["name"].stringValue,
+                                  imagePath:      jsonDish["image"].stringValue,
+                                  nutritionValue: NutritionalValue.init(calories: jsonDish["calories"].doubleValue,
+                                                                        protein:  jsonDish["protein"].doubleValue,
+                                                                        carbs:    jsonDish["carbs"].doubleValue,
+                                                                        fats:     jsonDish["fats"].doubleValue),
+                                  recipe: jsonDish["reciept"].array?.map { jsonRecipe -> RecieptSteps in
+                                    RecieptSteps.init(name:        jsonRecipe["name"].stringValue,
+                                                      description: jsonRecipe["description"].stringValue,
+                                                      imagePaths:  [jsonRecipe["images"].stringValue])
+                                  } ?? [])
+                    } ?? [])
+                }
                 
                 guard var unwrappedDays = days else { print("days are nil after being parsed"); return }
                 

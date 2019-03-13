@@ -42,13 +42,31 @@ class LaunchManager: NSObject {
             
             switch result {
             case .success(let receipt):
+                
                 let verificationResult = SwiftyStoreKit.verifySubscriptions(productIds: [ProductId.popular.rawValue, ProductId.cheap.rawValue], inReceipt: receipt)
                 switch verificationResult {
-                case .purchased:
+                case .purchased(let receiptItems):
+                    
                     let dietVc = DietViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
                     dietVc.accessStatus = .available
                     self.mainWindow.rootViewController = dietVc
+                    
+                    let reseprTrial = receiptItems.items.filter { $0.isTrialPeriod == false }[0]
+                    var endTrialDate = reseprTrial.purchaseDate
+                    
+                    switch ProductId.init(rawValue: reseprTrial.productId)!{
+                    case .popular:
+                        endTrialDate += 60 * 60 * 24 * 3
+                    case .cheap:
+                        endTrialDate += 60 * 60 * 24 * 7
+                    }
+                    print(endTrialDate)
+                    if endTrialDate <= Date(){
+                        
+                    }
+                    
                 default:
+                    
                     let subOfferVc = SubscriptionOfferViewController.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil), identifier: "SubscriptionOffer")
                     self.mainWindow.rootViewController = subOfferVc
         

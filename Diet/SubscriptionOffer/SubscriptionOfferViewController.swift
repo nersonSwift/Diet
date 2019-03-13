@@ -193,8 +193,8 @@ class SubscriptionOfferViewController: UIViewController {
                             
                             let isTrialPeriod = receiptItems.filter { $0.isTrialPeriod == false }.count == 0
                             if isTrialPeriod == true {
-                                EventManager.sendEvent(with: AFEventStartTrial)
                                 
+                                EventManager.sendEvent(with: AFEventStartTrial)
                             }
                             
                             print("Product is valid until \(expiryDate)")

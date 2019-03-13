@@ -133,10 +133,6 @@ class DietViewController: UIViewController {
         return nil
     }
     
-    fileprivate func showContent() {
-        
-    }
-    
     fileprivate func setupView() {
         
         dietDescriptionLabel.text = "..."
@@ -269,6 +265,5 @@ extension DietViewController: ContentAccessHandler {
     
     func accessIsAvailable() {
         accessStatus = .available
-        showContent()
     }
 }

@@ -197,6 +197,7 @@ class TestResultsViewController: UIViewController {
         
         let testResult = NSManagedObject(entity: entity, insertInto: managedContext)
         
+        
         testResult.setValue(Int16(results.age), forKey: "age")
         testResult.setValue(results.currentWeight, forKey: "currentWeight")
         testResult.setValue(results.goalWeight, forKey: "goal")
