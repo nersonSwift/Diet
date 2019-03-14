@@ -82,7 +82,9 @@ class WelcomePageViewController: UIViewController {
             EventManager.sendEvent(with: "User saw welcome screen")
             
             if let nextViewController = TestPageView.storyboardInstance() {
+                
                 present(nextViewController, animated: true, completion: nil)
+                
             }
         }
     }

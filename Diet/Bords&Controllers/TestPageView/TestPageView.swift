@@ -16,8 +16,11 @@ protocol TestResultOutput: class {
 class TestPageView: UIPageViewController {
     
     static func storyboardInstance() -> UIViewController? {
+        
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        
         let testPageView = storyboard.instantiateInitialViewController() as? TestPageView
+        
         return testPageView
     }
     
@@ -43,8 +46,6 @@ class TestPageView: UIPageViewController {
     let heigthSelectionPageData = TestViewData(title: "Select your height".localized,
                                                iconName: "pomegranade", pickerData: (140,200), unit: "cm.".localized)
     
-    let resultsVc = TestResultsViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
-    
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
@@ -60,10 +61,6 @@ class TestPageView: UIPageViewController {
         fillPages()
         fillViewData()
         setViewControllers([testPages.first!], direction: .forward, animated: true, completion: nil)
-        
-        resultsVc.repeatTest = {
-            self.scrollToViewController(index: 0)
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,11 +136,13 @@ class TestPageView: UIPageViewController {
         }
         
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
-            self.testResult.height = self.heigthSelectionPageData.pickerData[index]
-            self.testOutput = self.resultsVc
-            let _ = self.resultsVc.view
-            self.testOutput?.testCompleted(with: self.testResult)
-            self.present(self.resultsVc, animated: true)
+            if let nextViewController = TestResultsView.storyboardInstance() {
+                self.testResult.height = self.heigthSelectionPageData.pickerData[index]
+                self.testOutput = nextViewController as! TestResultsView
+                let _ = nextViewController.view
+                self.testOutput?.testCompleted(with: self.testResult)
+                self.present(nextViewController, animated: true, completion: nil)
+            }
         }
     }
     
