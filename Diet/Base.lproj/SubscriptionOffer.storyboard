@@ -312,11 +312,20 @@
                         <outlet property="skipButton" destination="GCm-jB-NmT" id="ldK-C7-Ub8"/>
                         <outlet property="termsAndServiceButton" destination="MpP-u6-VJZ" id="OUi-3S-nRO"/>
                         <outlet property="trialTermsLabel" destination="G7O-T3-jYe" id="lOO-zl-cfo"/>
+                        <segue destination="v4F-Mt-mrH" kind="presentation" identifier="showDiets" id="3ro-Hv-Dz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLP-Hc-qUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="-803.29835082458771"/>
+        </scene>
+        <!--DietViewController-->
+        <scene sceneID="D6u-pW-KZK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="DietViewController" id="v4F-Mt-mrH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UK0-aW-VFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="-803"/>
         </scene>
     </scenes>
     <resources>
