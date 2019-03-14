@@ -37,7 +37,7 @@ class TestPageViewController: UIPageViewController {
     let heigthSelectionPageData = TestViewData(title: "Select your height".localized,
                                                iconName: "pomegranade", pickerData: (140,200), unit: "cm.".localized)
     
-    let resultsVc = TestResultsViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
+    let resultsVc = TestResultsView.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
     
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
