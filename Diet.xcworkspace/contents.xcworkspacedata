@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RecipeView.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:Diet.xcodeproj">
    </FileRef>
    <FileRef

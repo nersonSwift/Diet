@@ -66,7 +66,7 @@ class FatnessIndexView: UIViewController {
         
         if segue.identifier == "showDiets" {
             
-            if let destinationVc = segue.destination as? DietViewController {
+            if let destinationVc = segue.destination as? DietView {
                 destinationVc.accessStatus = .available
                 if let category = self.testResults?.fatnessCategory {
                     destinationVc.bodyCategory = category
@@ -130,7 +130,9 @@ class FatnessIndexView: UIViewController {
                 self.present(nextViewController, animated: true, completion: nil)
             }
         } else {
-            performSegue(withIdentifier: "showDiets", sender: self)
+            if let nextViewController = DietView.storyboardInstance(){
+                self.present(nextViewController, animated: true, completion: nil)
+            }
         }
     }
 }

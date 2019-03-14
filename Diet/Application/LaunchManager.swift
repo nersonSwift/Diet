@@ -47,7 +47,7 @@ class LaunchManager: NSObject {
                 switch verificationResult {
                 case .purchased(let receiptItems):
                     
-                    let dietVc = DietViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
+                    let dietVc = DietView.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
                     dietVc.accessStatus = .available
                     self.mainWindow.rootViewController = dietVc
                     

@@ -10,7 +10,13 @@ import UIKit
 import DropDown
 import CoreData
 
-class DietViewController: UIViewController {
+class DietView: UIViewController {
+    
+    static func storyboardInstance() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        let dietView = storyboard.instantiateInitialViewController() as? DietView
+        return dietView
+    }
     
     @IBOutlet weak var dietBackImageView: UIImageView!
     @IBOutlet weak var dietNameLabel: UILabel!
@@ -160,7 +166,7 @@ class DietViewController: UIViewController {
     }
 }
 
-extension DietViewController: UITableViewDataSource {
+extension DietView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return daysOfWeek.count
@@ -194,7 +200,7 @@ extension DietViewController: UITableViewDataSource {
     }
 }
 
-extension DietViewController: UITableViewDelegate {
+extension DietView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
@@ -216,7 +222,7 @@ extension DietViewController: UITableViewDelegate {
     }
 }
 
-extension DietViewController: UIScrollViewDelegate {
+extension DietView: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
@@ -230,7 +236,7 @@ extension DietViewController: UIScrollViewDelegate {
     }
 }
 
-extension DietViewController: DietNetworkServiceDelegate {
+extension DietView: DietNetworkServiceDelegate {
     
     func dietNetworkServiceDidGet(_ diet: Diet) {
         
@@ -255,7 +261,7 @@ extension DietViewController: DietNetworkServiceDelegate {
     }
 }
 
-extension DietViewController: ContentAccessHandler {
+extension DietView: ContentAccessHandler {
     
     func accessIsDenied() {
         accessStatus = .denied

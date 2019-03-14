@@ -11,6 +11,8 @@
 		51270383223A650900F98370 /* TestPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270382223A642600F98370 /* TestPageView.storyboard */; };
 		51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270392223A7C8A00F98370 /* TestResultsView.storyboard */; };
 		51270399223A837A00F98370 /* FatnessIndexView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270398223A837A00F98370 /* FatnessIndexView.storyboard */; };
+		512703A2223AA59E00F98370 /* DietView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512703A1223A99BC00F98370 /* DietView.storyboard */; };
+		5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */; };
 		84724CC972B6ECE071A678C4 /* Pods_Diet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */; };
 		A50250CC2178B84B00F674B3 /* SelectingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */; };
 		A50250CE2178BCFC00F674B3 /* SelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */; };
@@ -19,7 +21,7 @@
 		A50250D52178E79000F674B3 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250D42178E79000F674B3 /* TriangleView.swift */; };
 		A51CC74E21BFD75100FFCFD5 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51CC74D21BFD75100FFCFD5 /* VisualEffectBlur.swift */; };
 		A51CC75021BFFFC000FFCFD5 /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51CC74F21BFFFC000FFCFD5 /* LaunchManager.swift */; };
-		A51F6EA221B96933000CE5D0 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6EA121B96933000CE5D0 /* DietViewController.swift */; };
+		A51F6EA221B96933000CE5D0 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6EA121B96933000CE5D0 /* DietView.swift */; };
 		A53698D82211CB8F00612697 /* DishNameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53698D72211CB8F00612697 /* DishNameHeaderView.swift */; };
 		A53698DA2211CBB100612697 /* DishNameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53698D92211CBB100612697 /* DishNameHeaderView.xib */; };
 		A53B1B4721B58A770036AD00 /* FatnessIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B1B4621B58A770036AD00 /* FatnessIndexView.swift */; };
@@ -98,6 +100,8 @@
 		51270391223A7C8A00F98370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TestResultsView.storyboard; sourceTree = "<group>"; };
 		51270394223A7C9300F98370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TestResultsView.strings; sourceTree = "<group>"; };
 		51270398223A837A00F98370 /* FatnessIndexView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FatnessIndexView.storyboard; sourceTree = "<group>"; };
+		512703A1223A99BC00F98370 /* DietView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = DietView.storyboard; path = Cells/DietView.storyboard; sourceTree = "<group>"; };
+		5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeView.storyboard; sourceTree = "<group>"; };
 		65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectingViewController.storyboard; sourceTree = "<group>"; };
 		A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +110,7 @@
 		A50250D42178E79000F674B3 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		A51CC74D21BFD75100FFCFD5 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		A51CC74F21BFFFC000FFCFD5 /* LaunchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchManager.swift; sourceTree = "<group>"; };
-		A51F6EA121B96933000CE5D0 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
+		A51F6EA121B96933000CE5D0 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		A53698D72211CB8F00612697 /* DishNameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishNameHeaderView.swift; sourceTree = "<group>"; };
 		A53698D92211CBB100612697 /* DishNameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishNameHeaderView.xib; sourceTree = "<group>"; };
 		A53B1B4621B58A770036AD00 /* FatnessIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatnessIndexView.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		5127038C223A722900F98370 /* Bords&Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5170EDA1223AB1CD00585F96 /* RecipeView */,
+				A5662AC221BAA3C000DCD511 /* Diets */,
 				A53B1B4821B58A860036AD00 /* FattnessIndex */,
 				A5A1DD23217E26360099A1BD /* TestResults */,
 				5127038D223A724500F98370 /* TestPageView */,
@@ -224,6 +230,14 @@
 				A50250D12178C84800F674B3 /* TestPage */,
 			);
 			path = TestPageView;
+			sourceTree = "<group>";
+		};
+		5170EDA1223AB1CD00585F96 /* RecipeView */ = {
+			isa = PBXGroup;
+			children = (
+				5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */,
+			);
+			path = RecipeView;
 			sourceTree = "<group>";
 		};
 		80B4B8AE01EA24BACB2ED1A0 /* Frameworks */ = {
@@ -314,7 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				A5662AC721BAA3DF00DCD511 /* Cells */,
-				A51F6EA121B96933000CE5D0 /* DietViewController.swift */,
+				512703A1223A99BC00F98370 /* DietView.storyboard */,
+				A51F6EA121B96933000CE5D0 /* DietView.swift */,
 			);
 			path = Diets;
 			sourceTree = "<group>";
@@ -374,7 +389,6 @@
 				A5E0C331216F951E0045975E /* Extensions */,
 				A58CC547216CF65200B20CE9 /* Info.plist */,
 				A58CC54D216CF69400B20CE9 /* Application */,
-				A5662AC221BAA3C000DCD511 /* Diets */,
 				A50250CA2178B31400F674B3 /* WelcomePage */,
 				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
 				A5EA83902170F8C80088F8FE /* Services */,
@@ -582,8 +596,10 @@
 				A5D4F22E21D0FDCF002195C5 /* SubscriptionOfferView.storyboard in Resources */,
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
+				512703A2223AA59E00F98370 /* DietView.storyboard in Resources */,
 				51270399223A837A00F98370 /* FatnessIndexView.storyboard in Resources */,
 				51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */,
+				5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */,
 				A53B1B4C21B58ED50036AD00 /* FatnessCategoryCell.xib in Resources */,
 				A55E85AD220DC29E007714E3 /* StepCell.xib in Resources */,
 			);
@@ -668,7 +684,7 @@
 				A5B2D35621D22EF900378F54 /* DietsEndPoint.swift in Sources */,
 				A54DC0D42204466100D7EEE9 /* CGFloatExtention.swift in Sources */,
 				A5C25CC622116FBD004E0BC3 /* DietType.swift in Sources */,
-				A51F6EA221B96933000CE5D0 /* DietViewController.swift in Sources */,
+				A51F6EA221B96933000CE5D0 /* DietView.swift in Sources */,
 				A580F85621E777BE00C0AE66 /* ImageNetworkService.swift in Sources */,
 				A5657E0121E647AE00B688CC /* ImageAttachment.swift in Sources */,
 				A589FB0221C7AFAC0035E80D /* NutritionValue.swift in Sources */,

@@ -95,7 +95,7 @@ class SubscriptionOfferView: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showDiets" {
-            if let destinationVc = segue.destination as? DietViewController {
+            if let destinationVc = segue.destination as? DietView {
                 destinationVc.accessStatus = .available
             }
         }
@@ -187,7 +187,11 @@ class SubscriptionOfferView: UIViewController {
                             }
                             
                             print("Product is valid until \(expiryDate)")
-                            self.performSegue(withIdentifier: "showDiets", sender: self)
+                            
+                            if let nextViewController = DietView.storyboardInstance(){
+                                
+                                self.present(nextViewController, animated: true, completion: nil)
+                            }
                         case .expired(let expiryDate):
                             print("Product is expired since \(expiryDate)")
                         case .notPurchased:
@@ -222,7 +226,10 @@ class SubscriptionOfferView: UIViewController {
                 self.showErrorAlert(for: .restoreFailed)
             } else if purchaserInfo?.activeSubscriptions.contains(ProductId.popular.rawValue) ?? false ||
                 purchaserInfo?.activeSubscriptions.contains(ProductId.cheap.rawValue) ?? false {
-                self.performSegue(withIdentifier: "showDiets", sender: self)
+                
+                if let nextViewController = DietView.storyboardInstance(){
+                    self.present(nextViewController, animated: true, completion: nil)
+                }
             } else {
                 self.showErrorAlert(for: .noActiveSubscription)
             }

@@ -9,6 +9,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Recipe View Controller-->
+        <scene sceneID="g1V-ZV-tEq">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-yQQ-Qh-aPF" id="yQQ-Qh-aPF" customClass="RecipeViewController" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kn7-C1-HOo"/>
+                        <viewControllerLayoutGuide type="bottom" id="KMJ-AT-UY3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OuG-MA-13x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1pG-B3-hvS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1pG-B3-hvS" secondAttribute="trailing" id="UhB-Ks-anA"/>
+                            <constraint firstItem="1pG-B3-hvS" firstAttribute="top" secondItem="OuG-MA-13x" secondAttribute="top" id="c8o-Hf-X5A"/>
+                            <constraint firstAttribute="bottom" secondItem="1pG-B3-hvS" secondAttribute="bottom" id="eIf-rV-YrL"/>
+                            <constraint firstItem="1pG-B3-hvS" firstAttribute="leading" secondItem="OuG-MA-13x" secondAttribute="leading" id="hqD-j0-ead"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recipeTableView" destination="1pG-B3-hvS" id="i8B-sa-j1k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hVF-Xh-Djl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2359" y="99"/>
+        </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="LYA-6U-RDY">
             <objects>
