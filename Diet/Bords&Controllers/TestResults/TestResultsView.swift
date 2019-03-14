@@ -140,7 +140,7 @@ class TestResultsView: UIViewController {
         
         if segue.identifier == "toObesityIndex" {
             
-            if let destinationVc = segue.destination as? FatnessIndexViewContoller {
+            if let destinationVc = segue.destination as? FatnessIndexView {
                 guard let testResults = self.results else { return }
                 let fatnessIndex = calculateFatIndex(currentWeight: testResults.currentWeight, height: testResults.height)
                 
@@ -318,6 +318,10 @@ class TestResultsView: UIViewController {
     @IBAction func agreedWithTestButtonPressed(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "hasUserPassedTest")
         EventManager.sendEvent(with: "User agreed with test results")
+        if let nextViewController = FatnessIndexView.storyboardInstance() as? FatnessIndexView{
+            nextViewController.testResults = results
+            self.present(nextViewController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func takeTestAgainButtonPressed(_ sender: Any) {

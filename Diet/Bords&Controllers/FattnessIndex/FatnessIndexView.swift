@@ -15,8 +15,14 @@ struct FatnessCategory {
     var categoryName: CategoryName
 }
 
-class FatnessIndexViewContoller: UIViewController {
+class FatnessIndexView: UIViewController {
 
+    static func storyboardInstance() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        let fatnessIndexView = storyboard.instantiateInitialViewController() as? FatnessIndexView
+        return fatnessIndexView
+    }
+    
     @IBOutlet weak var fatnessIndexLabel: AnimatedLabel!
     @IBOutlet weak var fatnessCategoriesCollectionView: UICollectionView!
     fileprivate let underWeightCategoryColor = UIColor(red: 237 / 255, green: 249 / 255, blue: 255 / 255, alpha: 1.0)
@@ -73,7 +79,7 @@ class FatnessIndexViewContoller: UIViewController {
         super.viewDidAppear(animated)
         
         guard let result = testResults else { return }
-        
+        fatnessIndex = Double(Float(result.currentWeight) / ((Float(result.height) / 100) * (Float(result.height) / 100)))
         fatnessIndexLabel.countFromZero(to: Float(fatnessIndex))
         fatnessIndexLabel.completion = {
             
@@ -127,7 +133,7 @@ class FatnessIndexViewContoller: UIViewController {
     }
 }
 
-extension FatnessIndexViewContoller: UICollectionViewDataSource {
+extension FatnessIndexView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fatnessCategories.count
