@@ -13,15 +13,7 @@ protocol TestResultOutput: class {
     func testCompleted(with result: TestResult)
 }
 
-class TestPageView: UIPageViewController {
-    
-    static func storyboardInstance() -> UIViewController? {
-        
-        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
-        
-        let testPageView = storyboard.instantiateInitialViewController() as? TestPageView
-        return testPageView
-    }
+class TestPageViewController: UIPageViewController {
     
     var testPages = [UIViewController]()
     var testViewData = [TestViewData]()
@@ -45,7 +37,7 @@ class TestPageView: UIPageViewController {
     let heigthSelectionPageData = TestViewData(title: "Select your height".localized,
                                                iconName: "pomegranade", pickerData: (140,200), unit: "cm.".localized)
     
-    let resultsVc = TestResultsView.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
+    let resultsVc = TestResultsViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
     
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -168,6 +160,10 @@ class TestPageView: UIPageViewController {
         }
     }
     
+    fileprivate func setupGenderSelectionPage(_ page: UIViewController) {
+        
+    }
+    
     private func scrollToViewController(viewController: UIViewController,
                                         direction: UIPageViewController.NavigationDirection = .forward) {
         setViewControllers([viewController], direction: direction, animated: true, completion: nil)
@@ -198,7 +194,7 @@ class TestPageView: UIPageViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension TestPageView: UIPageViewControllerDataSource {
+extension TestPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         

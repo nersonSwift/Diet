@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TestResultsView: UIViewController {
+class TestResultsViewController: UIViewController {
 
     @IBOutlet weak var genderIconImageView: UIImageView!
     @IBOutlet weak var genderTitleLabel: TestResultLabel!
@@ -24,12 +24,6 @@ class TestResultsView: UIViewController {
     @IBOutlet weak var goalTitle: UILabel!
     @IBOutlet weak var heightTitle: UILabel!
     @IBOutlet weak var genderTitle: UILabel!
-    
-    static func storyboardInstance() -> UIViewController? {
-        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
-        let testResultsView = storyboard.instantiateInitialViewController() as? TestResultsView
-        return testResultsView
-    }
     
     var repeatTest: (() -> Void)?
     var results: TestResult? {
@@ -322,11 +316,11 @@ class TestResultsView: UIViewController {
     
     @IBAction func takeTestAgainButtonPressed(_ sender: Any) {
         self.repeatTest?()
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "backToTest", sender: self)
     }
 }
 
-extension TestResultsView: TestResultOutput {
+extension TestResultsViewController: TestResultOutput {
     
     func testCompleted(with result: TestResult) {
         self.results = result
