@@ -14,6 +14,7 @@ import AppsFlyerLib
 
 class SubscriptionOfferViewController: UIViewController {
     
+    
     @IBOutlet weak var arcView: UIView!
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
@@ -23,25 +24,17 @@ class SubscriptionOfferViewController: UIViewController {
     @IBOutlet weak var trialTermsLabel: UILabel!
     @IBOutlet weak var termsAndServiceButton: UIButton!
     @IBOutlet weak var privacyPolicyButton: UIButton!
-    @IBOutlet weak var cheapPlanContainerView: UIView!
-    @IBOutlet weak var popularPlanPriceLabel: UILabel!
-    @IBOutlet weak var cheapPlanLabel: UILabel!
-    @IBOutlet weak var pupularPlanButton: UIButton!
-    @IBOutlet weak var cheapPlanButton: UIButton!
-    @IBOutlet weak var discountLabel: TestResultLabel!
-    @IBOutlet weak var purchaseButton: UIButton!
     
+    @IBOutlet weak var logo: UIView!
+    @IBOutlet weak var headline: UILabel!
+    @IBOutlet weak var popularPlanPriceLabel: UILabel!
+    @IBOutlet weak var pupularPlanButton: UIButton!
+    @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var popularPlanContainerView: UIView!
     fileprivate let trialExpiredMessage = "Your trial period has expired.".localized
     fileprivate let trialAvailableMessage = "Free period available".localized
     fileprivate let disclaimerMessage = "Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription.".localized
-    fileprivate let allAccessMessage = "All access".localized
-    fileprivate let freeTrialMessage = "3 days for FREE".localized
-    fileprivate let subscriptionDuration = " per week".localized
-    fileprivate let perText = " per ".localized
-    fileprivate let afterText = " after ".localized
-    fileprivate let weekDurationText = "7 days".localized
-    fileprivate let threeDaysDurationText = "3 days".localized
+    fileprivate let perText = "/week after 3 days".localized
     fileprivate var cheapPlan: SKProduct!
     fileprivate var popularPlan: SKProduct!
     
@@ -51,34 +44,31 @@ class SubscriptionOfferViewController: UIViewController {
         let loadingVc = LoadingViewController()
         add(loadingVc)
         Purchases.shared.delegate = self
+        headline.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0), size: ((self.view.frame.height + self.view.frame.width) / 2) / 25)
+        
+        logo.frame = CGRect(x: (view.frame.width / 2) - (view.frame.width / 5) / 2,
+                            y: logo.frame.minY,
+                            width: view.frame.width / 5,
+                            height: view.frame.height / 5)
 
         SwiftyStoreKit.retrieveProductsInfo([ProductId.popular.rawValue, ProductId.cheap.rawValue]) { result in
             loadingVc.remove()
-            self.popularPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.popular.rawValue }).first
-            if #available(iOS 11.2, *), let period = self.popularPlan.subscriptionPeriod, let trial = self.popularPlan.introductoryPrice?.subscriptionPeriod {
-                let subscriptionPeriodText = period.unit.description(capitalizeFirstLetter: false, numberOfUnits: period.numberOfUnits).localized
-                let trialPeriodText = trial.unit.description(capitalizeFirstLetter: false, numberOfUnits: period.numberOfUnits).localized
-                self.popularPlanPriceLabel.text = self.popularPlan.localizedPrice! + self.perText + subscriptionPeriodText + self.afterText + self.threeDaysDurationText
-            } else {
-                self.popularPlanPriceLabel.text =  self.popularPlan.localizedPrice! + self.perText + self.weekDurationText + self.afterText + self.threeDaysDurationText
-            }
-
-            let priceString = self.popularPlan.localizedPrice!
-            print("Product: \(self.popularPlan.localizedDescription), price: \(priceString)")
-            if let invalidProductId = result.invalidProductIDs.first {
-                print("Invalid product identifier: \(invalidProductId)")
-            }
-            else {
-                print("Error: \(String(describing: result.error))")
-            }
-
-            self.cheapPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.cheap.rawValue }).first
-            if #available(iOS 11.2, *), let period = self.cheapPlan.subscriptionPeriod, let trial = self.cheapPlan.introductoryPrice?.subscriptionPeriod {
-                let subscriptionPeriodText = period.unit.description(capitalizeFirstLetter: false, numberOfUnits: period.numberOfUnits).localized
-                let trialPeriodText = trial.unit.description(capitalizeFirstLetter: false, numberOfUnits: period.numberOfUnits).localized
-                self.cheapPlanLabel.text = self.cheapPlan.localizedPrice! + self.perText + subscriptionPeriodText + self.afterText + trialPeriodText
-            } else {
-                self.cheapPlanLabel.text = self.cheapPlan.localizedPrice! + self.perText + self.weekDurationText + self.afterText + "1 week".localized
+            if let popPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.popular.rawValue }).first{
+                self.popularPlan = popPlan
+                    
+                    self.popularPlanPriceLabel.text = self.popularPlan.localizedPrice! + self.perText
+                self.popularPlanPriceLabel.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Regular", size: 0), size: ((self.view.frame.height + self.view.frame.width) / 2) / 40)
+                
+                let priceString = self.popularPlan.localizedPrice!
+                print("Product: \(self.popularPlan.localizedDescription), price: \(priceString)")
+                if let invalidProductId = result.invalidProductIDs.first {
+                    print("Invalid product identifier: \(invalidProductId)")
+                }
+                else {
+                    print("Error: \(String(describing: result.error))")
+                }
+                
+                self.cheapPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.cheap.rawValue }).first
             }
         }
     }
@@ -118,12 +108,6 @@ class SubscriptionOfferViewController: UIViewController {
         popularPlanContainerView.makeCornerRadius(5)
         popularPlanContainerView.layer.borderWidth = 1
         popularPlanContainerView.layer.borderColor = UIColor(red: 0, green: 234 / 255, blue: 134 / 255, alpha: 1).cgColor
-        cheapPlanContainerView.makeCornerRadius(5)
-        cheapPlanContainerView.layer.borderWidth = 1
-        cheapPlanContainerView.layer.borderColor = UIColor(red: 0, green: 234 / 255, blue: 134 / 255, alpha: 1).cgColor
-        discountLabel.makeCornerRadius(5)
-        discountLabel.layer.borderWidth = 1
-        discountLabel.layer.borderColor = UIColor(red: 0, green: 169 / 255, blue: 97 / 255, alpha: 1).cgColor
     }
     
     private func showErrorAlert(for error: SubscriptionServiceError) {
@@ -212,27 +196,6 @@ class SubscriptionOfferViewController: UIViewController {
                 // non success
             }
         }
-//        Purchases.shared.makePurchase(product) { (transaction, purchaserInfo, error) in
-//
-//            if let e = error {
-//                print("PURCHASE ERROR: - \(e.localizedDescription)")
-//                self.showErrorAlert(for: .purchaseFailed)
-//            } else if purchaserInfo?.activeSubscriptions.contains(product.productIdentifier) ?? false {
-//                self.performSegue(withIdentifier: "showDiets", sender: self)
-//            }
-//
-//            loadingVc.remove()
-//        }
-    }
-    
-    @IBAction func selectCheapPlanButtonPressed(_ sender: Any) {
-        cheapPlanButton.isSelected = !cheapPlanButton.isSelected
-        pupularPlanButton.isSelected = !pupularPlanButton.isSelected
-    }
-    
-    @IBAction func selectPopularPlanButtonPressed(_ sender: Any) {
-        cheapPlanButton.isSelected = !cheapPlanButton.isSelected
-        pupularPlanButton.isSelected = !pupularPlanButton.isSelected
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {

@@ -2,9 +2,6 @@
 /* Class = "UILabel"; text = "New dishes every week"; ObjectID = "0Sq-HV-hjK"; */
 "0Sq-HV-hjK.text" = "Новые блюда каждую неделю";
 
-/* Class = "UILabel"; text = "The cheapest plan"; ObjectID = "94n-x4-iMK"; */
-"94n-x4-iMK.text" = "Выгодный план";
-
 /* Class = "UIButton"; normalTitle = "restore"; ObjectID = "CBd-iV-Lkl"; */
 "CBd-iV-Lkl.normalTitle" = "восстан.";
 
@@ -21,13 +18,13 @@
 "WsZ-83-k8T.text" = "Неограниченный доступ к диетам";
 
 /* Class = "UILabel"; text = "Features"; ObjectID = "ZSo-Td-d2I"; */
-"ZSo-Td-d2I.text" = "Особенности";
+"ZSo-Td-d2I.text" = "Особенности полного доступа";
 
 /* Class = "UILabel"; text = "Detailed cooking recipes"; ObjectID = "anf-uY-YEm"; */
 "anf-uY-YEm.text" = "Подробные рецепты приготовления блюда";
 
 /* Class = "UILabel"; text = "Popular plan"; ObjectID = "n1i-VE-mSC"; */
-"n1i-VE-mSC.text" = "Популярный план";
+"n1i-VE-mSC.text" = "Недельный план";
 
 /* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "ppq-7Y-nbj"; */
 "ppq-7Y-nbj.normalTitle" = "Политика конф.";
