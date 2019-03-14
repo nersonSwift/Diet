@@ -196,12 +196,24 @@
                         <outlet property="nextButtomBottomConstraint" destination="yuX-oK-Mzb" id="kAg-9y-oIO"/>
                         <outlet property="nextButton" destination="1Ec-Kl-6xS" id="hPx-lL-EuF"/>
                         <outlet property="paperOnboardingView" destination="lOy-YK-UuI" id="xVB-vA-8ae"/>
-                        <segue destination="kZz-Qf-DbM" kind="presentation" identifier="showTest" id="vUB-cr-fRb"/>
+                        <segue destination="zrR-cH-v1j" kind="presentation" identifier="showTest" id="vUB-cr-fRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqF-q8-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044" y="99"/>
+        </scene>
+        <!--Test Page View Controller-->
+        <scene sceneID="t8i-v6-Bhg">
+            <objects>
+                <pageViewController storyboardIdentifier="TestPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="zrR-cH-v1j" customClass="TestPageViewController" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Pb5-AJ-tzc" kind="presentation" identifier="testResultsSegue" id="gew-Uh-8SZ"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LRS-9o-3kg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="99"/>
         </scene>
         <!--Test Results View Controller-->
         <scene sceneID="ZsZ-L8-Gii">
@@ -272,7 +284,7 @@
                                         </state>
                                         <connections>
                                             <action selector="takeTestAgainButtonPressed:" destination="Pb5-AJ-tzc" eventType="touchUpInside" id="QkK-81-qGU"/>
-                                            <segue destination="kZz-Qf-DbM" kind="presentation" identifier="backToTest" id="WEO-OK-Fkt"/>
+                                            <segue destination="zrR-cH-v1j" kind="presentation" identifier="backToTest" id="WEO-OK-Fkt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -551,14 +563,6 @@
             </objects>
             <point key="canvasLocation" x="3242" y="99"/>
         </scene>
-        <!--TestPageViewController-->
-        <scene sceneID="wSx-2C-iGU">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TestPageViewController" storyboardName="TestPageView" referencedIdentifier="TestPageViewController" id="kZz-Qf-DbM" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0cb-Jp-bO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1774" y="99"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrow_left" width="11" height="20"/>
@@ -566,6 +570,7 @@
         <image name="back" width="1600" height="1067"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gew-Uh-8SZ"/>
         <segue reference="WEO-OK-Fkt"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -45,29 +45,6 @@ class SubscriptionService: NSObject {
     
     var currentSubscription: PaidSubscription?
     
-    func uploadReceipt(completion: ((_ success: Bool, _ shoudRetry: Bool) -> Void)? = nil) {
-        if let receiptData = loadReceipt() {
-            SubscriptionNetworkService.shared.upload(receipt: receiptData) { [weak self] (result) in
-//                guard let strongSelf = self else { return }
-//                switch result {
-//                case .success(let result):
-//                    strongSelf.currentSessionId = result.id
-//                    strongSelf.currentSubscription = result.currentSubscription
-//                    strongSelf.isEligibleForTrial = result.isEligibleForTrial
-//                    completion?(true,false)
-//                case .failure(let error):
-//                    print("Receipt Upload Failed: \(error)")
-//                    switch error {
-//                    case .wrongEnviroment:
-//                        completion?(false, true)
-//                    default:
-//                        completion?(false, false)
-//                    }
-//                }
-            }
-        }
-    }
-    
     func loadSubscriptionOptions() {
         
         let productIDPrefix = Bundle.main.bundleIdentifier! + ".sub."
