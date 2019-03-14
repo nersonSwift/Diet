@@ -91,7 +91,6 @@
 /* Begin PBXFileReference section */
 		50141B71EF97BFCDBE67B05F /* Pods-Diet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diet/Pods-Diet.release.xcconfig"; sourceTree = "<group>"; };
 		5104D29A2237C5D8007AFE08 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
-		516F2628223A48F400F38BAE /* TestPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TestPageView.storyboard; path = /Users/aleksandrsenin/Desktop/Swift/Diet/Diet/Diet/TestPageView.storyboard; sourceTree = "<absolute>"; };
 		65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectingViewController.storyboard; sourceTree = "<group>"; };
 		A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingViewController.swift; sourceTree = "<group>"; };
@@ -350,7 +349,6 @@
 				A5662AC221BAA3C000DCD511 /* Diets */,
 				A50250CA2178B31400F674B3 /* WelcomePage */,
 				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
-				516F2628223A48F400F38BAE /* TestPageView.storyboard */,
 				A5A1DD23217E26360099A1BD /* TestResults */,
 				A5EA83902170F8C80088F8FE /* Services */,
 				A5EA838F2170F8C00088F8FE /* Models */,
