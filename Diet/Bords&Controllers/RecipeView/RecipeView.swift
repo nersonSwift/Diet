@@ -15,7 +15,14 @@ protocol RecipeReciver: class {
     func recieve(dish: Dish)
 }
 
-class RecipeViewController: UIViewController {
+class RecipeView: UIViewController {
+    
+    static func storyboardInstance() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        let recipeView = storyboard.instantiateInitialViewController() as? RecipeView
+        
+        return recipeView
+    }
     
     @IBOutlet weak var recipeTableView: UITableView!
     
@@ -66,7 +73,7 @@ class RecipeViewController: UIViewController {
     }
 }
 
-extension RecipeViewController: UITableViewDelegate {
+extension RecipeView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = Bundle.main.loadNibNamed("DishNameHeaderView", owner: self, options: nil)?[0] as? DishNameHeaderView
@@ -84,7 +91,7 @@ extension RecipeViewController: UITableViewDelegate {
     }
 }
 
-extension RecipeViewController: UITableViewDataSource {
+extension RecipeView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return steps.count
@@ -119,7 +126,7 @@ extension RecipeViewController: UITableViewDataSource {
     }
 }
 
-extension RecipeViewController: RecipeReciver {
+extension RecipeView: RecipeReciver {
     
     func recieve(dish: Dish) {
         steps = dish.recipe
@@ -134,7 +141,7 @@ extension RecipeViewController: RecipeReciver {
     }
 }
 
-extension RecipeViewController: LoadingTimeoutHandler {
+extension RecipeView: LoadingTimeoutHandler {
     
     func didTimeoutOccured() {
 //

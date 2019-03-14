@@ -71,7 +71,7 @@ class DietView: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showRecipe" {
-            if let destinationVc = segue.destination as? RecipeViewController {
+            if let destinationVc = segue.destination as? RecipeView {
                 recipeSender = destinationVc
             }
         }
@@ -192,8 +192,10 @@ extension DietView: UITableViewDataSource {
             cell.weekDishes = dishes
             cell.cellTapped = { [weak self] (dish) in
                 guard let self = self else { return }
-                self.performSegue(withIdentifier: "showRecipe", sender: self)
-                self.recipeSender?.recieve(dish: dish)
+                if let nextViewController = RecipeView.storyboardInstance() as? RecipeView{
+                    nextViewController.recieve(dish: dish)
+                    self.present(nextViewController, animated: true, completion: nil)
+                }
             }
         }
         return cell
