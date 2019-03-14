@@ -13,7 +13,13 @@ protocol TestResultOutput: class {
     func testCompleted(with result: TestResult)
 }
 
-class TestPageViewController: UIPageViewController {
+class TestPageView: UIPageViewController {
+    
+    static func storyboardInstance() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        let testPageView = storyboard.instantiateInitialViewController() as? TestPageView
+        return testPageView
+    }
     
     var testPages = [UIViewController]()
     var testViewData = [TestViewData]()
@@ -194,7 +200,7 @@ class TestPageViewController: UIPageViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension TestPageViewController: UIPageViewControllerDataSource {
+extension TestPageView: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         

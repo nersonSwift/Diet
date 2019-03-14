@@ -196,11 +196,24 @@
                         <outlet property="nextButtomBottomConstraint" destination="yuX-oK-Mzb" id="kAg-9y-oIO"/>
                         <outlet property="nextButton" destination="1Ec-Kl-6xS" id="hPx-lL-EuF"/>
                         <outlet property="paperOnboardingView" destination="lOy-YK-UuI" id="xVB-vA-8ae"/>
+                        <segue destination="zrR-cH-v1j" kind="presentation" identifier="showTest" id="vUB-cr-fRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqF-q8-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044" y="99"/>
+        </scene>
+        <!--Test Page View Controller-->
+        <scene sceneID="t8i-v6-Bhg">
+            <objects>
+                <pageViewController storyboardIdentifier="TestPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="zrR-cH-v1j" customClass="TestPageViewController" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Pb5-AJ-tzc" kind="presentation" identifier="testResultsSegue" id="gew-Uh-8SZ"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LRS-9o-3kg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="99"/>
         </scene>
         <!--Test Results View Controller-->
         <scene sceneID="ZsZ-L8-Gii">
@@ -271,6 +284,7 @@
                                         </state>
                                         <connections>
                                             <action selector="takeTestAgainButtonPressed:" destination="Pb5-AJ-tzc" eventType="touchUpInside" id="QkK-81-qGU"/>
+                                            <segue destination="zrR-cH-v1j" kind="presentation" identifier="backToTest" id="WEO-OK-Fkt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -300,7 +314,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55y-b6-LQc" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="319" y="261" width="23" height="40"/>
+                                <rect key="frame" x="329" y="261" width="13" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="E9Y-Q7-yUu"/>
                                 </constraints>
@@ -317,7 +331,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIp-ch-4cu" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="319" y="312" width="23" height="40"/>
+                                <rect key="frame" x="329" y="312" width="13" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="M4x-9l-FMa"/>
                                 </constraints>
@@ -334,7 +348,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iW-sQ-fa3" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="318" y="363" width="23" height="40"/>
+                                <rect key="frame" x="328" y="363" width="13" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fhA-tY-aSb"/>
                                 </constraints>
@@ -351,7 +365,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BI-bZ-0xl" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="319" y="210" width="23" height="40"/>
+                                <rect key="frame" x="329" y="210" width="13" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Whh-dk-hRn"/>
                                 </constraints>
@@ -555,4 +569,8 @@
         <image name="arrow_right" width="11" height="20"/>
         <image name="back" width="1600" height="1067"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gew-Uh-8SZ"/>
+        <segue reference="WEO-OK-Fkt"/>
+    </inferredMetricsTieBreakers>
 </document>
