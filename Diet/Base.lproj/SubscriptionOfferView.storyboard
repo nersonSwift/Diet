@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Subscription Offer View Controller-->
+        <!--Subscription Offer View-->
         <scene sceneID="wHf-2V-9ww">
             <objects>
-                <viewController storyboardIdentifier="SubscriptionOffer" id="JH8-T7-rpW" customClass="SubscriptionOfferViewController" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubscriptionOfferView" id="JH8-T7-rpW" customClass="SubscriptionOfferView" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="khu-vA-6SY"/>
                         <viewControllerLayoutGuide type="bottom" id="mSr-Dm-iN9"/>
@@ -312,20 +312,11 @@
                         <outlet property="skipButton" destination="GCm-jB-NmT" id="ldK-C7-Ub8"/>
                         <outlet property="termsAndServiceButton" destination="MpP-u6-VJZ" id="OUi-3S-nRO"/>
                         <outlet property="trialTermsLabel" destination="G7O-T3-jYe" id="lOO-zl-cfo"/>
-                        <segue destination="v4F-Mt-mrH" kind="presentation" identifier="showDiets" id="3ro-Hv-Dz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLP-Hc-qUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="-803.29835082458771"/>
-        </scene>
-        <!--DietViewController-->
-        <scene sceneID="D6u-pW-KZK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="DietViewController" id="v4F-Mt-mrH" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UK0-aW-VFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="646" y="-803"/>
         </scene>
     </scenes>
     <resources>

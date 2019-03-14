@@ -69,7 +69,7 @@
 		A5A0C7AF21BE979100C9035C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0C7AE21BE979100C9035C /* Session.swift */; };
 		A5A0C7B121BE97BE00C9035C /* PaidSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0C7B021BE97BE00C9035C /* PaidSubscription.swift */; };
 		A5A0C7B321BE99B600C9035C /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0C7B221BE99B600C9035C /* SubscriptionService.swift */; };
-		A5A1182921C2AA88003843A1 /* SubscriptionOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A1182821C2AA88003843A1 /* SubscriptionOfferViewController.swift */; };
+		A5A1182921C2AA88003843A1 /* SubscriptionOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A1182821C2AA88003843A1 /* SubscriptionOfferView.swift */; };
 		A5A1DD22217E26100099A1BD /* TestResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A1DD21217E26100099A1BD /* TestResultsView.swift */; };
 		A5B02C68217A29C900A9E3A4 /* GenderSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B02C67217A29C900A9E3A4 /* GenderSelectorViewController.swift */; };
 		A5B2D35321D22E9200378F54 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2D35221D22E9200378F54 /* EndPoint.swift */; };
@@ -78,7 +78,7 @@
 		A5C0871121FF0C4000B9D724 /* Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5C0870F21FF0C4000B9D724 /* Test.xcdatamodeld */; };
 		A5C25CC622116FBD004E0BC3 /* DietType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C25CC522116FBD004E0BC3 /* DietType.swift */; };
 		A5CE618421B7EC0900A7FFDE /* AnimatedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE618321B7EC0900A7FFDE /* AnimatedLabel.swift */; };
-		A5D4F22E21D0FDCF002195C5 /* SubscriptionOffer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D4F23021D0FDCF002195C5 /* SubscriptionOffer.storyboard */; };
+		A5D4F22E21D0FDCF002195C5 /* SubscriptionOfferView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D4F23021D0FDCF002195C5 /* SubscriptionOfferView.storyboard */; };
 		A5D858BE21AEE69D008A5A2D /* TestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D858BD21AEE69D008A5A2D /* TestResult.swift */; };
 		A5D858C021AF055A008A5A2D /* DoubleExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D858BF21AF055A008A5A2D /* DoubleExtentions.swift */; };
 		A5E0C330216F95170045975E /* StringExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E0C32F216F95170045975E /* StringExtentions.swift */; };
@@ -159,7 +159,7 @@
 		A5A0C7AE21BE979100C9035C /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A5A0C7B021BE97BE00C9035C /* PaidSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidSubscription.swift; sourceTree = "<group>"; };
 		A5A0C7B221BE99B600C9035C /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
-		A5A1182821C2AA88003843A1 /* SubscriptionOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOfferViewController.swift; sourceTree = "<group>"; };
+		A5A1182821C2AA88003843A1 /* SubscriptionOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOfferView.swift; sourceTree = "<group>"; };
 		A5A1DD21217E26100099A1BD /* TestResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsView.swift; sourceTree = "<group>"; };
 		A5B02C67217A29C900A9E3A4 /* GenderSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectorViewController.swift; sourceTree = "<group>"; };
 		A5B2D35221D22E9200378F54 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -167,9 +167,9 @@
 		A5B9E2A722145F4400CBB46C /* ScrollingStackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingStackController.swift; sourceTree = "<group>"; };
 		A5C0871021FF0C4000B9D724 /* TestResult.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestResult.xcdatamodel; sourceTree = "<group>"; };
 		A5C25CC522116FBD004E0BC3 /* DietType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietType.swift; sourceTree = "<group>"; };
-		A5CB528A222021B80037DF28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SubscriptionOffer.strings; sourceTree = "<group>"; };
+		A5CB528A222021B80037DF28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SubscriptionOfferView.strings; sourceTree = "<group>"; };
 		A5CE618321B7EC0900A7FFDE /* AnimatedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLabel.swift; sourceTree = "<group>"; };
-		A5D4F22F21D0FDCF002195C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SubscriptionOffer.storyboard; sourceTree = "<group>"; };
+		A5D4F22F21D0FDCF002195C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SubscriptionOfferView.storyboard; sourceTree = "<group>"; };
 		A5D858BD21AEE69D008A5A2D /* TestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResult.swift; sourceTree = "<group>"; };
 		A5D858BF21AF055A008A5A2D /* DoubleExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtentions.swift; sourceTree = "<group>"; };
 		A5E0C32F216F95170045975E /* StringExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtentions.swift; sourceTree = "<group>"; };
@@ -366,6 +366,7 @@
 			children = (
 				5104D29A2237C5D8007AFE08 /* EventManager.swift */,
 				5127038C223A722900F98370 /* Bords&Controllers */,
+				A5A1182A21C2AA8E003843A1 /* SubscriptionOffer */,
 				A55BFF8321FA0AE600D4364F /* Onboarding */,
 				A58CC53F21E89DFB00361EA9 /* LoadingViewController.swift */,
 				A5A0C7AB21BE96CD00C9035C /* Subscription */,
@@ -378,7 +379,6 @@
 				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
 				A5EA83902170F8C80088F8FE /* Services */,
 				A5EA838F2170F8C00088F8FE /* Models */,
-				A5A1182A21C2AA8E003843A1 /* SubscriptionOffer */,
 				A58CC53A21E89B8C00361EA9 /* Recipes */,
 				A5B2D35421D22EE700378F54 /* EndPoints */,
 				A58CC54E216CF6A500B20CE9 /* Assets */,
@@ -430,8 +430,8 @@
 		A5A1182A21C2AA8E003843A1 /* SubscriptionOffer */ = {
 			isa = PBXGroup;
 			children = (
-				A5D4F23021D0FDCF002195C5 /* SubscriptionOffer.storyboard */,
-				A5A1182821C2AA88003843A1 /* SubscriptionOfferViewController.swift */,
+				A5D4F23021D0FDCF002195C5 /* SubscriptionOfferView.storyboard */,
+				A5A1182821C2AA88003843A1 /* SubscriptionOfferView.swift */,
 			);
 			path = SubscriptionOffer;
 			sourceTree = "<group>";
@@ -579,7 +579,7 @@
 				A57C146221CBE7EF00B810BE /* Localizable.strings in Resources */,
 				A58CC546216CF65200B20CE9 /* LaunchScreen.storyboard in Resources */,
 				A58CC543216CF65200B20CE9 /* Assets.xcassets in Resources */,
-				A5D4F22E21D0FDCF002195C5 /* SubscriptionOffer.storyboard in Resources */,
+				A5D4F22E21D0FDCF002195C5 /* SubscriptionOfferView.storyboard in Resources */,
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
 				51270399223A837A00F98370 /* FatnessIndexView.storyboard in Resources */,
@@ -705,7 +705,7 @@
 				A50250D52178E79000F674B3 /* TriangleView.swift in Sources */,
 				A597BE69220C7F7100389207 /* WeekRationCell.swift in Sources */,
 				A55BFF9521FA0AFD00D4364F /* PageContainer.swift in Sources */,
-				A5A1182921C2AA88003843A1 /* SubscriptionOfferViewController.swift in Sources */,
+				A5A1182921C2AA88003843A1 /* SubscriptionOfferView.swift in Sources */,
 				A5EF446721CA96D5009B4635 /* RecipeViewController.swift in Sources */,
 				A589FB0021C7AF8D0035E80D /* DietWeek.swift in Sources */,
 				A5B9E2A822145F4400CBB46C /* ScrollingStackController.swift in Sources */,
@@ -765,13 +765,13 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		A5D4F23021D0FDCF002195C5 /* SubscriptionOffer.storyboard */ = {
+		A5D4F23021D0FDCF002195C5 /* SubscriptionOfferView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A5D4F22F21D0FDCF002195C5 /* Base */,
 				A5CB528A222021B80037DF28 /* ru */,
 			);
-			name = SubscriptionOffer.storyboard;
+			name = SubscriptionOfferView.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};

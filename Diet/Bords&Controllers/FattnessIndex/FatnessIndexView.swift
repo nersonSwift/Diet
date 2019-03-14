@@ -126,7 +126,9 @@ class FatnessIndexView: UIViewController {
     @IBAction func getDietsButtonPressed(_ sender: Any) {
         
         if SubscriptionService.shared.currentSubscription == nil {
-            performSegue(withIdentifier: "showSubOffer", sender: self)
+            if let nextViewController = SubscriptionOfferView.storyboardInstance(){
+                self.present(nextViewController, animated: true, completion: nil)
+            }
         } else {
             performSegue(withIdentifier: "showDiets", sender: self)
         }

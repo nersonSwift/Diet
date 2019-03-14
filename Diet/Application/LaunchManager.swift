@@ -67,13 +67,13 @@ class LaunchManager: NSObject {
                     
                 default:
                     
-                    let subOfferVc = SubscriptionOfferViewController.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil), identifier: "SubscriptionOffer")
+                    let subOfferVc = SubscriptionOfferView.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil), identifier: "SubscriptionOffer")
                     self.mainWindow.rootViewController = subOfferVc
         
                 }
             case .error(let error):
                 print("Error ",error.localizedDescription)
-                let subOfferVc = SubscriptionOfferViewController.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil), identifier: "SubscriptionOffer")
+                let subOfferVc = SubscriptionOfferView.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil), identifier: "SubscriptionOffer")
                 self.mainWindow.rootViewController = subOfferVc
             }
         }

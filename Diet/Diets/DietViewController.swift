@@ -259,7 +259,7 @@ extension DietViewController: ContentAccessHandler {
     
     func accessIsDenied() {
         accessStatus = .denied
-        let subscriptionOfferVc = SubscriptionOfferViewController.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil))
+        let subscriptionOfferVc = SubscriptionOfferView.controllerInStoryboard(UIStoryboard(name: "SubscriptionOffer", bundle: nil))
         present(subscriptionOfferVc, animated: true, completion: nil)
     }
     

@@ -12,8 +12,13 @@ import Purchases
 import SafariServices
 import AppsFlyerLib
 
-class SubscriptionOfferViewController: UIViewController {
+class SubscriptionOfferView: UIViewController {
     
+    static func storyboardInstance() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        let subscriptionOfferView = storyboard.instantiateInitialViewController() as? SubscriptionOfferView
+        return subscriptionOfferView
+    }
     
     @IBOutlet weak var arcView: UIView!
     @IBOutlet weak var restoreButton: UIButton!
@@ -237,7 +242,7 @@ class SubscriptionOfferViewController: UIViewController {
     }
 }
 
-extension SubscriptionOfferViewController: PurchasesDelegate {
+extension SubscriptionOfferView: PurchasesDelegate {
     
     func purchases(_ purchases: Purchases, didReceiveUpdated purchaserInfo: PurchaserInfo) {
         
