@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/aleksandrsenin/Desktop/Swift/Diet/Diet/Diet/TestResultsView.storyboard">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/aleksandrsenin/Desktop/Swift/Diet/Diet/Diet/TestPageView.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:Diet.xcodeproj">
    </FileRef>
    <FileRef
