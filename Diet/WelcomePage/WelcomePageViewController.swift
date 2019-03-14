@@ -79,8 +79,10 @@ class WelcomePageViewController: UIViewController {
             paperOnboardingView.currentIndex(paperOnboardingView.currentIndex + 1, animated: true)
         } else {
             UserDefaults.standard.set(true, forKey: "wereWelcomePagesShown")
-            performSegue(withIdentifier: "showTest", sender: self)
             EventManager.sendEvent(with: "User saw welcome screen")
+            if let nextViewController = TestPageView.storyboardInstance() {
+                present(nextViewController, animated: true, completion: nil)
+            }
         }
     }
 }

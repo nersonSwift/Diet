@@ -13,7 +13,15 @@ protocol TestResultOutput: class {
     func testCompleted(with result: TestResult)
 }
 
-class TestPageViewController: UIPageViewController {
+class TestPageView: UIPageViewController {
+    
+    static func storyboardInstance() -> UIViewController? {
+        
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        
+        let testPageView = storyboard.instantiateInitialViewController() as? TestPageView
+        return testPageView
+    }
     
     var testPages = [UIViewController]()
     var testViewData = [TestViewData]()
@@ -37,7 +45,7 @@ class TestPageViewController: UIPageViewController {
     let heigthSelectionPageData = TestViewData(title: "Select your height".localized,
                                                iconName: "pomegranade", pickerData: (140,200), unit: "cm.".localized)
     
-    let resultsVc = TestResultsViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
+    let resultsVc = TestResultsView.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
     
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -160,10 +168,6 @@ class TestPageViewController: UIPageViewController {
         }
     }
     
-    fileprivate func setupGenderSelectionPage(_ page: UIViewController) {
-        
-    }
-    
     private func scrollToViewController(viewController: UIViewController,
                                         direction: UIPageViewController.NavigationDirection = .forward) {
         setViewControllers([viewController], direction: direction, animated: true, completion: nil)
@@ -194,7 +198,7 @@ class TestPageViewController: UIPageViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension TestPageViewController: UIPageViewControllerDataSource {
+extension TestPageView: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
