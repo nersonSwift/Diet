@@ -16,11 +16,8 @@ protocol TestResultOutput: class {
 class TestPageView: UIPageViewController {
     
     static func storyboardInstance() -> UIViewController? {
-        
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
-        
         let testPageView = storyboard.instantiateInitialViewController() as? TestPageView
-        
         return testPageView
     }
     
@@ -56,7 +53,6 @@ class TestPageView: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
         fillPages()
         fillViewData()
@@ -141,7 +137,9 @@ class TestPageView: UIPageViewController {
                 self.testOutput = nextViewController as! TestResultsView
                 let _ = nextViewController.view
                 self.testOutput?.testCompleted(with: self.testResult)
-                self.present(nextViewController, animated: true, completion: nil)
+                self.present(nextViewController, animated: true){
+                    self.setViewControllers([self.testPages.first!], direction: .forward, animated: false, completion: nil)
+                }
             }
         }
     }

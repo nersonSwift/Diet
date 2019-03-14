@@ -322,7 +322,7 @@ class TestResultsView: UIViewController {
     
     @IBAction func takeTestAgainButtonPressed(_ sender: Any) {
         self.repeatTest?()
-        performSegue(withIdentifier: "backToTest", sender: self)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -338,7 +338,8 @@ extension TestResultsView: TestResultOutput {
         if result.gender == .male {
             genderIconImageView.image = UIImage(named: "male_icon")
         } else {
-            genderIconImageView.image = UIImage(named: "female_icon ")
+            
+            genderIconImageView.image = UIImage(named: "female_icon")
         }
     }
 }

@@ -1,0 +1,20 @@
+/* Class = "UILabel"; text = "gender"; ObjectID = "2uR-pL-6TI"; */
+"2uR-pL-6TI.text" = "пол";
+
+/* Class = "UIButton"; normalTitle = "Ok? Go!"; ObjectID = "8CF-Kx-XwQ"; */
+"8CF-Kx-XwQ.normalTitle" = "Ок? Вперед!";
+
+/* Class = "UILabel"; text = "Your height"; ObjectID = "92n-Y0-JfP"; */
+"92n-Y0-JfP.text" = "Ваш рост";
+
+/* Class = "UILabel"; text = "Your goal"; ObjectID = "Mjt-Gj-u0e"; */
+"Mjt-Gj-u0e.text" = "Ваша цель";
+
+/* Class = "UILabel"; text = "Your weight"; ObjectID = "Xhe-nG-t0l"; */
+"Xhe-nG-t0l.text" = "Ваш вес";
+
+/* Class = "UILabel"; text = "Your age"; ObjectID = "mFW-3X-xD2"; */
+"mFW-3X-xD2.text" = "Ваш возраст";
+
+/* Class = "UIButton"; normalTitle = "Take the test again"; ObjectID = "xze-AY-Q0v"; */
+"xze-AY-Q0v.normalTitle" = "Пройти тест заново";

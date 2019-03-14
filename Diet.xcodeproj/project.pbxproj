@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104D29A2237C5D8007AFE08 /* EventManager.swift */; };
 		51270383223A650900F98370 /* TestPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270382223A642600F98370 /* TestPageView.storyboard */; };
-		5127038F223A732300F98370 /* TestResultsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5127038E223A72D500F98370 /* TestResultsView.storyboard */; };
+		51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270392223A7C8A00F98370 /* TestResultsView.storyboard */; };
 		84724CC972B6ECE071A678C4 /* Pods_Diet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */; };
 		A50250CC2178B84B00F674B3 /* SelectingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */; };
 		A50250CE2178BCFC00F674B3 /* SelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */; };
@@ -94,7 +94,8 @@
 		50141B71EF97BFCDBE67B05F /* Pods-Diet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diet/Pods-Diet.release.xcconfig"; sourceTree = "<group>"; };
 		5104D29A2237C5D8007AFE08 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		51270382223A642600F98370 /* TestPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestPageView.storyboard; sourceTree = "<group>"; };
-		5127038E223A72D500F98370 /* TestResultsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestResultsView.storyboard; sourceTree = "<group>"; };
+		51270391223A7C8A00F98370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TestResultsView.storyboard; sourceTree = "<group>"; };
+		51270394223A7C9300F98370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TestResultsView.strings; sourceTree = "<group>"; };
 		65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectingViewController.storyboard; sourceTree = "<group>"; };
 		A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingViewController.swift; sourceTree = "<group>"; };
@@ -435,7 +436,7 @@
 		A5A1DD23217E26360099A1BD /* TestResults */ = {
 			isa = PBXGroup;
 			children = (
-				5127038E223A72D500F98370 /* TestResultsView.storyboard */,
+				51270392223A7C8A00F98370 /* TestResultsView.storyboard */,
 				A5A1DD21217E26100099A1BD /* TestResultsView.swift */,
 			);
 			path = TestResults;
@@ -578,7 +579,7 @@
 				A5D4F22E21D0FDCF002195C5 /* SubscriptionOffer.storyboard in Resources */,
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
-				5127038F223A732300F98370 /* TestResultsView.storyboard in Resources */,
+				51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */,
 				A53B1B4C21B58ED50036AD00 /* FatnessCategoryCell.xib in Resources */,
 				A55E85AD220DC29E007714E3 /* StepCell.xib in Resources */,
 			);
@@ -717,6 +718,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		51270392223A7C8A00F98370 /* TestResultsView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51270391223A7C8A00F98370 /* Base */,
+				51270394223A7C9300F98370 /* ru */,
+			);
+			name = TestResultsView.storyboard;
+			sourceTree = "<group>";
+		};
 		A57C146421CBE7EF00B810BE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
