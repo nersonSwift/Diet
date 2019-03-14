@@ -210,133 +210,16 @@
             </objects>
             <point key="canvasLocation" x="3890" y="-438"/>
         </scene>
-        <!--Fatness Index View Contoller-->
-        <scene sceneID="RkR-OB-13V">
+        <!--UIViewController-EfX-av-hwn-->
+        <scene sceneID="XIG-CP-lrd">
             <objects>
-                <viewController storyboardIdentifier="UIViewController-EfX-av-hwn" id="EfX-av-hwn" customClass="FatnessIndexViewContoller" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="shI-6G-pcj"/>
-                        <viewControllerLayoutGuide type="bottom" id="gtK-2s-9Jh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VAj-c2-f6g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have calculated your obesity index" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij1-4L-IH1">
-                                <rect key="frame" x="16" y="33" width="343" height="60.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QVU-vL-wa0">
-                                <rect key="frame" x="0.0" y="194.5" width="375" height="399.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="VVI-iM-9qv">
-                                    <size key="itemSize" width="275" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="8" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FatnessCategoryCell" id="v4H-YA-fsN" customClass="FatnessCategoryCell" customModule="Diet" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="8" width="275" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <color key="backgroundColor" red="0.85098039219999999" green="0.34901960780000002" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxY-vj-ZPj">
-                                <rect key="frame" x="16" y="594" width="343" height="60"/>
-                                <color key="backgroundColor" red="0.01176470588" green="0.8980392157" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="n88-yU-Tbg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
-                                <state key="normal" title="Get diets">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getDietsButtonPressed:" destination="EfX-av-hwn" eventType="touchUpInside" id="Zpn-mx-09C"/>
-                                    <segue destination="Rv2-yi-BOk" kind="presentation" identifier="showSubOffer" id="gpU-jF-xYh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlG-3Y-jXL" customClass="AnimatedLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="115.5" width="375" height="53"/>
-                                <color key="backgroundColor" red="0.01176470588" green="0.8022236806280576" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="46"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEj-jv-gu0">
-                                <rect key="frame" x="0.0" y="164.5" width="375" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="VUT-RG-ms5">
-                                        <rect key="frame" x="8" y="15" width="10" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="10" id="Nyp-y5-vXr"/>
-                                            <constraint firstAttribute="height" constant="20" id="edU-TI-gdX"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_left" translatesAutoresizingMaskIntoConstraints="NO" id="d19-gb-JUd">
-                                        <rect key="frame" x="357" y="15" width="10" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="8MK-jH-Db3"/>
-                                            <constraint firstAttribute="width" constant="10" id="8VV-0t-AxK"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="d19-gb-JUd" firstAttribute="top" secondItem="wEj-jv-gu0" secondAttribute="top" constant="15" id="C8x-Ba-oYs"/>
-                                    <constraint firstItem="VUT-RG-ms5" firstAttribute="top" secondItem="wEj-jv-gu0" secondAttribute="top" constant="15" id="E8y-WP-Q4L"/>
-                                    <constraint firstItem="VUT-RG-ms5" firstAttribute="leading" secondItem="wEj-jv-gu0" secondAttribute="leading" constant="8" id="QNX-hr-7Pw"/>
-                                    <constraint firstAttribute="trailing" secondItem="d19-gb-JUd" secondAttribute="trailing" constant="8" id="VlM-CL-xqg"/>
-                                    <constraint firstAttribute="bottom" secondItem="VUT-RG-ms5" secondAttribute="bottom" constant="15" id="gKK-zI-LJI"/>
-                                    <constraint firstAttribute="bottom" secondItem="d19-gb-JUd" secondAttribute="bottom" constant="15" id="pRl-Wl-ibb"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ij1-4L-IH1" secondAttribute="trailing" constant="16" id="1ZZ-Ql-3bp"/>
-                            <constraint firstAttribute="trailing" secondItem="LxY-vj-ZPj" secondAttribute="trailing" constant="16" id="2Nx-M0-nrS"/>
-                            <constraint firstItem="Ij1-4L-IH1" firstAttribute="leading" secondItem="VAj-c2-f6g" secondAttribute="leading" constant="16" id="BCu-99-XOv"/>
-                            <constraint firstItem="QVU-vL-wa0" firstAttribute="leading" secondItem="VAj-c2-f6g" secondAttribute="leading" id="I32-4t-Tkk"/>
-                            <constraint firstItem="LxY-vj-ZPj" firstAttribute="leading" secondItem="VAj-c2-f6g" secondAttribute="leading" constant="16" id="OHF-gQ-1Ip"/>
-                            <constraint firstItem="QVU-vL-wa0" firstAttribute="top" secondItem="DlG-3Y-jXL" secondAttribute="bottom" constant="26" id="Oeu-81-COg"/>
-                            <constraint firstItem="wEj-jv-gu0" firstAttribute="leading" secondItem="VAj-c2-f6g" secondAttribute="leading" id="Swq-Cr-jcL"/>
-                            <constraint firstItem="gtK-2s-9Jh" firstAttribute="top" secondItem="LxY-vj-ZPj" secondAttribute="bottom" constant="13" id="V7U-nj-2LG"/>
-                            <constraint firstItem="DlG-3Y-jXL" firstAttribute="leading" secondItem="VAj-c2-f6g" secondAttribute="leading" id="ZA2-LQ-EuP"/>
-                            <constraint firstItem="DlG-3Y-jXL" firstAttribute="top" secondItem="Ij1-4L-IH1" secondAttribute="bottom" constant="22" id="Zoj-Do-xKZ"/>
-                            <constraint firstItem="wEj-jv-gu0" firstAttribute="trailing" secondItem="VAj-c2-f6g" secondAttribute="trailing" id="cMn-og-f3r"/>
-                            <constraint firstItem="LxY-vj-ZPj" firstAttribute="top" secondItem="QVU-vL-wa0" secondAttribute="bottom" id="eR5-RM-hBn"/>
-                            <constraint firstItem="QVU-vL-wa0" firstAttribute="trailing" secondItem="VAj-c2-f6g" secondAttribute="trailing" id="eWm-bt-zse"/>
-                            <constraint firstItem="DlG-3Y-jXL" firstAttribute="trailing" secondItem="VAj-c2-f6g" secondAttribute="trailing" id="gec-sV-q6l"/>
-                            <constraint firstItem="Ij1-4L-IH1" firstAttribute="top" secondItem="shI-6G-pcj" secondAttribute="bottom" constant="13" id="ka7-yB-Kpo"/>
-                            <constraint firstItem="wEj-jv-gu0" firstAttribute="top" secondItem="Ij1-4L-IH1" secondAttribute="bottom" constant="71" id="uGr-qj-DJL"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="arrowView" destination="wEj-jv-gu0" id="3QN-tb-hwK"/>
-                        <outlet property="fatnessCategoriesCollectionView" destination="QVU-vL-wa0" id="xw8-KD-x6U"/>
-                        <outlet property="fatnessIndexLabel" destination="DlG-3Y-jXL" id="iwX-OP-rPG"/>
-                        <outlet property="getDietsButton" destination="LxY-vj-ZPj" id="eCm-9w-BI5"/>
-                        <outlet property="leftArrow" destination="VUT-RG-ms5" id="2VB-R5-bsE"/>
-                        <outlet property="rightArrow" destination="d19-gb-JUd" id="IN9-Vf-QIE"/>
-                        <segue destination="i4V-AC-jU3" kind="presentation" identifier="showDiets" id="cUo-mn-ltA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z8h-Qf-Ly5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="UIViewController-EfX-av-hwn" storyboardName="FatnessIndexView" referencedIdentifier="UIViewController-EfX-av-hwn" id="nhi-B9-WMK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Svx-nq-Z29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3242" y="99"/>
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_left" width="11" height="20"/>
-        <image name="arrow_right" width="11" height="20"/>
         <image name="back" width="1600" height="1067"/>
     </resources>
 </document>

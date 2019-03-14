@@ -338,7 +338,6 @@ extension TestResultsView: TestResultOutput {
         if result.gender == .male {
             genderIconImageView.image = UIImage(named: "male_icon")
         } else {
-            
             genderIconImageView.image = UIImage(named: "female_icon")
         }
     }
