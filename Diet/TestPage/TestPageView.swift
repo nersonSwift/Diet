@@ -43,7 +43,7 @@ class TestPageView: UIPageViewController {
     let heigthSelectionPageData = TestViewData(title: "Select your height".localized,
                                                iconName: "pomegranade", pickerData: (140,200), unit: "cm.".localized)
     
-    let resultsVc = TestResultsView.storyboardInstance() as! TestResultsView
+    let resultsVc = TestResultsViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil), identifier: "TestResultsViewController")
     
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -141,8 +141,9 @@ class TestPageView: UIPageViewController {
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
             self.testResult.height = self.heigthSelectionPageData.pickerData[index]
             self.testOutput = self.resultsVc
+            let _ = self.resultsVc.view
             self.testOutput?.testCompleted(with: self.testResult)
-            self.present(self.resultsVc, animated: true, completion: nil)
+            self.present(self.resultsVc, animated: true)
         }
     }
     

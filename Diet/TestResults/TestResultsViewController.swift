@@ -9,13 +9,7 @@
 import UIKit
 import CoreData
 
-class TestResultsView: UIViewController {
-    
-    static func storyboardInstance() -> UIViewController? {
-        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
-        let testResultsView = storyboard.instantiateInitialViewController() as? TestResultsView
-        return testResultsView
-    }
+class TestResultsViewController: UIViewController {
 
     @IBOutlet weak var genderIconImageView: UIImageView!
     @IBOutlet weak var genderTitleLabel: TestResultLabel!
@@ -326,7 +320,7 @@ class TestResultsView: UIViewController {
     }
 }
 
-extension TestResultsView: TestResultOutput {
+extension TestResultsViewController: TestResultOutput {
     
     func testCompleted(with result: TestResult) {
         self.results = result
