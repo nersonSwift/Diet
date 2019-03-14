@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TestResultsView.storyboard">
+   </FileRef>
+   <FileRef
+      location = "group:FatnessIndexView.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:Diet.xcodeproj">
    </FileRef>
    <FileRef

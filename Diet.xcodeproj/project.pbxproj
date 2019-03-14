@@ -112,7 +112,6 @@
 		A555353A22033206008A79DF /* DefaultPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultPickerView.swift; path = Diet/Assets/DefaultPickerView.swift; sourceTree = SOURCE_ROOT; };
 		A556C12421CD0EE0000317E4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A556C13221CD22CA000317E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GenderSelectorViewController.storyboard; sourceTree = "<group>"; };
-		A55BFF8221F9C68900D4364F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		A55BFF8421FA0AFC00D4364F /* PageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
 		A55BFF8521FA0AFC00D4364F /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 		A55BFF8621FA0AFC00D4364F /* GestureControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
@@ -714,10 +713,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				A58CC540216CF65100B20CE9 /* Base */,
-				A55BFF8221F9C68900D4364F /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		A58CC544216CF65200B20CE9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
