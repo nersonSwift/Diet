@@ -31,7 +31,7 @@
 		A53B1B4C21B58ED50036AD00 /* FatnessCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53B1B4A21B58ED50036AD00 /* FatnessCategoryCell.xib */; };
 		A548E9D22177744200FC62EE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E9D12177744200FC62EE /* UIViewControllerExtension.swift */; };
 		A548E9D42177767900FC62EE /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E9D32177767900FC62EE /* NSObjectExtension.swift */; };
-		A548E9D62177783800FC62EE /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E9D52177783800FC62EE /* WelcomePageViewController.swift */; };
+		A548E9D62177783800FC62EE /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548E9D52177783800FC62EE /* Main.swift */; };
 		A54DC0D42204466100D7EEE9 /* CGFloatExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DC0D32204466100D7EEE9 /* CGFloatExtention.swift */; };
 		A555353B22033206008A79DF /* DefaultPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A555353A22033206008A79DF /* DefaultPickerView.swift */; };
 		A556C12521CD0EE0000317E4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A556C12421CD0EE0000317E4 /* StoreKit.framework */; };
@@ -122,7 +122,7 @@
 		A53B1B4A21B58ED50036AD00 /* FatnessCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FatnessCategoryCell.xib; sourceTree = "<group>"; };
 		A548E9D12177744200FC62EE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A548E9D32177767900FC62EE /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
-		A548E9D52177783800FC62EE /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		A548E9D52177783800FC62EE /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		A54DC0D32204466100D7EEE9 /* CGFloatExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtention.swift; sourceTree = "<group>"; };
 		A555353A22033206008A79DF /* DefaultPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultPickerView.swift; path = Diet/Assets/DefaultPickerView.swift; sourceTree = SOURCE_ROOT; };
 		A556C12421CD0EE0000317E4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -219,6 +219,7 @@
 			children = (
 				5170EDA6223AE96800585F96 /* NavigationProtocol.swift */,
 				5170EDA4223AE95B00585F96 /* Navigation.swift */,
+				5170EDA8223AEDAA00585F96 /* WelcomePage */,
 				5170EDA1223AB1CD00585F96 /* RecipeView */,
 				A5662AC221BAA3C000DCD511 /* Diets */,
 				A53B1B4821B58A860036AD00 /* FattnessIndex */,
@@ -248,6 +249,15 @@
 			path = RecipeView;
 			sourceTree = "<group>";
 		};
+		5170EDA8223AEDAA00585F96 /* WelcomePage */ = {
+			isa = PBXGroup;
+			children = (
+				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
+				A50250CA2178B31400F674B3 /* WelcomePage */,
+			);
+			path = WelcomePage;
+			sourceTree = "<group>";
+		};
 		80B4B8AE01EA24BACB2ED1A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +270,7 @@
 		A50250CA2178B31400F674B3 /* WelcomePage */ = {
 			isa = PBXGroup;
 			children = (
-				A548E9D52177783800FC62EE /* WelcomePageViewController.swift */,
+				A548E9D52177783800FC62EE /* Main.swift */,
 			);
 			path = WelcomePage;
 			sourceTree = "<group>";
@@ -397,8 +407,6 @@
 				A5E0C331216F951E0045975E /* Extensions */,
 				A58CC547216CF65200B20CE9 /* Info.plist */,
 				A58CC54D216CF69400B20CE9 /* Application */,
-				A50250CA2178B31400F674B3 /* WelcomePage */,
-				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
 				A5EA83902170F8C80088F8FE /* Services */,
 				A5EA838F2170F8C00088F8FE /* Models */,
 				A5B2D35421D22EE700378F54 /* EndPoints */,
@@ -719,7 +727,7 @@
 				A555353B22033206008A79DF /* DefaultPickerView.swift in Sources */,
 				A55BFF9A21FA0AFD00D4364F /* PaperOnboardingDataSource.swift in Sources */,
 				A58CC54021E89DFB00361EA9 /* LoadingViewController.swift in Sources */,
-				A548E9D62177783800FC62EE /* WelcomePageViewController.swift in Sources */,
+				A548E9D62177783800FC62EE /* Main.swift in Sources */,
 				A55BFF9021FA0AFD00D4364F /* PageViewItem.swift in Sources */,
 				A589FB0421C7B2AB0035E80D /* Diet.swift in Sources */,
 				A597BE5F220C669500389207 /* DishCell.swift in Sources */,

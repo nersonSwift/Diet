@@ -80,10 +80,11 @@ class LaunchManager: NSObject {
     }
     
     func prepareForLaunch() {
+        let navigation = Navigation(viewController: LoadingViewController())
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown") {
             verifyReceipt()
         } else {
-            let welcomeVc = WelcomePageViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
+            let welcomeVc = Main.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
             mainWindow.rootViewController = welcomeVc
         }
     }

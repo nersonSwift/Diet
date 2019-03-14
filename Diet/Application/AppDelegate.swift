@@ -24,7 +24,7 @@ enum ProductId: String {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var launchManager: LaunchManager?
+    //var launchManager: LaunchManager?
     
     // MARK: Notifications
     private func setupLocalNotifications() {
@@ -57,8 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
+        //window = UIWindow(frame: UIScreen.main.bounds)
+        //window?.makeKeyAndVisible()
         
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         print("PATH ",paths[0])
@@ -87,8 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Purchases.configure(withAPIKey: "KFbzbXGcfYLysGfIQnsbshOePruacVgF", appUserID: nil)
         
-         launchManager = LaunchManager(window: window!)
-         launchManager?.prepareForLaunch()
+         //launchManager = LaunchManager(window: window!)
+         //launchManager?.prepareForLaunch()
         
 //        let vc = DietViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
 //        let vc = TestPageViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))

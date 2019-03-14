@@ -13,11 +13,13 @@ protocol TestResultOutput: class {
     func testCompleted(with result: TestResult)
 }
 
-class TestPageView: UIPageViewController {
+class TestPageView: UIPageViewController, NavigationProtocol {
+    var navigation: Navigation!
     
-    static func storyboardInstance() -> UIViewController? {
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let testPageView = storyboard.instantiateInitialViewController() as? TestPageView
+        testPageView?.navigation = navigation
         return testPageView
     }
     
@@ -132,14 +134,12 @@ class TestPageView: UIPageViewController {
         }
         
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
-            if let nextViewController = TestResultsView.storyboardInstance() {
+            self.navigation.transitionToView(viewControllerType: TestResultsView()){ nextViewController in
                 self.testResult.height = self.heigthSelectionPageData.pickerData[index]
                 self.testOutput = nextViewController as! TestResultsView
                 let _ = nextViewController.view
                 self.testOutput?.testCompleted(with: self.testResult)
-                self.present(nextViewController, animated: true){
-                    self.setViewControllers([self.testPages.first!], direction: .forward, animated: false, completion: nil)
-                }
+                self.setViewControllers([self.testPages.first!], direction: .forward, animated: false, completion: nil)
             }
         }
     }

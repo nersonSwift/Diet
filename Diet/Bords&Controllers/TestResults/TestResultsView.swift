@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class TestResultsView: UIViewController {
+class TestResultsView: UIViewController, NavigationProtocol {
+    var navigation: Navigation!
     
-    static func storyboardInstance() -> UIViewController? {
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let testResultsView = storyboard.instantiateInitialViewController() as? TestResultsView
+        testResultsView?.navigation = navigation
         return testResultsView
     }
 
@@ -318,15 +320,15 @@ class TestResultsView: UIViewController {
     @IBAction func agreedWithTestButtonPressed(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "hasUserPassedTest")
         EventManager.sendEvent(with: "User agreed with test results")
-        if let nextViewController = FatnessIndexView.storyboardInstance() as? FatnessIndexView{
-            nextViewController.testResults = results
-            self.present(nextViewController, animated: true, completion: nil)
+        navigation.transitionToView(viewControllerType: FatnessIndexView()){ nextViewController in
+            let fatnessIndexView = nextViewController as! FatnessIndexView
+            fatnessIndexView.testResults = self.results
         }
     }
     
     @IBAction func takeTestAgainButtonPressed(_ sender: Any) {
         self.repeatTest?()
-        dismiss(animated: true, completion: nil)
+        navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, special: nil)
     }
 }
 

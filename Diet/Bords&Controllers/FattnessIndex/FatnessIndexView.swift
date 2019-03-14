@@ -15,11 +15,13 @@ struct FatnessCategory {
     var categoryName: CategoryName
 }
 
-class FatnessIndexView: UIViewController {
-
-    static func storyboardInstance() -> UIViewController? {
+class FatnessIndexView: UIViewController, NavigationProtocol{
+    var navigation: Navigation!
+    
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let fatnessIndexView = storyboard.instantiateInitialViewController() as? FatnessIndexView
+        fatnessIndexView?.navigation = navigation
         return fatnessIndexView
     }
     

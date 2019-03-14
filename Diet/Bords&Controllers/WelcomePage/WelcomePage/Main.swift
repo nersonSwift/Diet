@@ -8,7 +8,16 @@
 
 import UIKit
 
-class WelcomePageViewController: UIViewController {
+class Main: UIViewController, NavigationProtocol {
+    var navigation: Navigation!
+    
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
+        let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
+        let main = storyboard.instantiateInitialViewController() as? Main
+        main!.navigation = navigation
+        return main
+    }
+    
     
     @IBOutlet weak var nextButtomBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var paperOnboardingView: PaperOnboarding!
@@ -23,33 +32,34 @@ class WelcomePageViewController: UIViewController {
                            description: "Find out your obesity index. Our app precisely calculates index just for you!".localized,
                            pageIcon: UIImage(named: "stretch")!,
                            color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: WelcomePageViewController.titleFont, descriptionFont: WelcomePageViewController.descriptionFont),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "recipe")!,
                            title: "Test".localized,
                            description: "Take a simple test and we will do our best to help you with diets.".localized,
                            pageIcon: UIImage(named: "clipboard")!,
                            color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: WelcomePageViewController.titleFont, descriptionFont: WelcomePageViewController.descriptionFont),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "chat")!,
                            title: "Stats".localized,
                            description: "Get statistics of your parameters during your diet.".localized,
                            pageIcon: UIImage(named: "chat_mini")!,
                            color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: WelcomePageViewController.titleFont, descriptionFont: WelcomePageViewController.descriptionFont),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "diet")!,
                            title: "Result".localized,
                            description: "With our help you can rapidly lose weight. Get started right now!".localized,
                            pageIcon: UIImage(named: "ruler")!,
                            color: UIColor(red: 1, green: 126 / 255, blue: 121/255, alpha: 1.00),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: WelcomePageViewController.titleFont, descriptionFont: WelcomePageViewController.descriptionFont)
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont)
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPaperOnboardingView()
+        navigation = Navigation(viewController: self)
     }
     
     private func setupPaperOnboardingView() {
@@ -80,17 +90,13 @@ class WelcomePageViewController: UIViewController {
         } else {
             UserDefaults.standard.set(true, forKey: "wereWelcomePagesShown")
             EventManager.sendEvent(with: "User saw welcome screen")
+            navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, special: nil)
             
-            if let nextViewController = TestPageView.storyboardInstance() {
-                
-                present(nextViewController, animated: true, completion: nil)
-                
-            }
         }
     }
 }
 
-extension WelcomePageViewController: PaperOnboardingDelegate {
+extension Main: PaperOnboardingDelegate {
     
     func onboardingWillTransitonTo(index: Int) {
         
@@ -117,7 +123,7 @@ extension WelcomePageViewController: PaperOnboardingDelegate {
 }
 
 // MARK: PaperOnboardingDataSource
-extension WelcomePageViewController: PaperOnboardingDataSource {
+extension Main: PaperOnboardingDataSource {
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
         return items[index]
@@ -127,3 +133,5 @@ extension WelcomePageViewController: PaperOnboardingDataSource {
         return items.count
     }
 }
+
+
