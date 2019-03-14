@@ -53,7 +53,6 @@
 		A589FB0421C7B2AB0035E80D /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A589FB0321C7B2AB0035E80D /* Diet.swift */; };
 		A58CC53C216CF65100B20CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58CC53B216CF65100B20CE9 /* AppDelegate.swift */; };
 		A58CC54021E89DFB00361EA9 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58CC53F21E89DFB00361EA9 /* LoadingViewController.swift */; };
-		A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58CC53F216CF65100B20CE9 /* Main.storyboard */; };
 		A58CC543216CF65200B20CE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58CC542216CF65200B20CE9 /* Assets.xcassets */; };
 		A58CC546216CF65200B20CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58CC544216CF65200B20CE9 /* LaunchScreen.storyboard */; };
 		A597BE5F220C669500389207 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597BE5D220C669500389207 /* DishCell.swift */; };
@@ -91,6 +90,8 @@
 /* Begin PBXFileReference section */
 		50141B71EF97BFCDBE67B05F /* Pods-Diet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diet/Pods-Diet.release.xcconfig"; sourceTree = "<group>"; };
 		5104D29A2237C5D8007AFE08 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		518A4D4C223A5AB4005258C9 /* TestPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TestPageView.storyboard; path = /Users/aleksandrsenin/Desktop/Swift/Diet/Diet/Diet/TestPageView.storyboard; sourceTree = "<absolute>"; };
+		518A4D4D223A5B16005258C9 /* TestResultsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TestResultsView.storyboard; path = /Users/aleksandrsenin/Desktop/Swift/Diet/Diet/Diet/TestResultsView.storyboard; sourceTree = "<absolute>"; };
 		65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectingViewController.storyboard; sourceTree = "<group>"; };
 		A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		A555353A22033206008A79DF /* DefaultPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultPickerView.swift; path = Diet/Assets/DefaultPickerView.swift; sourceTree = SOURCE_ROOT; };
 		A556C12421CD0EE0000317E4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A556C13221CD22CA000317E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GenderSelectorViewController.storyboard; sourceTree = "<group>"; };
-		A55BFF8221F9C68900D4364F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		A55BFF8421FA0AFC00D4364F /* PageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
 		A55BFF8521FA0AFC00D4364F /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 		A55BFF8621FA0AFC00D4364F /* GestureControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 		A58CC538216CF65100B20CE9 /* Diet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58CC53B216CF65100B20CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A58CC53F21E89DFB00361EA9 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		A58CC540216CF65100B20CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A58CC542216CF65200B20CE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58CC545216CF65200B20CE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58CC547216CF65200B20CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -348,7 +347,8 @@
 				A53B1B4821B58A860036AD00 /* FattnessIndex */,
 				A5662AC221BAA3C000DCD511 /* Diets */,
 				A50250CA2178B31400F674B3 /* WelcomePage */,
-				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
+				518A4D4D223A5B16005258C9 /* TestResultsView.storyboard */,
+				518A4D4C223A5AB4005258C9 /* TestPageView.storyboard */,
 				A5A1DD23217E26360099A1BD /* TestResults */,
 				A5EA83902170F8C80088F8FE /* Services */,
 				A5EA838F2170F8C00088F8FE /* Models */,
@@ -554,7 +554,6 @@
 				A58CC543216CF65200B20CE9 /* Assets.xcassets in Resources */,
 				A5D4F22E21D0FDCF002195C5 /* SubscriptionOffer.storyboard in Resources */,
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
-				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
 				A53B1B4C21B58ED50036AD00 /* FatnessCategoryCell.xib in Resources */,
 				A55E85AD220DC29E007714E3 /* StepCell.xib in Resources */,
 			);
@@ -708,15 +707,6 @@
 				A5E115DD2208793300FD1CA7 /* ru */,
 			);
 			name = GenderSelectorViewController.storyboard;
-			sourceTree = "<group>";
-		};
-		A58CC53F216CF65100B20CE9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A58CC540216CF65100B20CE9 /* Base */,
-				A55BFF8221F9C68900D4364F /* ru */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		A58CC544216CF65200B20CE9 /* LaunchScreen.storyboard */ = {
