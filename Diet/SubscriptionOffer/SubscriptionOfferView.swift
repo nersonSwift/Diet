@@ -12,11 +12,13 @@ import Purchases
 import SafariServices
 import AppsFlyerLib
 
-class SubscriptionOfferView: UIViewController {
+class SubscriptionOfferView: UIViewController, NavigationProtocol {
+    var navigation: Navigation!
     
-    static func storyboardInstance() -> UIViewController? {
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let subscriptionOfferView = storyboard.instantiateInitialViewController() as? SubscriptionOfferView
+        subscriptionOfferView!.navigation = navigation
         return subscriptionOfferView
     }
     
@@ -182,16 +184,11 @@ class SubscriptionOfferView: UIViewController {
                             
                             let isTrialPeriod = receiptItems.filter { $0.isTrialPeriod == false }.count == 0
                             if isTrialPeriod == true {
-                                
                                 EventManager.sendEvent(with: AFEventStartTrial)
                             }
                             
                             print("Product is valid until \(expiryDate)")
-                            
-                            if let nextViewController = DietView.storyboardInstance(){
-                                
-                                self.present(nextViewController, animated: true, completion: nil)
-                            }
+                            self.navigation.transitionToView(viewControllerType: DietView(), special: nil)
                         case .expired(let expiryDate):
                             print("Product is expired since \(expiryDate)")
                         case .notPurchased:
@@ -209,7 +206,7 @@ class SubscriptionOfferView: UIViewController {
     
     @IBAction func skipButtonPressed(_ sender: Any) {
         //EventManager.sendCustomEvent(with: "Subscription offer was skiped")
-        performSegue(withIdentifier: "showTestResult", sender: self)
+        self.navigation.transitionToView(viewControllerType: TestResultsView(), special: nil)
     }
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
@@ -226,10 +223,7 @@ class SubscriptionOfferView: UIViewController {
                 self.showErrorAlert(for: .restoreFailed)
             } else if purchaserInfo?.activeSubscriptions.contains(ProductId.popular.rawValue) ?? false ||
                 purchaserInfo?.activeSubscriptions.contains(ProductId.cheap.rawValue) ?? false {
-                
-                if let nextViewController = DietView.storyboardInstance(){
-                    self.present(nextViewController, animated: true, completion: nil)
-                }
+                self.navigation.transitionToView(viewControllerType: DietView(), special: nil)
             } else {
                 self.showErrorAlert(for: .noActiveSubscription)
             }

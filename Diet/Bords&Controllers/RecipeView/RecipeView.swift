@@ -15,12 +15,13 @@ protocol RecipeReciver: class {
     func recieve(dish: Dish)
 }
 
-class RecipeView: UIViewController {
+class RecipeView: UIViewController, NavigationProtocol{
+    var navigation: Navigation!
     
-    static func storyboardInstance() -> UIViewController? {
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let recipeView = storyboard.instantiateInitialViewController() as? RecipeView
-        
+        recipeView?.navigation = navigation
         return recipeView
     }
     
@@ -69,7 +70,7 @@ class RecipeView: UIViewController {
     }
     
     @objc func closeButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        navigation.transitionToView(viewControllerType: DietView(), special: nil)
     }
 }
 

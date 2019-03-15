@@ -10,13 +10,16 @@ import UIKit
 import DropDown
 import CoreData
 
-class DietView: UIViewController {
+class DietView: UIViewController, NavigationProtocol{
+    var navigation: Navigation!
     
-    static func storyboardInstance() -> UIViewController? {
+    static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let dietView = storyboard.instantiateInitialViewController() as? DietView
+        dietView?.navigation = navigation
         return dietView
     }
+
     
     @IBOutlet weak var dietBackImageView: UIImageView!
     @IBOutlet weak var dietNameLabel: UILabel!
@@ -192,9 +195,9 @@ extension DietView: UITableViewDataSource {
             cell.weekDishes = dishes
             cell.cellTapped = { [weak self] (dish) in
                 guard let self = self else { return }
-                if let nextViewController = RecipeView.storyboardInstance() as? RecipeView{
-                    nextViewController.recieve(dish: dish)
-                    self.present(nextViewController, animated: true, completion: nil)
+                self.navigation.transitionToView(viewControllerType: RecipeView()){ nextViewController in
+                    let recipeView = nextViewController as! RecipeView
+                    recipeView.recieve(dish: dish)
                 }
             }
         }
