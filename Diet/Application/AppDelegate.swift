@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FacebookCore
 import Purchases
 import SwiftyStoreKit
 import AppsFlyerLib
