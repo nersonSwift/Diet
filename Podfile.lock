@@ -42,7 +42,6 @@ SPEC REPOS:
     - SwiftyJSON
     - SwiftyStoreKit
 
-
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
