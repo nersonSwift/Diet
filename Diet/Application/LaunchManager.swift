@@ -80,7 +80,6 @@ class LaunchManager: NSObject {
     }
     
     func prepareForLaunch() {
-        let navigation = Navigation(viewController: LoadingViewController())
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown") {
             verifyReceipt()
         } else {

@@ -188,7 +188,7 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
                             }
                             
                             print("Product is valid until \(expiryDate)")
-                            self.navigation.transitionToView(viewControllerType: DietView(), special: nil)
+                            self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
                         case .expired(let expiryDate):
                             print("Product is expired since \(expiryDate)")
                         case .notPurchased:
@@ -206,7 +206,7 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
     
     @IBAction func skipButtonPressed(_ sender: Any) {
         //EventManager.sendCustomEvent(with: "Subscription offer was skiped")
-        self.navigation.transitionToView(viewControllerType: TestResultsView(), special: nil)
+        self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true, special: nil)
     }
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
@@ -223,7 +223,7 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
                 self.showErrorAlert(for: .restoreFailed)
             } else if purchaserInfo?.activeSubscriptions.contains(ProductId.popular.rawValue) ?? false ||
                 purchaserInfo?.activeSubscriptions.contains(ProductId.cheap.rawValue) ?? false {
-                self.navigation.transitionToView(viewControllerType: DietView(), special: nil)
+                self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
             } else {
                 self.showErrorAlert(for: .noActiveSubscription)
             }

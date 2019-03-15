@@ -17,7 +17,7 @@ class Main: UIViewController, NavigationProtocol {
         main!.navigation = navigation
         return main
     }
-    
+    var launchView: UIView!
     
     @IBOutlet weak var nextButtomBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var paperOnboardingView: PaperOnboarding!
@@ -59,6 +59,13 @@ class Main: UIViewController, NavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPaperOnboardingView()
+        let loadingVC = LoadingViewController()
+        loadingVC.view.backgroundColor = .lightGray
+        launchView = loadingVC.view
+        view.addSubview(launchView)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigation = Navigation(viewController: self)
     }
     
@@ -88,9 +95,8 @@ class Main: UIViewController, NavigationProtocol {
         if paperOnboardingView.currentIndex + 1 <= items.count - 1 {
             paperOnboardingView.currentIndex(paperOnboardingView.currentIndex + 1, animated: true)
         } else {
-            UserDefaults.standard.set(true, forKey: "wereWelcomePagesShown")
             EventManager.sendEvent(with: "User saw welcome screen")
-            navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, special: nil)
+            navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
             
         }
     }

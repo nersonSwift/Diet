@@ -55,6 +55,7 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(true, forKey: "wereWelcomePagesShown")
         self.view.backgroundColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
         fillPages()
         fillViewData()
@@ -134,7 +135,7 @@ class TestPageView: UIPageViewController, NavigationProtocol {
         }
         
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
-            self.navigation.transitionToView(viewControllerType: TestResultsView()){ nextViewController in
+            self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true){ nextViewController in
                 self.testResult.height = self.heigthSelectionPageData.pickerData[index]
                 self.testOutput = nextViewController as! TestResultsView
                 let _ = nextViewController.view

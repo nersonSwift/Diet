@@ -128,10 +128,10 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
     @IBAction func getDietsButtonPressed(_ sender: Any) {
         
         if SubscriptionService.shared.currentSubscription == nil {
-            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), special: nil)
+            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
             //navigation.transitionToView(viewControllerType: DietView(), special: nil)
         } else {
-            navigation.transitionToView(viewControllerType: DietView(), special: nil)
+            navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
         }
     }
 }

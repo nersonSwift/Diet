@@ -57,6 +57,7 @@ class TestResultsView: UIViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(true, forKey: "testShown")
         setAlpha(0)
         takeTestAgainButton.layer.borderWidth = 1
         takeTestAgainButton.layer.borderColor = UIColor(red: 227 / 255, green: 227 / 255, blue: 227 / 255, alpha: 1).cgColor
@@ -320,7 +321,7 @@ class TestResultsView: UIViewController, NavigationProtocol {
     @IBAction func agreedWithTestButtonPressed(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "hasUserPassedTest")
         EventManager.sendEvent(with: "User agreed with test results")
-        navigation.transitionToView(viewControllerType: FatnessIndexView()){ nextViewController in
+        navigation.transitionToView(viewControllerType: FatnessIndexView(), animated: true){ nextViewController in
             let fatnessIndexView = nextViewController as! FatnessIndexView
             fatnessIndexView.testResults = self.results
         }
@@ -328,7 +329,7 @@ class TestResultsView: UIViewController, NavigationProtocol {
     
     @IBAction func takeTestAgainButtonPressed(_ sender: Any) {
         self.repeatTest?()
-        navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, special: nil)
+        navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
     }
 }
 

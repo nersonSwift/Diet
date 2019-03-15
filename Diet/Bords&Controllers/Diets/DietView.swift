@@ -195,7 +195,7 @@ extension DietView: UITableViewDataSource {
             cell.weekDishes = dishes
             cell.cellTapped = { [weak self] (dish) in
                 guard let self = self else { return }
-                self.navigation.transitionToView(viewControllerType: RecipeView()){ nextViewController in
+                self.navigation.transitionToView(viewControllerType: RecipeView(), animated: true){ nextViewController in
                     let recipeView = nextViewController as! RecipeView
                     recipeView.recieve(dish: dish)
                 }
