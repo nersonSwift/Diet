@@ -18,7 +18,7 @@ class Navigation{
     init(viewController: UIViewController) {
         controllers.append(viewController)
         let main = controllers[0] as! Main
-        let launchViewSecond = main.launchView
+        let launchView = main.launchView
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown"){
             if UserDefaults.standard.bool(forKey: "testShown"){
                 let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "41b8fe92dbd9448ab3e06f3507b01371")
@@ -45,13 +45,13 @@ class Navigation{
                                 
                             }
                             self!.transitionToView(viewControllerType: DietView(), animated: false, completion: { nextViewController in
-                                launchViewSecond?.removeFromSuperview()
+                                launchView?.removeFromSuperview()
                             }, special: nil)
                             
                         default:
                             self!.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
                             self!.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in
-                                launchViewSecond?.removeFromSuperview()
+                                launchView?.removeFromSuperview()
                             }, special: nil)
                         }
                     
@@ -59,17 +59,17 @@ class Navigation{
                     case .error:
                         self!.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
                         self!.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in
-                            launchViewSecond?.removeFromSuperview()
+                            launchView?.removeFromSuperview()
                         }, special: nil)
                     }
                 }
             }else{
                 transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: false, completion: { nextViewController in
-                    launchViewSecond?.removeFromSuperview()
+                    launchView?.removeFromSuperview()
                 }, special: nil)
             }
         }else{
-            launchViewSecond?.removeFromSuperview()
+            launchView?.removeFromSuperview()
         }
     }
     

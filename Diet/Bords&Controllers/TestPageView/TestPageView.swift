@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol TestResultOutput: class {
     
@@ -60,6 +61,40 @@ class TestPageView: UIPageViewController, NavigationProtocol {
         fillPages()
         fillViewData()
         setViewControllers([testPages.first!], direction: .forward, animated: true, completion: nil)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert]) { (isAllowed, error) in
+            if isAllowed {
+                self.setupLocalNotifications()
+            } else {
+                print("Permission has not been granted")
+            }
+        }
+    }
+    
+    private func setupLocalNotifications() {
+        
+        var dateComponents = DateComponents()
+        
+        // monday
+        dateComponents.weekday = 2
+        dateComponents.hour = 12
+        dateComponents.minute = 0
+        dateComponents.timeZone = TimeZone.current
+        
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "New recipes!".localized
+        notificationContent.body = "Check out new recipes".localized
+        notificationContent.badge = 1
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "NEW_DIET", content: notificationContent, trigger: trigger)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+            if error != nil {
+                
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

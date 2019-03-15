@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +12,7 @@
         <!--Diet View-->
         <scene sceneID="aly-a9-5D9">
             <objects>
-                <viewController storyboardIdentifier="DietView" id="i4V-AC-jU3" customClass="DietView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DietView" id="i4V-AC-jU3" customClass="DietView" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iN9-zv-asH"/>
                         <viewControllerLayoutGuide type="bottom" id="sO7-Ab-xKc"/>

@@ -261,9 +261,7 @@ extension DietView: DietNetworkServiceDelegate {
         }
     }
     
-    func fetchingEndedWithError(_ error: Error) {
-        
-    }
+    func fetchingEndedWithError(_ error: Error) {}
 }
 
 extension DietView: ContentAccessHandler {
