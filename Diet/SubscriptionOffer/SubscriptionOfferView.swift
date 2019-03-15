@@ -198,20 +198,15 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
                         self.showErrorAlert(for: .internalError)
                     }
                 }
-            } else {
-                // non success
             }
         }
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
-        //EventManager.sendCustomEvent(with: "Subscription offer was skiped")
         self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true, special: nil)
     }
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
-        
-        //EventManager.sendCustomEvent(with: "User tried to restore subscription")
         let loadingVc = LoadingViewController()
         add(loadingVc)
         

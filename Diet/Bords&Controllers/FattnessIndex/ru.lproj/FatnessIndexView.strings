@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "We have calculated your obesity index"; ObjectID = "Ij1-4L-IH1"; */
+"Ij1-4L-IH1.text" = "Мы подсчитали ваш индекс ожирения";
+
+/* Class = "UIButton"; normalTitle = "Get diets"; ObjectID = "LxY-vj-ZPj"; */
+"LxY-vj-ZPj.normalTitle" = "Получить диеты";
