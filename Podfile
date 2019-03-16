@@ -11,4 +11,5 @@ target 'Diet' do
     pod 'AppsFlyerFramework'
     pod 'Purchases'
     pod 'SwiftyStoreKit'
+    pod 'RealmSwift'
 end

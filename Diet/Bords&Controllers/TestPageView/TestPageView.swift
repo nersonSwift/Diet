@@ -11,7 +11,7 @@ import UserNotifications
 
 protocol TestResultOutput: class {
     
-    func testCompleted(with result: TestResult)
+    func testCompleted()
 }
 
 class TestPageView: UIPageViewController, NavigationProtocol {
@@ -140,41 +140,47 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     }
     
     fileprivate func handleNextButtonPressing() {
+        let userModel = navigation.realmData.userModel!
         
         genderSelectionPage.genderSelected = { [unowned self] gender in
-            self.testResult.gender = gender
+            switch gender {
+            case .female: userModel.gender = true
+            case .male: userModel.gender = false
+            default: break
+            }
+            
             self.scrollToNextViewController()
         }
         
         ageSelectionPage.nextButtonPressed = { [unowned self] index in
             self.scrollToNextViewController()
-            self.testResult.age = self.ageSelectionPageData.pickerData[index]
+            userModel.age = self.ageSelectionPageData.pickerData[index]
         }
         
         currentWeightSelectionPage.nextButtonPressed = { [unowned self] index in
             self.scrollToNextViewController()
-            self.testResult.currentWeight = self.currentWeightSelectionPageData.pickerData[index]
+            userModel.currentWeight = self.currentWeightSelectionPageData.pickerData[index]
         }
         
         goalWeightSelectionPage.nextButtonPressed = { [unowned self] index in
             
-            if self.testResult.currentWeight <= self.goalWeightSelectionPageData.pickerData[index] {
+            if userModel.currentWeight <= self.goalWeightSelectionPageData.pickerData[index] {
                 let alert = UIAlertController(title: "Error".localized, message: "You cant set goal bigger then your current weight".localized, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
             } else {
                 self.scrollToNextViewController()
-                self.testResult.goalWeight = self.goalWeightSelectionPageData.pickerData[index]
+                userModel.goal = self.goalWeightSelectionPageData.pickerData[index]
             }
         }
         
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
             self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true){ nextViewController in
-                self.testResult.height = self.heigthSelectionPageData.pickerData[index]
+                userModel.height = self.heigthSelectionPageData.pickerData[index]
                 self.testOutput = nextViewController as! TestResultsView
                 let _ = nextViewController.view
-                self.testOutput?.testCompleted(with: self.testResult)
+                self.testOutput!.testCompleted()
                 self.setViewControllers([self.testPages.first!], direction: .forward, animated: false, completion: nil)
             }
         }

@@ -81,17 +81,17 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let userMadel = navigation.realmData.userModel!
         
-        guard let result = testResults else { return }
-        fatnessIndex = Double(Float(result.currentWeight) / ((Float(result.height) / 100) * (Float(result.height) / 100)))
+        fatnessIndex = Double(Float(userMadel.currentWeight) / ((Float(userMadel.height) / 100) * (Float(userMadel.height) / 100)))
         fatnessIndexLabel.countFromZero(to: Float(fatnessIndex))
         fatnessIndexLabel.completion = {
             
-            if result.fatnessCategory == .underweight {
+            if userMadel.obesityType == CategoryName.underweight.rawValue {
                 self.animateArrows()
             } else {
                 guard let index = self.fatnessCategories.firstIndex(where: { (category) -> Bool in
-                    category.categoryName == result.fatnessCategory
+                    category.categoryName.rawValue == userMadel.obesityType
                 }) else { return }
                 self.moveArrowsToCell(with: index)
             }

@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.8.1)
   - AlamofireImage (3.5.0):
     - Alamofire (~> 4.8)
-  - AppsFlyerFramework (4.8.11)
+  - AppsFlyerFramework (4.8.12)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -13,9 +13,14 @@ PODS:
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
     - FBSDKCoreKit (~> 4.37)
-  - FBSDKCoreKit (4.40.0):
+  - FBSDKCoreKit (4.41.0):
     - Bolts (~> 1.9)
   - Purchases (2.0.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - SwiftyJSON (4.2.0)
   - SwiftyStoreKit (0.14.2)
 
@@ -26,6 +31,7 @@ DEPENDENCIES:
   - DropDown
   - FacebookCore
   - Purchases
+  - RealmSwift
   - SwiftyJSON (~> 4.0)
   - SwiftyStoreKit
 
@@ -39,21 +45,25 @@ SPEC REPOS:
     - FacebookCore
     - FBSDKCoreKit
     - Purchases
+    - Realm
+    - RealmSwift
     - SwiftyJSON
     - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
-  AppsFlyerFramework: 7da8740f23e8d32f02f3afbfee6a9085885fd8bf
+  AppsFlyerFramework: 726f063384d8dc763d7b423e48cbc8cbe10989ab
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   DropDown: 0bcc278799ec11a3d34ce1aac9367fbbaf5423d9
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
-  FBSDKCoreKit: ae214474b25033399c131dc81d258e412582a2ba
+  FBSDKCoreKit: 974810fe3806173f3777c68062fa8ed6fa59b59d
   Purchases: 17496bdab0d0fb678f5f647c4c7039bca3b8263c
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwiftyStoreKit: cc399645796b094022fb650c148a0aed25995873
 
-PODFILE CHECKSUM: 4a0f0b56decd1a5a085b474035b8543a8e6cec17
+PODFILE CHECKSUM: ec3755b43866879fbc91130d76466b1000d60310
 
 COCOAPODS: 1.5.2

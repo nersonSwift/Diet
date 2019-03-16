@@ -119,27 +119,7 @@ class DietView: UIViewController, NavigationProtocol{
     }
     
     fileprivate func fetchCategory() -> CategoryName? {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return nil
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Test", in: managedContext)
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Test")
-        fetchRequest.entity = entityDescription
-        
-        do {
-            if let testResultManagedObject = try managedContext.fetch(fetchRequest).last {
-                guard let obesityType = testResultManagedObject.value(forKey: "obesityType") as? String else {
-                    return nil
-                }
-                return CategoryName(rawValue: obesityType)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-        return nil
+        return CategoryName(rawValue: navigation.realmData.userModel!.obesityType)
     }
     
     fileprivate func setupView() {

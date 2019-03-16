@@ -206,7 +206,10 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
     
     @IBAction func skipButtonPressed(_ sender: Any) {
         //EventManager.sendCustomEvent(with: "Subscription offer was skiped")
-        self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true, special: nil)
+        self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true){ next in
+            let testResultsView = next as! TestResultsView
+            testResultsView.testCompleted()
+        }
     }
     
     @IBAction func restoreButtonPressed(_ sender: Any) {

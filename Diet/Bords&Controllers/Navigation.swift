@@ -10,6 +10,8 @@ import UIKit
 import SwiftyStoreKit
 
 class Navigation{
+    let realmData = RealmData()
+    
     var controllers: [UIViewController] = []
     var selectView: UIViewController{
         return controllers.last!

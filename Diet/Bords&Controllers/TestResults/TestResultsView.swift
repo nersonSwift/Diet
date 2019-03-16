@@ -34,26 +34,6 @@ class TestResultsView: UIViewController, NavigationProtocol {
     @IBOutlet weak var genderTitle: UILabel!
     
     var repeatTest: (() -> Void)?
-    var results: TestResult? {
-        didSet {
-            
-            if results != nil {
-                
-                let fatnessIndex = calculateFatIndex(currentWeight: results!.currentWeight, height: results!.height)
-                
-                switch(results!.age) {
-                case (0...25):
-                    results!.fatnessCategory = getFatnessCategoryNameForTeens(index: fatnessIndex)
-                case (26...100):
-                    results!.fatnessCategory = getFatnessCategoryForAdults(index: fatnessIndex)
-                default:
-                    results!.fatnessCategory = CategoryName.undefined
-                }
-                deleteAllData("Test")
-                save()
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,15 +54,6 @@ class TestResultsView: UIViewController, NavigationProtocol {
         label.layer.cornerRadius = 15
         label.layer.borderColor = UIColor(red: 151 / 255, green: 151 / 255, blue: 151 / 255, alpha: 1).cgColor
         label.layer.borderWidth = 1
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        guard results == nil else {
-            return
-        }
-        fetchTestResult()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -141,16 +112,6 @@ class TestResultsView: UIViewController, NavigationProtocol {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toObesityIndex" {
-            
-            if let destinationVc = segue.destination as? FatnessIndexView {
-                guard let testResults = self.results else { return }
-                let fatnessIndex = calculateFatIndex(currentWeight: testResults.currentWeight, height: testResults.height)
-                
-                destinationVc.testResults = testResults
-                destinationVc.fatnessIndex = fatnessIndex
-            }
-        }
     }
     
     fileprivate func showRetryableErrorAlert(with message: String, retryAction: @escaping () -> Void) {
@@ -166,138 +127,38 @@ class TestResultsView: UIViewController, NavigationProtocol {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func deleteAllData(_ entity:String) {
+    fileprivate func getFatnessCategory(index: Double, age: Int) -> CategoryName {
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            showRetryableErrorAlert(with: "Could not save test results".localized, retryAction: save)
-            return
-        }
-        fetchRequest.returnsObjectsAsFaults = false
-        do {
-            let results = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
-            for object in results {
-                guard let objectData = object as? NSManagedObject else {continue}
-                appDelegate.persistentContainer.viewContext.delete(objectData)
+        if age <= 25{
+            switch (index) {
+            case(0...18.5):
+                return CategoryName.underweight
+            case(19.5...22.9):
+                return CategoryName.normal
+            case(23.0...27.4):
+                return CategoryName.excessObesity
+            case(27.5...29.9):
+                return CategoryName.obesity
+            case(30.0...100):
+                return CategoryName.severeObesity
+            default:
+                return CategoryName.undefined
             }
-        } catch let error {
-            print("Detele all data in \(entity) error :", error)
-        }
-    }
-    
-    private func save() {
-        
-        guard let results = self.results else {
-            showRetryableErrorAlert(with: "Could not save test results".localized, retryAction: save)
-            return
-        }
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            showRetryableErrorAlert(with: "Could not save test results".localized, retryAction: save)
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-    
-        guard let entity = NSEntityDescription.entity(forEntityName: "Test", in: managedContext) else {
-            showRetryableErrorAlert(with: "Could not save test results".localized, retryAction: save)
-            return
-        }
-        
-        let testResult = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        
-        testResult.setValue(Int16(results.age), forKey: "age")
-        testResult.setValue(results.currentWeight, forKey: "currentWeight")
-        testResult.setValue(results.goalWeight, forKey: "goal")
-        testResult.setValue(results.height, forKey: "height")
-    
-        if results.gender == .female {
-            testResult.setValue(0, forKey: "gender")
-        } else {
-            testResult.setValue(1, forKey: "gender")
-        }
-        
-        testResult.setValue(results.fatnessCategory.rawValue, forKey: "obesityType")
-        
-        do {
-            try managedContext.save()
-        } catch {
-            print(error.localizedDescription)
-            showRetryableErrorAlert(with: "Could not save test results".localized, retryAction: save)
-        }
-    }
-    
-    private func fetchTestResult() {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            showRetryableErrorAlert(with: "Could not load test results".localized, retryAction: fetchTestResult)
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Test", in: managedContext)
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Test")
-        fetchRequest.entity = entityDescription
-        
-        do {
-            if let testResultManagedObject = try managedContext.fetch(fetchRequest).last {
-                guard let age = testResultManagedObject.value(forKey: "age")  as? Int,
-                    let height = testResultManagedObject.value(forKey: "height") as? Int,
-                    let gender = testResultManagedObject.value(forKey: "gender") as? Int,
-                    let goal = testResultManagedObject.value(forKey: "goal") as? Int,
-                    let currentWeight = testResultManagedObject.value(forKey: "currentWeight") as? Int,
-                    let obesityType = testResultManagedObject.value(forKey: "obesityType") as? String else {
-                        showRetryableErrorAlert(with: "Could not load test results".localized, retryAction: fetchTestResult)
-                        return
-                }
-                results = TestResult()
-                results?.age = age
-                results?.goalWeight = goal
-                results?.currentWeight = currentWeight
-                results?.height = height
-                results?.fatnessCategory = CategoryName(rawValue: obesityType)!
-                results?.gender = gender == 0 ? .female : .male
-                testCompleted(with: results!)
+        }else{
+            switch(index) {
+            case (0...19.9):
+                return CategoryName.underweight
+            case (20.0...25.9):
+                return CategoryName.normal
+            case (26.0...27.9):
+                return CategoryName.excessObesity
+            case(28.0...30.9):
+                return CategoryName.obesity
+            case(31...100.0):
+                return CategoryName.severeObesity
+            default:
+                return CategoryName.undefined
             }
-        } catch {
-            showRetryableErrorAlert(with: "Could not load test results".localized, retryAction: fetchTestResult)
-        }
-    }
-    
-    fileprivate func getFatnessCategoryNameForTeens(index: Double) -> CategoryName {
-        
-        switch (index) {
-        case(0...18.5):
-            return CategoryName.underweight
-        case(19.5...22.9):
-            return CategoryName.normal
-        case(23.0...27.4):
-            return CategoryName.excessObesity
-        case(27.5...29.9):
-            return CategoryName.obesity
-        case(30.0...100):
-            return CategoryName.severeObesity
-        default:
-            return CategoryName.undefined
-        }
-    }
-    
-    fileprivate func getFatnessCategoryForAdults(index: Double) -> CategoryName {
-        
-        switch(index) {
-        case (0...19.9):
-            return CategoryName.underweight
-        case (20.0...25.9):
-            return CategoryName.normal
-        case (26.0...27.9):
-            return CategoryName.excessObesity
-        case(28.0...30.9):
-            return CategoryName.obesity
-        case(31...100.0):
-            return CategoryName.severeObesity
-        default:
-            return CategoryName.undefined
         }
     }
     
@@ -321,10 +182,7 @@ class TestResultsView: UIViewController, NavigationProtocol {
     @IBAction func agreedWithTestButtonPressed(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "hasUserPassedTest")
         EventManager.sendEvent(with: "User agreed with test results")
-        navigation.transitionToView(viewControllerType: FatnessIndexView(), animated: true){ nextViewController in
-            let fatnessIndexView = nextViewController as! FatnessIndexView
-            fatnessIndexView.testResults = self.results
-        }
+        navigation.transitionToView(viewControllerType: FatnessIndexView(), animated: true, special: nil)
     }
     
     @IBAction func takeTestAgainButtonPressed(_ sender: Any) {
@@ -335,18 +193,24 @@ class TestResultsView: UIViewController, NavigationProtocol {
 
 extension TestResultsView: TestResultOutput {
     
-    func testCompleted(with result: TestResult) {
-        self.results = result
-        goalWeightTitleLabel.text = "\(result.goalWeight) " + "kg".localized
-        currentWeightTitleLable.text = "\(result.currentWeight) " + "kg".localized
-        timeTitleLabel.text = "\(result.height) " + "cm.".localized
-        ageTitleLabel.text = "\(result.age)"
-        genderTitleLabel.text = result.gender.description
-        if result.gender == .male {
+    
+    func testCompleted() {
+        let userModel = navigation.realmData.userModel!
+        var gender = Gender.male
+        if userModel.gender{
+            gender = .female
+        }
+        goalWeightTitleLabel.text = "\(userModel.goal) " + "kg".localized
+        currentWeightTitleLable.text = "\(userModel.currentWeight) " + "kg".localized
+        timeTitleLabel.text = "\(userModel.height) " + "cm.".localized
+        ageTitleLabel.text = "\(userModel.age)"
+        genderTitleLabel.text = gender.description
+        if gender == .male {
             genderIconImageView.image = UIImage(named: "male_icon")
         } else {
-            
             genderIconImageView.image = UIImage(named: "female_icon")
         }
+        let index = Double(Float(userModel.currentWeight) / ((Float(userModel.height) / 100) * (Float(userModel.height) / 100)))
+        userModel.obesityType = getFatnessCategory(index: index, age: userModel.age).rawValue
     }
 }
