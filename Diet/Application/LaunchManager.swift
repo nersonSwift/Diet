@@ -53,13 +53,8 @@ class LaunchManager: NSObject {
                     
                     let reseprTrial = receiptItems.items.filter { $0.isTrialPeriod == false }[0]
                     var endTrialDate = reseprTrial.purchaseDate
+                    endTrialDate += 60 * 60 * 24 * 3
                     
-                    switch ProductId.init(rawValue: reseprTrial.productId)!{
-                    case .popular:
-                        endTrialDate += 60 * 60 * 24 * 3
-                    case .cheap:
-                        endTrialDate += 60 * 60 * 24 * 7
-                    }
                     print(endTrialDate)
                     if endTrialDate <= Date(){
                         

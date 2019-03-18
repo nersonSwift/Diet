@@ -11,6 +11,7 @@ import SwiftyStoreKit
 
 class Navigation{
     let realmData = RealmData()
+    let subData = SubData()
     
     var controllers: [UIViewController] = []
     var selectView: UIViewController{
@@ -41,6 +42,7 @@ class Navigation{
                                 endTrialDate += 60 * 60 * 24 * 3
                             case .cheap:
                                 endTrialDate += 60 * 60 * 24 * 7
+                            default: break
                             }
                             print(endTrialDate)
                             if endTrialDate <= Date(){

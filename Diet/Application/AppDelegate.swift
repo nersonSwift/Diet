@@ -14,11 +14,6 @@ import SwiftyStoreKit
 import AppsFlyerLib
 import CoreData
 
-enum ProductId: String {
-    case popular = "com.sfbtech.diets.sub.week.allaccess"
-    case cheap = "com.sfbtech.diets.sub.month.allaccess"
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -65,36 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppsFlyerTracker.shared().trackAppLaunch()
     }
     
-    func applicationWillTerminate(_ application: UIApplication) {
-        self.saveContext()
-    }
     
-    // MARK: - Core Data stack
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Test")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        
-        return container
-    }()
-    
-    // MARK: - Core Data Saving support
-    
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 }
 
 extension AppDelegate: AppsFlyerTrackerDelegate {

@@ -17,6 +17,7 @@
 		51F2E32D223BECF000C08D0E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E32C223BECF000C08D0E /* UserModel.swift */; };
 		51F2E32F223BEEAA00C08D0E /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E32E223BEEAA00C08D0E /* RealmData.swift */; };
 		51F2E330223D957F00C08D0E /* FatnessIndexView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F2E332223D957F00C08D0E /* FatnessIndexView.storyboard */; };
+		51F2E336223F977D00C08D0E /* SubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E335223F977D00C08D0E /* SubData.swift */; };
 		84724CC972B6ECE071A678C4 /* Pods_Diet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */; };
 		A50250CC2178B84B00F674B3 /* SelectingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */; };
 		A50250CE2178BCFC00F674B3 /* SelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */; };
@@ -81,7 +82,6 @@
 		A5B2D35321D22E9200378F54 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2D35221D22E9200378F54 /* EndPoint.swift */; };
 		A5B2D35621D22EF900378F54 /* DietsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2D35521D22EF900378F54 /* DietsEndPoint.swift */; };
 		A5B9E2A822145F4400CBB46C /* ScrollingStackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9E2A722145F4400CBB46C /* ScrollingStackController.swift */; };
-		A5C0871121FF0C4000B9D724 /* Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5C0870F21FF0C4000B9D724 /* Test.xcdatamodeld */; };
 		A5C25CC622116FBD004E0BC3 /* DietType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C25CC522116FBD004E0BC3 /* DietType.swift */; };
 		A5CE618421B7EC0900A7FFDE /* AnimatedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE618321B7EC0900A7FFDE /* AnimatedLabel.swift */; };
 		A5D4F22E21D0FDCF002195C5 /* SubscriptionOfferView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D4F23021D0FDCF002195C5 /* SubscriptionOfferView.storyboard */; };
@@ -111,6 +111,7 @@
 		51F2E32E223BEEAA00C08D0E /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		51F2E331223D957F00C08D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FatnessIndexView.storyboard; sourceTree = "<group>"; };
 		51F2E334223D958300C08D0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FatnessIndexView.strings; sourceTree = "<group>"; };
+		51F2E335223F977D00C08D0E /* SubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubData.swift; sourceTree = "<group>"; };
 		65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectingViewController.storyboard; sourceTree = "<group>"; };
 		A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +179,6 @@
 		A5B2D35221D22E9200378F54 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		A5B2D35521D22EF900378F54 /* DietsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietsEndPoint.swift; sourceTree = "<group>"; };
 		A5B9E2A722145F4400CBB46C /* ScrollingStackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingStackController.swift; sourceTree = "<group>"; };
-		A5C0871021FF0C4000B9D724 /* TestResult.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestResult.xcdatamodel; sourceTree = "<group>"; };
 		A5C25CC522116FBD004E0BC3 /* DietType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietType.swift; sourceTree = "<group>"; };
 		A5CB528A222021B80037DF28 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SubscriptionOfferView.strings; sourceTree = "<group>"; };
 		A5CE618321B7EC0900A7FFDE /* AnimatedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLabel.swift; sourceTree = "<group>"; };
@@ -411,6 +411,7 @@
 				A548E9D9217787A800FC62EE /* Appearance */,
 				A5E0C331216F951E0045975E /* Extensions */,
 				A58CC547216CF65200B20CE9 /* Info.plist */,
+				51F2E335223F977D00C08D0E /* SubData.swift */,
 				51F2E32E223BEEAA00C08D0E /* RealmData.swift */,
 				A58CC54D216CF69400B20CE9 /* Application */,
 				A5EA83902170F8C80088F8FE /* Services */,
@@ -418,7 +419,6 @@
 				A5B2D35421D22EE700378F54 /* EndPoints */,
 				A58CC54E216CF6A500B20CE9 /* Assets */,
 				A57C146421CBE7EF00B810BE /* Localizable.strings */,
-				A5C0873321FF492100B9D724 /* CoreData */,
 			);
 			path = Diet;
 			sourceTree = "<group>";
@@ -486,14 +486,6 @@
 				A5B2D35521D22EF900378F54 /* DietsEndPoint.swift */,
 			);
 			path = EndPoints;
-			sourceTree = "<group>";
-		};
-		A5C0873321FF492100B9D724 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				A5C0870F21FF0C4000B9D724 /* Test.xcdatamodeld */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		A5E0C331216F951E0045975E /* Extensions */ = {
@@ -728,6 +720,7 @@
 				A5E0C330216F95170045975E /* StringExtentions.swift in Sources */,
 				A50250CE2178BCFC00F674B3 /* SelectingViewController.swift in Sources */,
 				A5EA838A2170F78D0088F8FE /* FetchingErroHandler.swift in Sources */,
+				51F2E336223F977D00C08D0E /* SubData.swift in Sources */,
 				A5B2D35321D22E9200378F54 /* EndPoint.swift in Sources */,
 				A5EE1880220AED7400C00157 /* SKProductExtension.swift in Sources */,
 				A5A0C7AF21BE979100C9035C /* Session.swift in Sources */,
@@ -758,7 +751,6 @@
 				A5E69C5621CA434F001649DD /* DietNetworkService.swift in Sources */,
 				A5D858C021AF055A008A5A2D /* DoubleExtentions.swift in Sources */,
 				A55BFF9621FA0AFD00D4364F /* PageView.swift in Sources */,
-				A5C0871121FF0C4000B9D724 /* Test.xcdatamodeld in Sources */,
 				A55BFF9B21FA0AFD00D4364F /* PaperOnboardingDelegate.swift in Sources */,
 				A5A1DD22217E26100099A1BD /* TestResultsView.swift in Sources */,
 			);
@@ -1012,19 +1004,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A5C0870F21FF0C4000B9D724 /* Test.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A5C0871021FF0C4000B9D724 /* TestResult.xcdatamodel */,
-			);
-			currentVersion = A5C0871021FF0C4000B9D724 /* TestResult.xcdatamodel */;
-			path = Test.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A58CC530216CF65100B20CE9 /* Project object */;
 }

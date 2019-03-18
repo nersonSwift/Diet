@@ -138,8 +138,8 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
             
             switch result {
             case .success: self!.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
-            case .error: //self!.navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
-                self!.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+            case .error: self!.navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+                //self!.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
             }
             self!.tap = false
         }
