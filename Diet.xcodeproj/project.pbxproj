@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104D29A2237C5D8007AFE08 /* EventManager.swift */; };
+		5105ABBE2240280200ACCC37 /* UIButtonP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5105ABBD2240280200ACCC37 /* UIButtonP.swift */; };
 		51270383223A650900F98370 /* TestPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270382223A642600F98370 /* TestPageView.storyboard */; };
 		51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270392223A7C8A00F98370 /* TestResultsView.storyboard */; };
 		512703A2223AA59E00F98370 /* DietView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512703A1223A99BC00F98370 /* DietView.storyboard */; };
@@ -100,6 +101,7 @@
 /* Begin PBXFileReference section */
 		50141B71EF97BFCDBE67B05F /* Pods-Diet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Diet/Pods-Diet.release.xcconfig"; sourceTree = "<group>"; };
 		5104D29A2237C5D8007AFE08 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		5105ABBD2240280200ACCC37 /* UIButtonP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonP.swift; sourceTree = "<group>"; };
 		51270382223A642600F98370 /* TestPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestPageView.storyboard; sourceTree = "<group>"; };
 		51270391223A7C8A00F98370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TestResultsView.storyboard; sourceTree = "<group>"; };
 		51270394223A7C9300F98370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TestResultsView.strings; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				A58CC547216CF65200B20CE9 /* Info.plist */,
 				51F2E335223F977D00C08D0E /* SubData.swift */,
 				51F2E32E223BEEAA00C08D0E /* RealmData.swift */,
+				5105ABBD2240280200ACCC37 /* UIButtonP.swift */,
 				A58CC54D216CF69400B20CE9 /* Application */,
 				A5EA83902170F8C80088F8FE /* Services */,
 				A5EA838F2170F8C00088F8FE /* Models */,
@@ -686,6 +689,7 @@
 			files = (
 				A5CE618421B7EC0900A7FFDE /* AnimatedLabel.swift in Sources */,
 				A53B1B4B21B58ED50036AD00 /* FatnessCategoryCell.swift in Sources */,
+				5105ABBE2240280200ACCC37 /* UIButtonP.swift in Sources */,
 				A5EA83882170F7370088F8FE /* NetworkService.swift in Sources */,
 				5170EDA5223AE95B00585F96 /* Navigation.swift in Sources */,
 				A5662AC921BAB79100DCD511 /* UIViewExtensions.swift in Sources */,

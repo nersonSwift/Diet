@@ -36,14 +36,14 @@
 "1 month" = "1 месяц";
 
 //Welcome screen
-"Obesity index" = "Индекс ожирения";
-"Find out your obesity index. Our app precisely calculates index just for you!" = "Узнайте ваш индекс ожирения. Наше приложение  точно вычислит индекс ожирения для вас";
-"Test" =  "Тест";
-"Take a simple test and we will do our best to help you with diets." = "Пройдите простой тест и мы сделаем все необходимое, чтобы помочь вам в подборе диет";
-"Stats" = "Статистика";
-"Get statistics of your parameters during your diet." = "Получите свои параметры после прохождения теста";
-"Result" = "Результат";
-"With our help you can rapidly lose weight. Get started right now!" = "С нашей помощью вы можете быстро сбросить лишний вес. Начинайте прямо сейчас!";
+"Obesity index" = "Добро пожаловать!";
+"Find out your obesity index. Our app precisely calculates index just for you!" = "Смахните влево или нажмите на кнопку, чтобы узнать о главных особенностях нашего приложения.";
+"Test" =  "ИМТ и дневная норма калорий";
+"Take a simple test and we will do our best to help you with diets." = "Посчитаем ваш индекс массы тела и расскажем о каком состоянии организма он сигнализирует.";
+"Stats" = "Персональный рацион";
+"Get statistics of your parameters during your diet." = "После прохождения теста вы узнаете свою дневную норму калорий, а мы составим правильный рацион.";
+"Result" = "Новые рецепты каждую неделю";
+"With our help you can rapidly lose weight. Get started right now!" = "Каждую неделю мы будем присылать новые рецепты, включите уведомления, чтобы не пропустить их.";
 "skip" = "пропустить";
 
 "Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "Оплата будет произведена по вашему iTunes аккаунту после подверждения покупки. Подписка будет автоматически обновлена, если не была отменена в течение 24 часов перед окончанием текущего периода. Автообновление подписки может быть отключено в настройках аккаунта после покупки. Любая неиспользованная часть пробного периода будет аннулирована после покупки подписки.";
@@ -62,7 +62,7 @@
 "Female" = "Женщина";
 "You cant set goal bigger then your current weight" = "Вы не можете сбросить вес больше вашего текущего";
 "Next" = "Дальше";
-"Finish" = "Завершить";
+"Finish" = "Начать тест!";
 "Step " = "Шаг ";
 " of 5" = " из 5";
 
