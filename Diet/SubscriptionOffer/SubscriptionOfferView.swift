@@ -156,80 +156,33 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
     }
     
     fileprivate func makePurhase(productId: String) {
-        
-        let loadingVc = LoadingViewController()
-        add(loadingVc)
-
-        SwiftyStoreKit.purchaseProduct(productId, atomically: true) { result in
-            loadingVc.remove()
-            
-            if case .success(let purchase) = result {
-                
-                if purchase.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+        if !navigation.subData.activeSub{
+            let loadingVc = LoadingViewController()
+            add(loadingVc)
+            navigation.subData.goSub(){
+                loadingVc.remove()
+                self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+                if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
+                    EventManager.sendEvent(with: AFEventStartTrial)
                 }
-                
-                let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "41b8fe92dbd9448ab3e06f3507b01371")
-                SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
-                    
-                    if case .success(let receipt) = result {
-                        
-                        let purchaseResult = SwiftyStoreKit.verifySubscription(
-                            ofType: .autoRenewable,
-                            productId: productId,
-                            inReceipt: receipt)
-                        
-                        switch purchaseResult {
-                        case .purchased(let expiryDate, let receiptItems):
-                            
-                            let isTrialPeriod = receiptItems.filter { $0.isTrialPeriod == false }.count == 0
-                            if isTrialPeriod == true {
-                                EventManager.sendEvent(with: AFEventStartTrial)
-                            }
-                            
-                            print("Product is valid until \(expiryDate)")
-                            self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
-                        case .expired(let expiryDate):
-                            print("Product is expired since \(expiryDate)")
-                        case .notPurchased:
-                            print("This product has never been purchased")
-                        }
-                    } else {
-                        self.showErrorAlert(for: .internalError)
-                    }
-                }
-            } else {
-                // non success
             }
+        }else{
+            self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
         }
     }
     
     @IBAction func skipButtonPressed(_ sender: Any) {
-        //EventManager.sendCustomEvent(with: "Subscription offer was skiped")
-        self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true){ next in
+        self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true, completion: nil){ next in
             let testResultsView = next as! TestResultsView
             testResultsView.testCompleted()
         }
     }
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
-        
-        //EventManager.sendCustomEvent(with: "User tried to restore subscription")
-        let loadingVc = LoadingViewController()
-        add(loadingVc)
-        
-        Purchases.shared.restoreTransactions { (purchaserInfo, error) in
-            
-            loadingVc.remove()
-            if let e = error {
-                print("RESTORE ERROR: - \(e.localizedDescription)")
-                self.showErrorAlert(for: .restoreFailed)
-            } else if purchaserInfo?.activeSubscriptions.contains(ProductId.popular.rawValue) ?? false ||
-                purchaserInfo?.activeSubscriptions.contains(ProductId.cheap.rawValue) ?? false {
-                self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
-            } else {
-                self.showErrorAlert(for: .noActiveSubscription)
-            }
+        if navigation.subData.activeSub{
+            self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+        }else{
+            self.showErrorAlert(for: .noActiveSubscription)
         }
     }
     

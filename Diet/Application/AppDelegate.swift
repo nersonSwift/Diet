@@ -56,8 +56,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
         AppEventsLogger.activate(application)
         AppsFlyerTracker.shared().trackAppLaunch()
+        
+        
+        if let main = window?.rootViewController as? Main{
+            let navigation = main.navigation!
+            for i in navigation.controllers{
+                if i is DietView{
+                    navigation.subData.refrash(){
+                        
+                        print(navigation.subData.activeSub)
+                        
+                        if !navigation.subData.activeSub{
+                            DispatchQueue.main.async {
+                                navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
     

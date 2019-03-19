@@ -48,6 +48,9 @@ class TestResultsView: UIViewController, NavigationProtocol {
         applyCustomStyleToLabel(label: goalWeightTitleLabel)
         applyCustomStyleToLabel(label: timeTitleLabel)
         applyCustomStyleToLabel(label: currentWeightTitleLable)
+        print(currentWeightTitleLable)
+        
+        testCompleted()
     }
     
     func applyCustomStyleToLabel(label: UILabel) {
@@ -195,22 +198,28 @@ extension TestResultsView: TestResultOutput {
     
     
     func testCompleted() {
+        
         let userModel = navigation.realmData.userModel!
         var gender = Gender.male
         if userModel.gender{
             gender = .female
         }
-        goalWeightTitleLabel.text = "\(userModel.goal) " + "kg".localized
-        currentWeightTitleLable.text = "\(userModel.currentWeight) " + "kg".localized
-        timeTitleLabel.text = "\(userModel.height) " + "cm.".localized
-        ageTitleLabel.text = "\(userModel.age)"
-        genderTitleLabel.text = gender.description
-        if gender == .male {
-            genderIconImageView.image = UIImage(named: "male_icon")
-        } else {
-            genderIconImageView.image = UIImage(named: "female_icon")
+        print(userModel)
+        print(goalWeightTitleLabel)
+        
+        if goalWeightTitleLabel != nil{
+            goalWeightTitleLabel.text = "\(userModel.goal) " + "kg".localized
+            currentWeightTitleLable.text = "\(userModel.currentWeight) " + "kg".localized
+            timeTitleLabel.text = "\(userModel.height) " + "cm.".localized
+            ageTitleLabel.text = "\(userModel.age)"
+            genderTitleLabel.text = gender.description
+            if gender == .male {
+                genderIconImageView.image = UIImage(named: "male_icon")
+            } else {
+                genderIconImageView.image = UIImage(named: "female_icon")
+            }
+            let index = Double(Float(userModel.currentWeight) / ((Float(userModel.height) / 100) * (Float(userModel.height) / 100)))
+            userModel.obesityType = getFatnessCategory(index: index, age: userModel.age).rawValue
         }
-        let index = Double(Float(userModel.currentWeight) / ((Float(userModel.height) / 100) * (Float(userModel.height) / 100)))
-        userModel.obesityType = getFatnessCategory(index: index, age: userModel.age).rawValue
     }
 }

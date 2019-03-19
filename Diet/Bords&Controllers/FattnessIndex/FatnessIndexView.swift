@@ -132,18 +132,12 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
             return
         }
         tap = true
-        
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "41b8fe92dbd9448ab3e06f3507b01371")
-        SwiftyStoreKit.verifyReceipt(using: appleValidator) { [weak self] (result) in
-            
-            switch result {
-            case .success: self!.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
-            case .error: self!.navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
-                //self!.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
-            }
-            self!.tap = false
+        if navigation.subData.activeSub{
+            navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+        }else{
+            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
         }
-        
+        tap = false
     }
 }
 

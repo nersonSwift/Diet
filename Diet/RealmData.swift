@@ -24,7 +24,6 @@ class RealmData{
             let results = realm.objects(UserModel.self)
             if results.count != 1{
                 print(results.count)
-                
                 userModel = UserModel()
                 try realm.write {
                     realm.add(userModel)
