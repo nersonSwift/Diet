@@ -24,14 +24,45 @@ class Navigation{
         let launchView = main.launchView
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown"){
             if UserDefaults.standard.bool(forKey: "testShown"){
-                subData.refrash(){
-                    if self.subData.activeSub{
-                        self.transitionToView(viewControllerType: DietView(), animated: false, completion: { nextViewController in
-                            launchView?.removeFromSuperview()
-                        }, special: nil)
-                    }else{
-                        self.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
-                        self.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in
+                let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "41b8fe92dbd9448ab3e06f3507b01371")
+                SwiftyStoreKit.verifyReceipt(using: appleValidator) { [weak self] (result) in
+                    
+                    switch result {
+                    case .success(let receipt):
+                        
+                        let verificationResult = SwiftyStoreKit.verifySubscriptions(productIds: [ProductId.popular.rawValue, ProductId.cheap.rawValue], inReceipt: receipt)
+                        switch verificationResult {
+                        case .purchased(let receiptItems):
+                            
+                            let reseprTrial = receiptItems.items.filter { $0.isTrialPeriod == false }[0]
+                            var endTrialDate = reseprTrial.purchaseDate
+                            
+                            switch ProductId.init(rawValue: reseprTrial.productId)!{
+                            case .popular:
+                                endTrialDate += 60 * 60 * 24 * 3
+                            case .cheap:
+                                endTrialDate += 60 * 60 * 24 * 7
+                            default: break
+                            }
+                            print(endTrialDate)
+                            if endTrialDate <= Date(){
+                                
+                            }
+                            self!.transitionToView(viewControllerType: DietView(), animated: false, completion: { nextViewController in
+                                launchView?.removeFromSuperview()
+                            }, special: nil)
+                            
+                        default:
+                            self!.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
+                            self!.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in
+                                launchView?.removeFromSuperview()
+                            }, special: nil)
+                        }
+                    
+
+                    case .error:
+                        self!.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
+                        self!.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
                         }, special: nil)
                     }

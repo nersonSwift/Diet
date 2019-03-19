@@ -17,8 +17,7 @@ class UserModel: Object{
     @objc dynamic var heightS = 0
     @objc dynamic var obesityIndextS = 0
     @objc dynamic var obesityTypeS = ""
-    @objc dynamic var trialS = true
-    @objc dynamic var subS = false
+    @objc dynamic var trialS = false
     
     var age : Int{
         set(age) {
@@ -107,17 +106,6 @@ class UserModel: Object{
         }
         get{
             return trialS
-        }
-    }
-    
-    var sub : Bool{
-        set(sub) {
-            try! Realm().write {
-                subS = sub
-            }
-        }
-        get{
-            return subS
         }
     }
 }

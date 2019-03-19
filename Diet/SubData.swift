@@ -22,10 +22,10 @@ class SubData{
     var activeTrial = false
     
     init(){
-        refrash(completion: nil)
+        refrash()
     }
     
-    func refrash(completion: (()->())?){
+    func refrash(){
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: ProductId.sharedSecret.rawValue)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             
@@ -48,7 +48,6 @@ class SubData{
                 case .notPurchased:
                     print("This product has never been purchased")
                 }
-                completion?()
             }
         }
     }
@@ -60,7 +59,8 @@ class SubData{
                 if purchase.needsFinishTransaction {
                     SwiftyStoreKit.finishTransaction(purchase.transaction)
                 }
-                self.refrash(completion: completion)
+                self.refrash()
+                completion?()
             case .error: break
             }
         }
