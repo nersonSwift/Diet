@@ -20,7 +20,6 @@ enum CategoryName: String {
 struct TestResult {
     var age = 0
     var currentWeight = 0
-    var goalWeight = 0
     var height = 0
     var gender = Gender.undefined
     var fatnessCategory = CategoryName.undefined

@@ -23,13 +23,11 @@ class TestResultsView: UIViewController, NavigationProtocol {
     @IBOutlet weak var genderTitleLabel: TestResultLabel!
     @IBOutlet weak var currentWeightTitleLable: TestResultLabel!
     @IBOutlet weak var ageTitleLabel: TestResultLabel!
-    @IBOutlet weak var goalWeightTitleLabel: TestResultLabel!
     @IBOutlet weak var timeTitleLabel: TestResultLabel!
     @IBOutlet weak var agreedWithTestButton: UIButton!
     @IBOutlet weak var takeTestAgainButton: UIButton!
     @IBOutlet weak var ageTitle: UILabel!
     @IBOutlet weak var weightTitle: UILabel!
-    @IBOutlet weak var goalTitle: UILabel!
     @IBOutlet weak var heightTitle: UILabel!
     @IBOutlet weak var genderTitle: UILabel!
     
@@ -45,11 +43,9 @@ class TestResultsView: UIViewController, NavigationProtocol {
         agreedWithTestButton.layer.cornerRadius = 15
         applyShadow(on: takeTestAgainButton.layer)
         applyCustomStyleToLabel(label: ageTitleLabel)
-        applyCustomStyleToLabel(label: goalWeightTitleLabel)
         applyCustomStyleToLabel(label: timeTitleLabel)
         applyCustomStyleToLabel(label: currentWeightTitleLable)
         print(currentWeightTitleLable)
-        
         testCompleted()
     }
     
@@ -84,13 +80,7 @@ class TestResultsView: UIViewController, NavigationProtocol {
             self.currentWeightTitleLable.alpha = 1
             self.weightTitle.alpha = 1
         }, completion: nil)
-        
         UIView.animate(withDuration: 1, delay: 0.4, options: [.curveEaseInOut], animations: {
-            self.goalWeightTitleLabel.alpha = 1
-            self.goalTitle.alpha = 1
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 1, delay: 0.6, options: [.curveEaseInOut], animations: {
             self.timeTitleLabel.alpha = 1
             self.heightTitle.alpha = 1
         }, completion: nil)
@@ -101,10 +91,8 @@ class TestResultsView: UIViewController, NavigationProtocol {
         timeTitleLabel.alpha = alpha
         ageTitleLabel.alpha = alpha
         currentWeightTitleLable.alpha = alpha
-        goalWeightTitleLabel.alpha = alpha
         heightTitle.alpha = alpha
         ageTitle.alpha = alpha
-        goalTitle.alpha = alpha
         weightTitle.alpha = alpha
         agreedWithTestButton.alpha = alpha
         takeTestAgainButton.alpha = alpha
@@ -205,10 +193,10 @@ extension TestResultsView: TestResultOutput {
             gender = .female
         }
         print(userModel)
-        print(goalWeightTitleLabel)
+        //print(goalWeightTitleLabel)
         
-        if goalWeightTitleLabel != nil{
-            goalWeightTitleLabel.text = "\(userModel.goal) " + "kg".localized
+        if currentWeightTitleLable != nil{
+          //  goalWeightTitleLabel.text = "\(userModel.goal) " + "kg".localized
             currentWeightTitleLable.text = "\(userModel.currentWeight) " + "kg".localized
             timeTitleLabel.text = "\(userModel.height) " + "cm.".localized
             ageTitleLabel.text = "\(userModel.age)"

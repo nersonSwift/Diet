@@ -33,7 +33,6 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     let genderSelectionPage = GenderSelectorViewController.controllerInStoryboard(UIStoryboard(name: "GenderSelectorViewController", bundle: nil))
     let ageSelectionPage = SelectingViewController.controllerInStoryboard(UIStoryboard(name: "SelectingViewController", bundle: nil))
     let currentWeightSelectionPage = SelectingViewController.controllerInStoryboard(UIStoryboard(name: "SelectingViewController", bundle: nil))
-    let goalWeightSelectionPage = SelectingViewController.controllerInStoryboard(UIStoryboard(name: "SelectingViewController", bundle: nil))
     let heightSelectionPage = SelectingViewController.controllerInStoryboard(UIStoryboard(name: "SelectingViewController", bundle: nil))
     weak var currentViewController: UIViewController!
     
@@ -118,7 +117,6 @@ class TestPageView: UIPageViewController, NavigationProtocol {
         testPages.append(genderSelectionPage)
         testPages.append(ageSelectionPage)
         testPages.append(currentWeightSelectionPage)
-        testPages.append(goalWeightSelectionPage)
         testPages.append(heightSelectionPage)
     }
     
@@ -126,12 +124,10 @@ class TestPageView: UIPageViewController, NavigationProtocol {
         
         ageSelectionPage.testViewData = ageSelectionPageData
         currentWeightSelectionPage.testViewData = currentWeightSelectionPageData
-        goalWeightSelectionPage.testViewData = goalWeightSelectionPageData
         heightSelectionPage.testViewData = heigthSelectionPageData
         
         let _ = ageSelectionPage.view
         let _ = heightSelectionPage.view
-        let _ = goalWeightSelectionPage.view
         let _ = currentWeightSelectionPage.view
         
         handleBackButtonPressing()
@@ -161,19 +157,7 @@ class TestPageView: UIPageViewController, NavigationProtocol {
             self.scrollToNextViewController()
             userModel.currentWeight = self.currentWeightSelectionPageData.pickerData[index]
         }
-        
-        goalWeightSelectionPage.nextButtonPressed = { [unowned self] index in
-            
-            if userModel.currentWeight <= self.goalWeightSelectionPageData.pickerData[index] {
-                let alert = UIAlertController(title: "Error".localized, message: "You cant set goal bigger then your current weight".localized, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
-            } else {
-                self.scrollToNextViewController()
-                userModel.goal = self.goalWeightSelectionPageData.pickerData[index]
-            }
-        }
+    
         
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
             self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true){ nextViewController in
@@ -193,10 +177,6 @@ class TestPageView: UIPageViewController, NavigationProtocol {
         }
         
         currentWeightSelectionPage.backButtonPressed = {
-            self.scrollToPreviousViewController()
-        }
-        
-        goalWeightSelectionPage.backButtonPressed = {
             self.scrollToPreviousViewController()
         }
         

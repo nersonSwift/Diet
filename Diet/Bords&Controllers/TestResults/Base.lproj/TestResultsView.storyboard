@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +12,7 @@
         <!--Test Results View-->
         <scene sceneID="ZsZ-L8-Gii">
             <objects>
-                <viewController storyboardIdentifier="TestResultsView" id="Pb5-AJ-tzc" customClass="TestResultsView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestResultsView" id="Pb5-AJ-tzc" customClass="TestResultsView" customModule="Diet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vgf-A4-9ac"/>
                         <viewControllerLayoutGuide type="bottom" id="C3Z-aW-vko"/>
@@ -92,20 +93,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your goal" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjt-Gj-u0e">
-                                <rect key="frame" x="33" y="312" width="113" height="40"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your height" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92n-Y0-JfP">
-                                <rect key="frame" x="33" y="367" width="137" height="32"/>
+                                <rect key="frame" x="33" y="315" width="141" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55y-b6-LQc" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="319" y="261" width="23" height="40"/>
+                                <rect key="frame" x="329" y="261" width="13" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="E9Y-Q7-yUu"/>
                                 </constraints>
@@ -121,25 +116,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIp-ch-4cu" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="319" y="312" width="23" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BI-bZ-0xl" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
+                                <rect key="frame" x="329" y="210" width="13" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="M4x-9l-FMa"/>
+                                    <constraint firstAttribute="height" constant="40" id="Whh-dk-hRn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iW-sQ-fa3" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="318" y="363" width="23" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iW-sQ-fa3" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
+                                <rect key="frame" x="329" y="315" width="14" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fhA-tY-aSb"/>
                                 </constraints>
@@ -155,27 +149,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BI-bZ-0xl" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="319" y="210" width="23" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Whh-dk-hRn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="92n-Y0-JfP" firstAttribute="leading" secondItem="ERu-xN-HCN" secondAttribute="leadingMargin" constant="17" id="0lc-4o-9E9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bIp-ch-4cu" secondAttribute="trailing" constant="17" id="1kf-uO-pkT"/>
+                            <constraint firstItem="92n-Y0-JfP" firstAttribute="top" secondItem="Xhe-nG-t0l" secondAttribute="bottom" constant="18" id="24d-Hf-g7w"/>
                             <constraint firstItem="C3Z-aW-vko" firstAttribute="top" secondItem="poS-Rh-bIc" secondAttribute="bottom" priority="999" constant="14" id="2OY-y3-agm"/>
                             <constraint firstItem="55y-b6-LQc" firstAttribute="centerY" secondItem="Xhe-nG-t0l" secondAttribute="centerY" id="3iK-5W-6ip"/>
                             <constraint firstAttribute="trailingMargin" secondItem="55y-b6-LQc" secondAttribute="trailing" constant="17" id="4Nr-pb-Q0a"/>
@@ -183,21 +161,16 @@
                             <constraint firstItem="Xhe-nG-t0l" firstAttribute="leading" secondItem="ERu-xN-HCN" secondAttribute="leadingMargin" constant="17" id="Csf-5V-052"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0BI-bZ-0xl" secondAttribute="trailing" constant="17" id="DZr-NW-Eaf"/>
                             <constraint firstItem="Xhe-nG-t0l" firstAttribute="top" secondItem="mFW-3X-xD2" secondAttribute="bottom" constant="15" id="Dwc-MO-Qhi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0iW-sQ-fa3" secondAttribute="trailing" constant="18" id="GDM-ao-4Rb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0iW-sQ-fa3" secondAttribute="trailing" constant="16" id="GDM-ao-4Rb"/>
                             <constraint firstItem="55y-b6-LQc" firstAttribute="top" secondItem="0BI-bZ-0xl" secondAttribute="bottom" constant="11" id="JJO-PJ-8HJ"/>
-                            <constraint firstItem="92n-Y0-JfP" firstAttribute="top" secondItem="Mjt-Gj-u0e" secondAttribute="bottom" constant="15" id="MDu-3Q-I4r"/>
-                            <constraint firstItem="Mjt-Gj-u0e" firstAttribute="top" secondItem="Xhe-nG-t0l" secondAttribute="bottom" constant="15" id="OkQ-wE-nyu"/>
-                            <constraint firstItem="bIp-ch-4cu" firstAttribute="top" secondItem="55y-b6-LQc" secondAttribute="bottom" constant="11" id="WAm-AP-35N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="92n-Y0-JfP" secondAttribute="trailing" constant="185" id="RRc-lO-3bP"/>
                             <constraint firstItem="0iW-sQ-fa3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="92n-Y0-JfP" secondAttribute="trailing" constant="193.5" id="Zva-jy-Uj1"/>
-                            <constraint firstItem="bIp-ch-4cu" firstAttribute="centerY" secondItem="Mjt-Gj-u0e" secondAttribute="centerY" id="ade-oN-HqS"/>
                             <constraint firstItem="0BI-bZ-0xl" firstAttribute="top" secondItem="vgf-A4-9ac" secondAttribute="bottom" constant="190" id="b1m-1K-NH5"/>
                             <constraint firstItem="BLc-UY-KdP" firstAttribute="centerX" secondItem="ERu-xN-HCN" secondAttribute="centerX" id="bOx-cu-gK2"/>
-                            <constraint firstItem="0iW-sQ-fa3" firstAttribute="centerY" secondItem="92n-Y0-JfP" secondAttribute="centerY" id="bcE-rx-rKG"/>
+                            <constraint firstItem="0iW-sQ-fa3" firstAttribute="centerY" secondItem="92n-Y0-JfP" secondAttribute="centerY" constant="2" id="bcE-rx-rKG"/>
                             <constraint firstItem="mFW-3X-xD2" firstAttribute="top" secondItem="vgf-A4-9ac" secondAttribute="bottom" constant="190" id="k3x-zQ-HOd"/>
                             <constraint firstItem="mFW-3X-xD2" firstAttribute="leading" secondItem="ERu-xN-HCN" secondAttribute="leadingMargin" constant="17" id="kYN-WM-HST"/>
                             <constraint firstItem="0BI-bZ-0xl" firstAttribute="centerY" secondItem="mFW-3X-xD2" secondAttribute="centerY" id="kkU-8s-rjs"/>
-                            <constraint firstItem="Mjt-Gj-u0e" firstAttribute="leading" secondItem="ERu-xN-HCN" secondAttribute="leadingMargin" constant="17" id="o81-fq-TKS"/>
-                            <constraint firstItem="0iW-sQ-fa3" firstAttribute="top" secondItem="bIp-ch-4cu" secondAttribute="bottom" constant="11" id="uCx-pA-bMV"/>
                             <constraint firstItem="BLc-UY-KdP" firstAttribute="top" secondItem="vgf-A4-9ac" secondAttribute="bottom" constant="24" id="uuu-Rv-Ksv"/>
                             <constraint firstItem="poS-Rh-bIc" firstAttribute="leading" secondItem="ERu-xN-HCN" secondAttribute="leading" constant="25" id="w7y-7C-HA6"/>
                         </constraints>
@@ -210,8 +183,6 @@
                         <outlet property="genderIconImageView" destination="41r-nU-qnx" id="k4K-MG-lXJ"/>
                         <outlet property="genderTitle" destination="2uR-pL-6TI" id="tYA-8e-ErJ"/>
                         <outlet property="genderTitleLabel" destination="iVs-kn-Pdz" id="zBV-tV-szU"/>
-                        <outlet property="goalTitle" destination="Mjt-Gj-u0e" id="71w-c6-j6u"/>
-                        <outlet property="goalWeightTitleLabel" destination="bIp-ch-4cu" id="2Jg-2b-7ba"/>
                         <outlet property="heightTitle" destination="92n-Y0-JfP" id="wcv-wd-aTt"/>
                         <outlet property="takeTestAgainButton" destination="xze-AY-Q0v" id="p5S-hx-H3g"/>
                         <outlet property="timeTitleLabel" destination="0iW-sQ-fa3" id="ddb-rm-B5t"/>
@@ -220,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aR7-zv-3No" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="99"/>
+            <point key="canvasLocation" x="2512.8000000000002" y="98.50074962518741"/>
         </scene>
     </scenes>
 </document>

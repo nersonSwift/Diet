@@ -13,7 +13,6 @@ class UserModel: Object{
     @objc dynamic var ageS = 0
     @objc dynamic var currentWeightS = 0
     @objc dynamic var genderS = false
-    @objc dynamic var goalS = 0
     @objc dynamic var heightS = 0
     @objc dynamic var obesityIndextS = 0
     @objc dynamic var obesityTypeS = ""
@@ -50,17 +49,6 @@ class UserModel: Object{
         }
         get{
             return genderS
-        }
-    }
-    
-    var goal : Int{
-        set(goal) {
-            try! Realm().write {
-                goalS = goal
-            }
-        }
-        get{
-            return goalS
         }
     }
     
