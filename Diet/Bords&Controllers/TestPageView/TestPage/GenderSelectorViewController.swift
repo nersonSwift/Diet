@@ -52,7 +52,7 @@ class GenderSelectorViewController: UIViewController {
     var midLowLeafPosition: CGFloat = 0
     var bottomLeafPosition: CGFloat = 0
     var leavesImages = [UIImageView]()
-    var countOfLeavesImages = 5
+    var countOfLeavesImages = 4
     var genderStackViewStartPosition: CGFloat = 0
     var foodImageStartPosition: CGFloat = 0
     

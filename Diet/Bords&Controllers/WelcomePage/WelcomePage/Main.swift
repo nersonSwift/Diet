@@ -46,29 +46,29 @@ class Main: UIViewController, NavigationProtocol {
     fileprivate static let descriptionFont = UIFont(name: "Helvetica-Regular", size: 25.0) ?? UIFont.systemFont(ofSize: 14.0)
     fileprivate let items = [
         OnboardingItemInfo(informationImage: UIImage(named: "door")!,
-                           title: "Obesity index".localized,
-                           description: "Find out your obesity index. Our app precisely calculates index just for you!".localized,
+                           title: "Welcome!".localized,
+                           description: "Swipe left or tap on the button to learn about the main features of our application.".localized,
                            pageIcon: UIImage(named: "stretch")!,
                            color: #colorLiteral(red: 0, green: 0.7921568627, blue: 0.4549019608, alpha: 1),
                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "imt")!,
-                           title: "Test".localized,
-                           description: "Take a simple test and we will do our best to help you with diets.".localized,
+                           title: "BMI & daily caloric intake".localized,
+                           description: "We calculate your body mass index and tell about the condition of the body it signals.".localized,
                            pageIcon: UIImage(named: "clipboard")!,
                            color: #colorLiteral(red: 0.007843137255, green: 0.5019607843, blue: 0.5647058824, alpha: 1),
                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "rocion")!,
-                           title: "Stats".localized,
-                           description: "Get statistics of your parameters during your diet.".localized,
+                           title: "Personal ration".localized,
+                           description: "After the test is will be done, you will know your daily calorie intake and we will make the right diet plan.".localized,
                            pageIcon: UIImage(named: "chat_mini")!,
                            color: #colorLiteral(red: 0.937254902, green: 0.4352941176, blue: 0.4235294118, alpha: 1),
                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
         
         OnboardingItemInfo(informationImage: UIImage(named: "resip")!,
-                           title: "Result".localized,
-                           description: "With our help you can rapidly lose weight. Get started right now!".localized,
+                           title: "New recipes every week".localized,
+                           description: "Every week we will send new recipes, turn on notifications to not miss them.".localized,
                            pageIcon: UIImage(named: "resip")!,
                            color: #colorLiteral(red: 0.262745098, green: 0.5058823529, blue: 0.7568627451, alpha: 1),
                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont)
@@ -76,7 +76,6 @@ class Main: UIViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupPaperOnboardingView()
         createstStoregeBolls()
         resizeStorageBolls(namberView: counter - 1)
         selectView = createView(namberView: counter)

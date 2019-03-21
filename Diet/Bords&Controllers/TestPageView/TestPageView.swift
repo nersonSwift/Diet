@@ -58,6 +58,7 @@ class TestPageView: UIPageViewController, NavigationProtocol {
         UserDefaults.standard.set(true, forKey: "wereWelcomePagesShown")
         self.view.backgroundColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
         fillPages()
+        
         fillViewData()
         setViewControllers([testPages.first!], direction: .forward, animated: true, completion: nil)
         
@@ -250,13 +251,12 @@ extension TestPageView: UIPageViewControllerDataSource {
         guard testPages.count > nextIndex else { return nil }
         
         if let nextTestPage = testPages[nextIndex] as? SelectingViewController {
-            nextTestPage.stepLabel.text = "Step ".localized + "\(nextIndex + 1)" + " of 5".localized
+            nextTestPage.stepLabel.text = "Step ".localized + "\(nextIndex + 1)" + " of 4".localized
             nextTestPage.isReversed = false
             return nextTestPage
         }
         
         if let nextTestPage = testPages[nextIndex] as? GenderSelectorViewController {
-            //nextTestPage.isReversed = false
             return nextTestPage
         }
         return UIViewController()

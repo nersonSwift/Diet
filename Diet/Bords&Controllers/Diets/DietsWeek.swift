@@ -19,6 +19,7 @@ class DietsWeek: UIViewController, NavigationProtocol {
             }
         }
     }
+    let loadingVc = LoadingViewController()
     let fetchingQueue = DispatchQueue.global(qos: .utility)
     var networkService = NetworkService()
     var imageView: UIImageView!
@@ -40,8 +41,8 @@ class DietsWeek: UIViewController, NavigationProtocol {
     }
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        add(loadingVc)
         let scrollViewFrame = CGRect(x: 0,
                                      y: 0,
                                      width: view.frame.width,
@@ -150,6 +151,7 @@ class DietsWeek: UIViewController, NavigationProtocol {
                 scrollView.contentSize = CGSize(width: view.frame.width, height: collectionView!.frame.maxY)
             }
         }
+        loadingVc.remove()
     }
     
 }
