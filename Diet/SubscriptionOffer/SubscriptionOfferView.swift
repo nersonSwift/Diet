@@ -94,15 +94,6 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
         cardView.dropShadow(opacity: 0.3, offSet: CGSize(width: 1, height: 1), radius: 16)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "showDiets" {
-            if let destinationVc = segue.destination as? DietView {
-                destinationVc.accessStatus = .available
-            }
-        }
-    }
-    
     private func setupView() {
         
         arcView.makeCornerRadius(arcView.frame.height / 2)
@@ -156,14 +147,19 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
     }
     
     fileprivate func makePurhase(productId: String) {
+        
         if !navigation.subData.activeSub{
             let loadingVc = LoadingViewController()
             add(loadingVc)
             navigation.subData.goSub(){
                 loadingVc.remove()
-                self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
-                if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
-                    EventManager.sendEvent(with: AFEventStartTrial)
+                if self.navigation.subData.activeSub{
+                    
+                    self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                    if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
+                        self.navigation.realmData.userModel.trial = false
+                        EventManager.sendEvent(with: AFEventStartTrial)
+                    }
                 }
             }
         }else{

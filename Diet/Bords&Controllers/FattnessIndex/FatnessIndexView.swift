@@ -66,19 +66,6 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
         moveArrowsToStartPosition()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "showDiets" {
-            
-            if let destinationVc = segue.destination as? DietView {
-                destinationVc.accessStatus = .available
-                if let category = self.testResults?.fatnessCategory {
-                    destinationVc.bodyCategory = category
-                }
-            }
-        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let userMadel = navigation.realmData.userModel!

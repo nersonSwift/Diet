@@ -10,7 +10,6 @@
 		5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104D29A2237C5D8007AFE08 /* EventManager.swift */; };
 		51270383223A650900F98370 /* TestPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270382223A642600F98370 /* TestPageView.storyboard */; };
 		51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270392223A7C8A00F98370 /* TestResultsView.storyboard */; };
-		512703A2223AA59E00F98370 /* DietView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512703A1223A99BC00F98370 /* DietView.storyboard */; };
 		5159E98C2241055E0049B6B4 /* UIButtonP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5159E98B2241055E0049B6B4 /* UIButtonP.swift */; };
 		5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */; };
 		5170EDA5223AE95B00585F96 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA4223AE95B00585F96 /* Navigation.swift */; };
@@ -29,8 +28,6 @@
 		A50250D32178CB7200F674B3 /* TestViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250D22178CB7200F674B3 /* TestViewData.swift */; };
 		A50250D52178E79000F674B3 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250D42178E79000F674B3 /* TriangleView.swift */; };
 		A51CC74E21BFD75100FFCFD5 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51CC74D21BFD75100FFCFD5 /* VisualEffectBlur.swift */; };
-		A51CC75021BFFFC000FFCFD5 /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51CC74F21BFFFC000FFCFD5 /* LaunchManager.swift */; };
-		A51F6EA221B96933000CE5D0 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F6EA121B96933000CE5D0 /* DietView.swift */; };
 		A53698D82211CB8F00612697 /* DishNameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53698D72211CB8F00612697 /* DishNameHeaderView.swift */; };
 		A53698DA2211CBB100612697 /* DishNameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53698D92211CBB100612697 /* DishNameHeaderView.xib */; };
 		A53B1B4721B58A770036AD00 /* FatnessIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B1B4621B58A770036AD00 /* FatnessIndexView.swift */; };
@@ -72,8 +69,6 @@
 		A58CC546216CF65200B20CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58CC544216CF65200B20CE9 /* LaunchScreen.storyboard */; };
 		A597BE5F220C669500389207 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597BE5D220C669500389207 /* DishCell.swift */; };
 		A597BE60220C669500389207 /* DishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A597BE5E220C669500389207 /* DishCell.xib */; };
-		A597BE69220C7F7100389207 /* WeekRationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597BE67220C7F7100389207 /* WeekRationCell.swift */; };
-		A597BE6A220C7F7100389207 /* WeekRationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A597BE68220C7F7100389207 /* WeekRationCell.xib */; };
 		A5A0C7A821BE7D2800C9035C /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0C7A721BE7D2800C9035C /* UPCarouselFlowLayout.swift */; };
 		A5A0C7AA21BE96A300C9035C /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0C7A921BE96A300C9035C /* Subscription.swift */; };
 		A5A0C7AD21BE977B00C9035C /* SubscriptionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0C7AC21BE977B00C9035C /* SubscriptionNetworkService.swift */; };
@@ -107,7 +102,6 @@
 		51270382223A642600F98370 /* TestPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestPageView.storyboard; sourceTree = "<group>"; };
 		51270391223A7C8A00F98370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TestResultsView.storyboard; sourceTree = "<group>"; };
 		51270394223A7C9300F98370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TestResultsView.strings; sourceTree = "<group>"; };
-		512703A1223A99BC00F98370 /* DietView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = DietView.storyboard; path = Cells/DietView.storyboard; sourceTree = "<group>"; };
 		5159E98B2241055E0049B6B4 /* UIButtonP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonP.swift; sourceTree = "<group>"; };
 		5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeView.storyboard; sourceTree = "<group>"; };
 		5170EDA4223AE95B00585F96 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
@@ -127,8 +121,6 @@
 		A50250D22178CB7200F674B3 /* TestViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewData.swift; sourceTree = "<group>"; };
 		A50250D42178E79000F674B3 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		A51CC74D21BFD75100FFCFD5 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
-		A51CC74F21BFFFC000FFCFD5 /* LaunchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchManager.swift; sourceTree = "<group>"; };
-		A51F6EA121B96933000CE5D0 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		A53698D72211CB8F00612697 /* DishNameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishNameHeaderView.swift; sourceTree = "<group>"; };
 		A53698D92211CBB100612697 /* DishNameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishNameHeaderView.xib; sourceTree = "<group>"; };
 		A53B1B4621B58A770036AD00 /* FatnessIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatnessIndexView.swift; sourceTree = "<group>"; };
@@ -173,8 +165,6 @@
 		A58CC547216CF65200B20CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A597BE5D220C669500389207 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
 		A597BE5E220C669500389207 /* DishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishCell.xib; sourceTree = "<group>"; };
-		A597BE67220C7F7100389207 /* WeekRationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRationCell.swift; sourceTree = "<group>"; };
-		A597BE68220C7F7100389207 /* WeekRationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekRationCell.xib; sourceTree = "<group>"; };
 		A5A0C7A721BE7D2800C9035C /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		A5A0C7A921BE96A300C9035C /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		A5A0C7AC21BE977B00C9035C /* SubscriptionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionNetworkService.swift; sourceTree = "<group>"; };
@@ -266,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				A58CC53F216CF65100B20CE9 /* Main.storyboard */,
-				A50250CA2178B31400F674B3 /* WelcomePage */,
+				A548E9D52177783800FC62EE /* Main.swift */,
 			);
 			path = WelcomePage;
 			sourceTree = "<group>";
@@ -278,14 +268,6 @@
 				65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A50250CA2178B31400F674B3 /* WelcomePage */ = {
-			isa = PBXGroup;
-			children = (
-				A548E9D52177783800FC62EE /* Main.swift */,
-			);
-			path = WelcomePage;
 			sourceTree = "<group>";
 		};
 		A50250D12178C84800F674B3 /* TestPage */ = {
@@ -359,8 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				A5662AC721BAA3DF00DCD511 /* Cells */,
-				512703A1223A99BC00F98370 /* DietView.storyboard */,
-				A51F6EA121B96933000CE5D0 /* DietView.swift */,
 				51CF50D82242369100A2ABC9 /* DietsWeek.storyboard */,
 				51CF50DA224236C200A2ABC9 /* DietsWeek.swift */,
 				51CF50E02243818E00A2ABC9 /* ColletcionResipe.swift */,
@@ -373,8 +353,6 @@
 			children = (
 				A597BE5D220C669500389207 /* DishCell.swift */,
 				A597BE5E220C669500389207 /* DishCell.xib */,
-				A597BE67220C7F7100389207 /* WeekRationCell.swift */,
-				A597BE68220C7F7100389207 /* WeekRationCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -447,7 +425,6 @@
 			isa = PBXGroup;
 			children = (
 				A58CC53B216CF65100B20CE9 /* AppDelegate.swift */,
-				A51CC74F21BFFFC000FFCFD5 /* LaunchManager.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -611,7 +588,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53698DA2211CBB100612697 /* DishNameHeaderView.xib in Resources */,
-				A597BE6A220C7F7100389207 /* WeekRationCell.xib in Resources */,
 				A50250CC2178B84B00F674B3 /* SelectingViewController.storyboard in Resources */,
 				51270383223A650900F98370 /* TestPageView.storyboard in Resources */,
 				A57C146621CBEA4500B810BE /* GenderSelectorViewController.storyboard in Resources */,
@@ -622,7 +598,6 @@
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
 				51CF50D92242369100A2ABC9 /* DietsWeek.storyboard in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
-				512703A2223AA59E00F98370 /* DietView.storyboard in Resources */,
 				51F2E330223D957F00C08D0E /* FatnessIndexView.storyboard in Resources */,
 				51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */,
 				5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */,
@@ -708,7 +683,6 @@
 				A548E9D22177744200FC62EE /* UIViewControllerExtension.swift in Sources */,
 				A55BFF9121FA0AFD00D4364F /* Configuring.swift in Sources */,
 				A5A0C7AA21BE96A300C9035C /* Subscription.swift in Sources */,
-				A51CC75021BFFFC000FFCFD5 /* LaunchManager.swift in Sources */,
 				A55BFF9321FA0AFD00D4364F /* ConstraintsHelper.swift in Sources */,
 				A55E85AC220DC29E007714E3 /* StepCell.swift in Sources */,
 				A51CC74E21BFD75100FFCFD5 /* VisualEffectBlur.swift in Sources */,
@@ -716,7 +690,6 @@
 				A5B2D35621D22EF900378F54 /* DietsEndPoint.swift in Sources */,
 				A54DC0D42204466100D7EEE9 /* CGFloatExtention.swift in Sources */,
 				A5C25CC622116FBD004E0BC3 /* DietType.swift in Sources */,
-				A51F6EA221B96933000CE5D0 /* DietView.swift in Sources */,
 				A580F85621E777BE00C0AE66 /* ImageNetworkService.swift in Sources */,
 				A5657E0121E647AE00B688CC /* ImageAttachment.swift in Sources */,
 				A589FB0221C7AFAC0035E80D /* NutritionValue.swift in Sources */,
@@ -756,7 +729,6 @@
 				A58CC53C216CF65100B20CE9 /* AppDelegate.swift in Sources */,
 				5170EDA7223AE96800585F96 /* NavigationProtocol.swift in Sources */,
 				A50250D52178E79000F674B3 /* TriangleView.swift in Sources */,
-				A597BE69220C7F7100389207 /* WeekRationCell.swift in Sources */,
 				A55BFF9521FA0AFD00D4364F /* PageContainer.swift in Sources */,
 				A5A1182921C2AA88003843A1 /* SubscriptionOfferView.swift in Sources */,
 				A5EF446721CA96D5009B4635 /* RecipeView.swift in Sources */,

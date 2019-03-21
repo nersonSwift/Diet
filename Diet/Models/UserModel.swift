@@ -17,7 +17,7 @@ class UserModel: Object{
     @objc dynamic var obesityIndextS = 0
     @objc dynamic var obesityTypeS = ""
     @objc dynamic var trialS = true
-    @objc dynamic var subS = false
+    @objc dynamic var subS = true
     
     var age : Int{
         set(age) {

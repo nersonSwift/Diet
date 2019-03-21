@@ -26,38 +26,40 @@ class SubData{
     }
     
     func refrash(completion: (()->())?){
-        
+        activeSub = false
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: ProductId.sharedSecret.rawValue)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             
             if case .success(let receipt) = result {
-                
-                let purchaseResult = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable,
-                                                                       productId: ProductId.popular.rawValue,
-                                                                       inReceipt: receipt)
-                
-                switch purchaseResult {
-                case .purchased(_, let receiptItems):
-                    self.activeSub = true
-                    let trial = receiptItems.filter { $0.isTrialPeriod == true}
-                    let dateEndTrial = trial[0].purchaseDate + 60 * 60 * 24 * 3
-                    if dateEndTrial > Date(){
-                        self.activeTrial = true
+                for i in [ProductId.popular, ProductId.cheap]{
+                    let purchaseResult = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable,
+                                                                           productId: i.rawValue,
+                                                                           inReceipt: receipt)
+                    
+                    switch purchaseResult {
+                    case .purchased(_, let receiptItems):
+                        self.activeSub = true
+                        let trial = receiptItems.filter { $0.isTrialPeriod == true}
+                        if trial.count > 0{
+                            let dateEndTrial = trial[0].purchaseDate + 60 * 60 * 24 * 3
+                            if dateEndTrial > Date(){
+                                self.activeTrial = true
+                            }
+                        }
+                    case .expired(let expiryDate):
+                        print("Product is expired since \(expiryDate)")
+                    case .notPurchased:
+                        print("This product has never been purchased")
                     }
-                case .expired(let expiryDate):
-                    print("Product is expired since \(expiryDate)")
-                    self.activeSub = false
-                case .notPurchased:
-                    print("This product has never been purchased")
-                    self.activeSub = false
                 }
-            }
             completion?()
+            }
         }
     }
     
     func goSub(completion: (()->())?){
         SwiftyStoreKit.purchaseProduct(ProductId.popular.rawValue, atomically: true){ result in
+            
             switch result{
             case .success(let purchase):
                 if purchase.needsFinishTransaction {
