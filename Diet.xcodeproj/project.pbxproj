@@ -15,6 +15,9 @@
 		5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */; };
 		5170EDA5223AE95B00585F96 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA4223AE95B00585F96 /* Navigation.swift */; };
 		5170EDA7223AE96800585F96 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA6223AE96800585F96 /* NavigationProtocol.swift */; };
+		51CF50D92242369100A2ABC9 /* DietsWeek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CF50D82242369100A2ABC9 /* DietsWeek.storyboard */; };
+		51CF50DB224236C200A2ABC9 /* DietsWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF50DA224236C200A2ABC9 /* DietsWeek.swift */; };
+		51CF50E12243818E00A2ABC9 /* ColletcionResipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF50E02243818E00A2ABC9 /* ColletcionResipe.swift */; };
 		51F2E32D223BECF000C08D0E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E32C223BECF000C08D0E /* UserModel.swift */; };
 		51F2E32F223BEEAA00C08D0E /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E32E223BEEAA00C08D0E /* RealmData.swift */; };
 		51F2E330223D957F00C08D0E /* FatnessIndexView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F2E332223D957F00C08D0E /* FatnessIndexView.storyboard */; };
@@ -109,6 +112,9 @@
 		5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeView.storyboard; sourceTree = "<group>"; };
 		5170EDA4223AE95B00585F96 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		5170EDA6223AE96800585F96 /* NavigationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
+		51CF50D82242369100A2ABC9 /* DietsWeek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietsWeek.storyboard; sourceTree = "<group>"; };
+		51CF50DA224236C200A2ABC9 /* DietsWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietsWeek.swift; sourceTree = "<group>"; };
+		51CF50E02243818E00A2ABC9 /* ColletcionResipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColletcionResipe.swift; sourceTree = "<group>"; };
 		51F2E32C223BECF000C08D0E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		51F2E32E223BEEAA00C08D0E /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		51F2E331223D957F00C08D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FatnessIndexView.storyboard; sourceTree = "<group>"; };
@@ -355,6 +361,9 @@
 				A5662AC721BAA3DF00DCD511 /* Cells */,
 				512703A1223A99BC00F98370 /* DietView.storyboard */,
 				A51F6EA121B96933000CE5D0 /* DietView.swift */,
+				51CF50D82242369100A2ABC9 /* DietsWeek.storyboard */,
+				51CF50DA224236C200A2ABC9 /* DietsWeek.swift */,
+				51CF50E02243818E00A2ABC9 /* ColletcionResipe.swift */,
 			);
 			path = Diets;
 			sourceTree = "<group>";
@@ -611,6 +620,7 @@
 				A58CC543216CF65200B20CE9 /* Assets.xcassets in Resources */,
 				A5D4F22E21D0FDCF002195C5 /* SubscriptionOfferView.storyboard in Resources */,
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
+				51CF50D92242369100A2ABC9 /* DietsWeek.storyboard in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
 				512703A2223AA59E00F98370 /* DietView.storyboard in Resources */,
 				51F2E330223D957F00C08D0E /* FatnessIndexView.storyboard in Resources */,
@@ -713,6 +723,7 @@
 				51F2E32F223BEEAA00C08D0E /* RealmData.swift in Sources */,
 				A55BFF9721FA0AFD00D4364F /* OnboardingContantViewItem.swift in Sources */,
 				A50250D02178C79D00F674B3 /* TestPageView.swift in Sources */,
+				51CF50DB224236C200A2ABC9 /* DietsWeek.swift in Sources */,
 				A53B1B4721B58A770036AD00 /* FatnessIndexView.swift in Sources */,
 				A548E9D42177767900FC62EE /* NSObjectExtension.swift in Sources */,
 				5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */,
@@ -751,6 +762,7 @@
 				A5EF446721CA96D5009B4635 /* RecipeView.swift in Sources */,
 				A589FB0021C7AF8D0035E80D /* DietWeek.swift in Sources */,
 				A5B9E2A822145F4400CBB46C /* ScrollingStackController.swift in Sources */,
+				51CF50E12243818E00A2ABC9 /* ColletcionResipe.swift in Sources */,
 				A5A0C7AD21BE977B00C9035C /* SubscriptionNetworkService.swift in Sources */,
 				A5E69C5621CA434F001649DD /* DietNetworkService.swift in Sources */,
 				A5D858C021AF055A008A5A2D /* DoubleExtentions.swift in Sources */,

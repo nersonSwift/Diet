@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="sO7-Ab-xKc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CwN-RM-tzX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZn-3s-enK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZx-wK-Bo0" userLabel="back image container">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="178"/>
@@ -40,11 +40,11 @@
                                             <constraint firstAttribute="trailing" secondItem="WBo-xM-j7F" secondAttribute="trailing" id="uus-zR-aR1"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-Jr-CUD">
-                                        <rect key="frame" x="0.0" y="260" width="375" height="416"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-Jr-CUD">
+                                        <rect key="frame" x="0.0" y="260" width="375" height="840"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="416" id="odS-iq-2uh"/>
+                                            <constraint firstAttribute="height" constant="840" id="odS-iq-2uh"/>
                                         </constraints>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eup-ui-g1l">
@@ -100,6 +100,7 @@
                             <constraint firstItem="0yi-Jr-CUD" firstAttribute="leading" secondItem="CwN-RM-tzX" secondAttribute="leading" id="x0n-uw-My0"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="375" height="1100"/>
                     <connections>
                         <outlet property="dietBackImageView" destination="WBo-xM-j7F" id="c5e-1Y-c1F"/>
                         <outlet property="dietDescriptionLabel" destination="93A-Oe-mqQ" id="1nW-vL-R65"/>
@@ -112,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7F3-NW-0BB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4076" y="99"/>
+            <point key="canvasLocation" x="4076" y="98.050974512743636"/>
         </scene>
     </scenes>
     <resources>

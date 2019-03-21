@@ -1,8 +1,8 @@
 //
-//  WeekRationCell.swift
+//  ColletionResipe.swift
 //  Diet
 //
-//  Created by Даниил on 07/02/2019.
+//  Created by Александр Сенин on 21/03/2019.
 //  Copyright © 2019 Даниил. All rights reserved.
 //
 
@@ -10,50 +10,58 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class WeekRationCell: UITableViewCell {
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    static var identifier = "WeekRationCell"
-    let fetchingQueue = DispatchQueue.global(qos: .utility)
-    var cachedImage = NSCache<AnyObject, AnyObject>()
+class ColletcionResipe: NSObject{
     var cellTapped: ((_ dish: Dish) -> Void)?
-    var weekDishes: [Dish]! {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    var day: DietWeek.Day!
+    var cachedImage = NSCache<AnyObject, AnyObject>()
+    var collectionView: UICollectionView!
+    var view: UIView!
+    let fetchingQueue = DispatchQueue.global(qos: .utility)
     
-    override func awakeFromNib() {
+    init(day: DietWeek.Day, view: UIView) {
+        super.init()
         
-        super.awakeFromNib()
-        selectionStyle = .none
-        collectionView.delegate = self
+        self.day = day
+        self.view = view
+        
+        let collectionViewFrame = CGRect(x: 0,
+                                         y: view.frame.height,
+                                         width: view.frame.width,
+                                         height: 250)
+        let collectionLayout = UICollectionViewFlowLayout()
+        collectionLayout.scrollDirection = .horizontal
+        collectionLayout.sectionInset.left = view.frame.width * 0.015
+        collectionLayout.sectionInset.right = view.frame.width * 0.015
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
+        collectionView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        collectionView.frame = collectionViewFrame
         collectionView.dataSource = self
+        collectionView.delegate = self
+        
         collectionView.register(UINib(nibName: "DishCell", bundle: nil), forCellWithReuseIdentifier: DishCell.identifier)
+        
     }
+
 }
 
-extension WeekRationCell: UICollectionViewDelegateFlowLayout {
+extension ColletcionResipe: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 250)
     }
 }
 
-extension WeekRationCell: UICollectionViewDelegate {
+extension ColletcionResipe: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellTapped?(day.dishes[indexPath.row])
         
-        cellTapped?(weekDishes[indexPath.row])
     }
 }
 
-extension WeekRationCell: UICollectionViewDataSource {
-    
+extension ColletcionResipe: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let dishes = weekDishes else { return 0 }
-        return dishes.count
+        return day.dishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,7 +71,7 @@ extension WeekRationCell: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let dish = weekDishes[indexPath.row]
+        let dish = day.dishes[indexPath.row]
         
         cell.dishNameLabel.text = dish.name
         cell.dishCaloriesLabel.text = "\(dish.nutritionValue.calories)" + " kCal.".localized
@@ -91,4 +99,6 @@ extension WeekRationCell: UICollectionViewDataSource {
         }
         return cell
     }
+    
 }
+

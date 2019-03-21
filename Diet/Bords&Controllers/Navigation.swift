@@ -19,12 +19,14 @@ class Navigation{
     }
     
     init(viewController: UIViewController) {
+        
         controllers.append(viewController)
         let main = controllers[0] as! Main
         let launchView = main.launchView
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown"){
             if UserDefaults.standard.bool(forKey: "testShown"){
                 subData.refrash(){
+                    
                     if self.subData.activeSub{
                         self.transitionToView(viewControllerType: DietView(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()

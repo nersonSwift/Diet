@@ -26,6 +26,7 @@ class SubData{
     }
     
     func refrash(completion: (()->())?){
+        
         let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: ProductId.sharedSecret.rawValue)
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             

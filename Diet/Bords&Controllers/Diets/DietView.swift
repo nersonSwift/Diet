@@ -96,7 +96,6 @@ class DietView: UIViewController, NavigationProtocol{
                 networkService.getDiet(.balance)
             }
         }
-        
         add(loadingVc)
     }
     
@@ -138,6 +137,7 @@ class DietView: UIViewController, NavigationProtocol{
         rationsTableView.delegate = self
         rationsTableView.isScrollEnabled = false
         topScrollView.bounces = false
+        topScrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height * 2)
         rationsTableView.register(UINib(nibName: "WeekRationCell", bundle: nil), forCellReuseIdentifier: WeekRationCell.identifier)
         topScrollView.delegate = self
     }

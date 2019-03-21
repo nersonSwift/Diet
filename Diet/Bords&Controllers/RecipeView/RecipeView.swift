@@ -70,7 +70,7 @@ class RecipeView: UIViewController, NavigationProtocol{
     }
     
     @objc func closeButtonPressed() {
-        navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+        navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
     }
 }
 

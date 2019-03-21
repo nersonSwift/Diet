@@ -101,10 +101,6 @@ class TestResultsView: UIViewController, NavigationProtocol {
         genderTitle.alpha = alpha
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
     fileprivate func showRetryableErrorAlert(with message: String, retryAction: @escaping () -> Void) {
         
         let alert = UIAlertController(title: "Error".localized, message: message, preferredStyle: .alert)
@@ -192,11 +188,7 @@ extension TestResultsView: TestResultOutput {
         if userModel.gender{
             gender = .female
         }
-        print(userModel)
-        //print(goalWeightTitleLabel)
-        
         if currentWeightTitleLable != nil{
-          //  goalWeightTitleLabel.text = "\(userModel.goal) " + "kg".localized
             currentWeightTitleLable.text = "\(userModel.currentWeight) " + "kg".localized
             timeTitleLabel.text = "\(userModel.height) " + "cm.".localized
             ageTitleLabel.text = "\(userModel.age)"
