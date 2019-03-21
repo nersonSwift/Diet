@@ -133,9 +133,9 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
         }
         tap = true
         if navigation.subData.activeSub{
-            navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
-        }else{
             navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+        }else{
+            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
         }
         tap = false
     }

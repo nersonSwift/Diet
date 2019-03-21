@@ -219,7 +219,7 @@ class Main: UIViewController, NavigationProtocol {
             if self.counter < 3{
             self.counter += 1
             self.nextView = self.createView(namberView: self.counter)
-            self.animView(namberView: self.counter)
+            self.animView(namberView: self.counter - 1)
             }else{
                 EventManager.sendEvent(with: "User saw welcome screen")
                 self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)

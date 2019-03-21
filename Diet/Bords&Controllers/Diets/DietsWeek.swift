@@ -80,9 +80,9 @@ class DietsWeek: UIViewController, NavigationProtocol {
     func seting(){
         
         let lableFoundationFrame = CGRect(x: view.frame.width * 0.015,
-                            y: imageView.frame.height - 50,
-                            width: view.frame.width * 0.97,
-                            height: 0)
+                                          y: imageView.frame.height - 50,
+                                          width: view.frame.width * 0.97,
+                                          height: 0)
         let lableFoundation = UIView(frame: lableFoundationFrame)
         lableFoundation.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         lableFoundation.layer.shadowRadius = 4

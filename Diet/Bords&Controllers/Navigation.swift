@@ -28,7 +28,7 @@ class Navigation{
                 subData.refrash(){
                     
                     if self.subData.activeSub{
-                        self.transitionToView(viewControllerType: DietView(), animated: false, completion: { nextViewController in
+                        self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
                         }, special: nil)
                     }else{

@@ -161,13 +161,13 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
             add(loadingVc)
             navigation.subData.goSub(){
                 loadingVc.remove()
-                self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+                self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
                 if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                     EventManager.sendEvent(with: AFEventStartTrial)
                 }
             }
         }else{
-            self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+            //self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
         }
     }
     
@@ -180,7 +180,7 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
         if navigation.subData.activeSub{
-            self.navigation.transitionToView(viewControllerType: DietView(), animated: true, special: nil)
+            self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
         }else{
             self.showErrorAlert(for: .noActiveSubscription)
         }

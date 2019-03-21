@@ -51,8 +51,8 @@ class SubData{
                     print("This product has never been purchased")
                     self.activeSub = false
                 }
-                completion?()
             }
+            completion?()
         }
     }
     

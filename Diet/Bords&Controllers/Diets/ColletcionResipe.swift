@@ -33,6 +33,8 @@ class ColletcionResipe: NSObject{
         collectionLayout.sectionInset.left = view.frame.width * 0.015
         collectionLayout.sectionInset.right = view.frame.width * 0.015
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         collectionView.frame = collectionViewFrame
         collectionView.dataSource = self
