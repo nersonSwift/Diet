@@ -16,6 +16,7 @@ protocol RecipeReciver: class {
 }
 
 class RecipeView: UIViewController, NavigationProtocol{
+    var sub: Bool! = true
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {

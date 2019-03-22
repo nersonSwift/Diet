@@ -17,6 +17,7 @@ struct FatnessCategory {
 }
 
 class FatnessIndexView: UIViewController, NavigationProtocol{
+    var sub: Bool! = false
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {

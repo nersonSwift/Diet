@@ -18,6 +18,7 @@ struct ModelMainView {
 }
 
 class Main: UIViewController, NavigationProtocol {
+    var sub: Bool! = false
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {

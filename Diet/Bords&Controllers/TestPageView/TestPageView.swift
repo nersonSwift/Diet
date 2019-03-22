@@ -15,6 +15,7 @@ protocol TestResultOutput: class {
 }
 
 class TestPageView: UIPageViewController, NavigationProtocol {
+    var sub: Bool! = false
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {

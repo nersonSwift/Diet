@@ -10,6 +10,7 @@ import UIKit
 
 protocol NavigationProtocol{
     var navigation: Navigation! {get set}
+    var sub: Bool! {get}
     static func storyboardInstance(navigation: Navigation) -> UIViewController?
 }
 

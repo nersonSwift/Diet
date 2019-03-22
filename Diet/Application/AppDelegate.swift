@@ -68,18 +68,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 EventManager.sendEvent(with: AFEventSubscribe)
                 navigation.realmData.userModel.sub = false
             }
-            if (navigation.selectView is DietsWeek) || (navigation.selectView is RecipeView){
+            let navigationView = navigation.selectView as! NavigationProtocol
+            if navigationView.sub{
                 navigation.subData.refrash(){
                     
                     print(navigation.subData.activeSub)
                     
                     if !navigation.subData.activeSub{
                         DispatchQueue.main.async {
-                            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+                            if navigationView.sub{
+                                navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+                            }
                         }
                     }
                 }
-                
             }
         }
         

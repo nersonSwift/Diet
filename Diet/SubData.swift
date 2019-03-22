@@ -38,6 +38,7 @@ class SubData{
                     
                     switch purchaseResult {
                     case .purchased(_, let receiptItems):
+                        print(receiptItems)
                         self.activeSub = true
                         let trial = receiptItems.filter { $0.isTrialPeriod == true}
                         if trial.count > 0{

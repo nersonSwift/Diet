@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 
 class DietsWeek: UIViewController, NavigationProtocol {
+    var sub: Bool! = true
     var navigation: Navigation!
     var diet: Diet?{
         didSet {

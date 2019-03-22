@@ -13,6 +13,7 @@ import SafariServices
 import AppsFlyerLib
 
 class SubscriptionOfferView: UIViewController, NavigationProtocol {
+    var sub: Bool! = false
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {
