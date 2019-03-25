@@ -28,6 +28,7 @@ class DietsWeek: UIViewController, NavigationProtocol {
     var cachedImage = NSCache<AnyObject, AnyObject>()
     var cellTapped: ((_ dish: Dish) -> Void)?
     var couter = 0
+    var body: CategoryName!
     var weekColleticonsResipe: [ColletcionResipe] = []
     let weekName = ["Monday".localized,     "Tuesday".localized,
                     "Wednesday".localized,  "Thursday".localized,
@@ -44,6 +45,7 @@ class DietsWeek: UIViewController, NavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         add(loadingVc)
+        
         let scrollViewFrame = CGRect(x: 0,
                                      y: 0,
                                      width: view.frame.width,
@@ -54,16 +56,33 @@ class DietsWeek: UIViewController, NavigationProtocol {
         scrollView.delegate = self
         view.addSubview(scrollView)
         
+        let backButtonFrame = CGRect(x: view.frame.width * 0.015,
+                                     y: view.frame.height * 0.08,
+                                     width: view.frame.width * 0.05,
+                                     height: (view.frame.width * 0.05) * 1.7)
+        let backButton = UIButtonP(frame: backButtonFrame)
+        backButton.layer.contents = UIImage(named: "arrow")?.cgImage
+        backButton.alpha = 0.7
+        backButton.layer.shadowRadius = 3
+        backButton.layer.shadowOpacity = 0.4
+        backButton.layer.borderWidth = 0
+        backButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        backButton.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        backButton.addClosure(event: .touchUpInside){
+            self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+        }
+        view.addSubview(backButton)
+        
         let imageViewFrame = CGRect(x: 0,
                                     y: -20,
                                     width: view.frame.width,
                                     height: view.frame.width * 0.6)
+        
         imageView = UIImageView(frame: imageViewFrame)
         imageView.image = UIImage(named: "back")
         scrollView.addSubview(imageView)
         networkService.dietServiceDelegate = self
-        let bodyCategory = CategoryName.init(rawValue: navigation.realmData.userModel!.obesityType)!
-        switch bodyCategory {
+        switch body!{
         case .underweight:
             networkService.getDiet(.power)
         case .normal:
@@ -76,6 +95,27 @@ class DietsWeek: UIViewController, NavigationProtocol {
             networkService.getDiet(.superFit)
         case .undefined:
             networkService.getDiet(.balance)
+        }
+        addSwipe()
+    }
+    
+    func addSwipe() {
+        let directions: [UISwipeGestureRecognizer.Direction] = [.right, .left]
+        for direction in directions {
+            let gesture = UISwipeGestureRecognizer(target: self,
+                                                   action: #selector(respondToSwipeGesture))
+            gesture.direction = direction
+            self.view.addGestureRecognizer(gesture)
+        }
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case .right: break
+                //self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+            default: break
+            }
         }
     }
     

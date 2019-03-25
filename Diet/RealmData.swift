@@ -12,6 +12,7 @@ import RealmSwift
 class RealmData{
     var realm: Realm!
     var userModel: UserModel!
+    var dishModels: Results<DishModel>!
     
     init(){
         do{
@@ -32,6 +33,8 @@ class RealmData{
                 userModel = results[0]
                 
             }
+            
+            dishModels = realm.objects(DishModel.self)
             
         }catch{}
     }

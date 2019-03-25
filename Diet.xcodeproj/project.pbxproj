@@ -10,10 +10,17 @@
 		5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104D29A2237C5D8007AFE08 /* EventManager.swift */; };
 		51270383223A650900F98370 /* TestPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270382223A642600F98370 /* TestPageView.storyboard */; };
 		51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51270392223A7C8A00F98370 /* TestResultsView.storyboard */; };
+		5141CE762248FA0A00CD2DBA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5141CE752248FA0A00CD2DBA /* FavoritesView.swift */; };
+		5141CE782248FA1D00CD2DBA /* FavoritesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5141CE772248FA1D00CD2DBA /* FavoritesView.storyboard */; };
+		5141CE7A2248FB9800CD2DBA /* DishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5141CE792248FB9800CD2DBA /* DishModel.swift */; };
+		5141CE7C2248FD6C00CD2DBA /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5141CE7B2248FD6C00CD2DBA /* RecipeModel.swift */; };
 		5159E98C2241055E0049B6B4 /* UIButtonP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5159E98B2241055E0049B6B4 /* UIButtonP.swift */; };
 		5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */; };
 		5170EDA5223AE95B00585F96 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA4223AE95B00585F96 /* Navigation.swift */; };
 		5170EDA7223AE96800585F96 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA6223AE96800585F96 /* NavigationProtocol.swift */; };
+		51C37BE522450B5D003EF665 /* SelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C37BE422450B5D003EF665 /* SelectMenu.swift */; };
+		51C37BE722450B71003EF665 /* SelectMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C37BE622450B71003EF665 /* SelectMenu.storyboard */; };
+		51C37BE922450D8B003EF665 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C37BE822450D8B003EF665 /* Die.swift */; };
 		51CF50D92242369100A2ABC9 /* DietsWeek.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51CF50D82242369100A2ABC9 /* DietsWeek.storyboard */; };
 		51CF50DB224236C200A2ABC9 /* DietsWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF50DA224236C200A2ABC9 /* DietsWeek.swift */; };
 		51CF50E12243818E00A2ABC9 /* ColletcionResipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF50E02243818E00A2ABC9 /* ColletcionResipe.swift */; };
@@ -102,10 +109,17 @@
 		51270382223A642600F98370 /* TestPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestPageView.storyboard; sourceTree = "<group>"; };
 		51270391223A7C8A00F98370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TestResultsView.storyboard; sourceTree = "<group>"; };
 		51270394223A7C9300F98370 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TestResultsView.strings; sourceTree = "<group>"; };
+		5141CE752248FA0A00CD2DBA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		5141CE772248FA1D00CD2DBA /* FavoritesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesView.storyboard; sourceTree = "<group>"; };
+		5141CE792248FB9800CD2DBA /* DishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModel.swift; sourceTree = "<group>"; };
+		5141CE7B2248FD6C00CD2DBA /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		5159E98B2241055E0049B6B4 /* UIButtonP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonP.swift; sourceTree = "<group>"; };
 		5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeView.storyboard; sourceTree = "<group>"; };
 		5170EDA4223AE95B00585F96 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		5170EDA6223AE96800585F96 /* NavigationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
+		51C37BE422450B5D003EF665 /* SelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMenu.swift; sourceTree = "<group>"; };
+		51C37BE622450B71003EF665 /* SelectMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectMenu.storyboard; sourceTree = "<group>"; };
+		51C37BE822450D8B003EF665 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		51CF50D82242369100A2ABC9 /* DietsWeek.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietsWeek.storyboard; sourceTree = "<group>"; };
 		51CF50DA224236C200A2ABC9 /* DietsWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietsWeek.swift; sourceTree = "<group>"; };
 		51CF50E02243818E00A2ABC9 /* ColletcionResipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColletcionResipe.swift; sourceTree = "<group>"; };
@@ -228,6 +242,8 @@
 				A53B1B4821B58A860036AD00 /* FattnessIndex */,
 				A5A1DD23217E26360099A1BD /* TestResults */,
 				5127038D223A724500F98370 /* TestPageView */,
+				51C37BE322450AC4003EF665 /* SelectMenu */,
+				5141CE742248F9B600CD2DBA /* FavoritesView */,
 			);
 			path = "Bords&Controllers";
 			sourceTree = "<group>";
@@ -240,6 +256,15 @@
 				A50250D12178C84800F674B3 /* TestPage */,
 			);
 			path = TestPageView;
+			sourceTree = "<group>";
+		};
+		5141CE742248F9B600CD2DBA /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				5141CE772248FA1D00CD2DBA /* FavoritesView.storyboard */,
+				5141CE752248FA0A00CD2DBA /* FavoritesView.swift */,
+			);
+			path = FavoritesView;
 			sourceTree = "<group>";
 		};
 		5170EDA1223AB1CD00585F96 /* RecipeView */ = {
@@ -259,6 +284,16 @@
 				A548E9D52177783800FC62EE /* Main.swift */,
 			);
 			path = WelcomePage;
+			sourceTree = "<group>";
+		};
+		51C37BE322450AC4003EF665 /* SelectMenu */ = {
+			isa = PBXGroup;
+			children = (
+				51C37BE622450B71003EF665 /* SelectMenu.storyboard */,
+				51C37BE422450B5D003EF665 /* SelectMenu.swift */,
+				51C37BE822450D8B003EF665 /* Die.swift */,
+			);
+			path = SelectMenu;
 			sourceTree = "<group>";
 		};
 		80B4B8AE01EA24BACB2ED1A0 /* Frameworks */ = {
@@ -498,6 +533,8 @@
 				A50250D22178CB7200F674B3 /* TestViewData.swift */,
 				A5D858BD21AEE69D008A5A2D /* TestResult.swift */,
 				51F2E32C223BECF000C08D0E /* UserModel.swift */,
+				5141CE792248FB9800CD2DBA /* DishModel.swift */,
+				5141CE7B2248FD6C00CD2DBA /* RecipeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,7 +635,9 @@
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
 				51CF50D92242369100A2ABC9 /* DietsWeek.storyboard in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
+				51C37BE722450B71003EF665 /* SelectMenu.storyboard in Resources */,
 				51F2E330223D957F00C08D0E /* FatnessIndexView.storyboard in Resources */,
+				5141CE782248FA1D00CD2DBA /* FavoritesView.storyboard in Resources */,
 				51270390223A7C8A00F98370 /* TestResultsView.storyboard in Resources */,
 				5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */,
 				A53B1B4C21B58ED50036AD00 /* FatnessCategoryCell.xib in Resources */,
@@ -685,6 +724,7 @@
 				A5A0C7AA21BE96A300C9035C /* Subscription.swift in Sources */,
 				A55BFF9321FA0AFD00D4364F /* ConstraintsHelper.swift in Sources */,
 				A55E85AC220DC29E007714E3 /* StepCell.swift in Sources */,
+				5141CE7A2248FB9800CD2DBA /* DishModel.swift in Sources */,
 				A51CC74E21BFD75100FFCFD5 /* VisualEffectBlur.swift in Sources */,
 				A5A0C7A821BE7D2800C9035C /* UPCarouselFlowLayout.swift in Sources */,
 				A5B2D35621D22EF900378F54 /* DietsEndPoint.swift in Sources */,
@@ -700,6 +740,7 @@
 				A53B1B4721B58A770036AD00 /* FatnessIndexView.swift in Sources */,
 				A548E9D42177767900FC62EE /* NSObjectExtension.swift in Sources */,
 				5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */,
+				5141CE7C2248FD6C00CD2DBA /* RecipeModel.swift in Sources */,
 				A53698D82211CB8F00612697 /* DishNameHeaderView.swift in Sources */,
 				A55BFF9421FA0AFD00D4364F /* FillAnimationView.swift in Sources */,
 				A5A0C7B321BE99B600C9035C /* SubscriptionService.swift in Sources */,
@@ -710,11 +751,13 @@
 				A5EA838A2170F78D0088F8FE /* FetchingErroHandler.swift in Sources */,
 				51F2E336223F977D00C08D0E /* SubData.swift in Sources */,
 				A5B2D35321D22E9200378F54 /* EndPoint.swift in Sources */,
+				51C37BE522450B5D003EF665 /* SelectMenu.swift in Sources */,
 				A5EE1880220AED7400C00157 /* SKProductExtension.swift in Sources */,
 				A5A0C7AF21BE979100C9035C /* Session.swift in Sources */,
 				A5A0C7B121BE97BE00C9035C /* PaidSubscription.swift in Sources */,
 				A5B02C68217A29C900A9E3A4 /* GenderSelectorViewController.swift in Sources */,
 				A55BFF9821FA0AFD00D4364F /* OnboardingContentView.swift in Sources */,
+				5141CE762248FA0A00CD2DBA /* FavoritesView.swift in Sources */,
 				A5D858BE21AEE69D008A5A2D /* TestResult.swift in Sources */,
 				51F2E32D223BECF000C08D0E /* UserModel.swift in Sources */,
 				A5EA838E2170F8830088F8FE /* RecieptSteps.swift in Sources */,
@@ -727,6 +770,7 @@
 				A597BE5F220C669500389207 /* DishCell.swift in Sources */,
 				A55BFF9221FA0AFD00D4364F /* GestureControl.swift in Sources */,
 				A58CC53C216CF65100B20CE9 /* AppDelegate.swift in Sources */,
+				51C37BE922450D8B003EF665 /* Die.swift in Sources */,
 				5170EDA7223AE96800585F96 /* NavigationProtocol.swift in Sources */,
 				A50250D52178E79000F674B3 /* TriangleView.swift in Sources */,
 				A55BFF9521FA0AFD00D4364F /* PageContainer.swift in Sources */,
