@@ -23,6 +23,9 @@ class Navigation{
         controllers.append(viewController)
         let main = controllers[0] as! Main
         let launchView = main.launchView
+        launchView?.removeFromSuperview()
+        transitionToView(viewControllerType: FavoritesView(), animated: false, special: nil)
+        return
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown"){
             if UserDefaults.standard.bool(forKey: "testShown"){
                 subData.refrash(){
@@ -71,5 +74,12 @@ class Navigation{
             }
             controllers.append(nextViewController)
         }
+    }
+    
+    func back(animated: Bool, completion: ((UIViewController) -> Void)?, special: ((UIViewController) -> Void)?){
+        transitionToView(viewControllerType: controllers[controllers.count - 2] as! NavigationProtocol,
+                         animated: animated,
+                         completion: completion,
+                         special: special)
     }
 }

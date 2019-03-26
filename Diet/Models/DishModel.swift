@@ -84,4 +84,15 @@ class DishModel: Object{
             return fatsS
         }
     }
+    
+    func save(){
+        try! Realm().write {
+            try! Realm().add(self)
+        }
+    }
+    func del(){
+        try! Realm().write {
+            try! Realm().delete(self)
+        }
+    }
 }

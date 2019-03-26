@@ -19,6 +19,8 @@ class RecipeView: UIViewController, NavigationProtocol{
     var sub: Bool! = true
     var navigation: Navigation!
     
+    var dish: Dish!
+    
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
         let recipeView = storyboard.instantiateInitialViewController() as? RecipeView
@@ -38,7 +40,7 @@ class RecipeView: UIViewController, NavigationProtocol{
     }()
     
     lazy var closeButton: UIButton = {
-        let btn = UIButton(frame: CGRect(x: 10, y: self.view.frame.height - 70, width: view.frame.width - 20, height: 50))
+        let btn = UIButton(frame: CGRect(x: 10, y: self.view.frame.height - 70, width: view.frame.width - 80, height: 50))
         btn.setTitle("Close".localized, for: .normal)
         btn.backgroundColor = UIColor(red: 251 / 255, green: 129 / 255, blue: 95 / 255, alpha: 1)
         view.addSubview(btn)
@@ -51,6 +53,9 @@ class RecipeView: UIViewController, NavigationProtocol{
     fileprivate let cachedImage = NSCache<AnyObject, AnyObject>()
     fileprivate let fetchingQueue = DispatchQueue.global(qos: .utility)
     
+    var imageButton: UIImageView!
+    var trig = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeTableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 70, right: 0)
@@ -60,6 +65,72 @@ class RecipeView: UIViewController, NavigationProtocol{
         recipeTableView.delegate = self
         closeButton.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
         closeButton.makeCornerRadius(10)
+        
+        
+        let backButtonFrame = CGRect(x: closeButton.frame.maxX + 10,
+                                     y: closeButton.frame.minY,
+                                     width: 50,
+                                     height: 50)
+        let backButton = UIButtonP(frame: backButtonFrame)
+        
+        let imageButtonFrame = CGRect(x: 7.5,
+                                      y: 7.5,
+                                      width: 35,
+                                      height: 35)
+        imageButton = UIImageView(frame: imageButtonFrame)
+        check()
+        backButton.addSubview(imageButton)
+        backButton.backgroundColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
+        backButton.layer.cornerRadius = 10
+        backButton.addClosure(event: .touchUpInside){
+            if !self.trig{
+                let a = DishModel()
+                print(self.dish.imagePath)
+                
+                a.imagePath = self.dish.imagePath
+                print(a.imagePath)
+                
+                a.name = self.dish.name
+                a.calories = self.dish.nutritionValue.calories
+                
+                for i in self.dish.recipe{
+                    let b = RecipeModel()
+                    b.name = i.name
+                    b.descriptioN = i.description
+                    b.imagePaths = i.imagePaths[0]
+                    
+                    try! self.navigation.realmData.realm.write{
+                        self.navigation.realmData.realm.add(b)
+                    }
+                    a.recipe.append(b)
+                }
+                
+                try! self.navigation.realmData.realm.write{
+                    self.navigation.realmData.realm.add(a)
+                }
+            }else{
+                for i in self.navigation.realmData.dishModels{
+                    if i.name == self.dish.name{
+                        i.del()
+                    }
+                }
+            }
+            self.check()
+            
+        }
+        view.addSubview(backButton)
+    }
+    
+    func check(){
+        for i in navigation.realmData.dishModels{
+            if i.name == dish.name{
+                imageButton.image = UIImage(named: "star1")
+                trig = true
+                return
+            }
+        }
+        imageButton.image = UIImage(named: "star")
+        trig = false
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -71,7 +142,12 @@ class RecipeView: UIViewController, NavigationProtocol{
     }
     
     @objc func closeButtonPressed() {
-        navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+        navigation.back(animated: true,
+                        completion: nil){ next in
+                            if let favoritesView = next as? FavoritesView{
+                                favoritesView.createDie()
+                            }
+        }
     }
 }
 
@@ -130,7 +206,9 @@ extension RecipeView: UITableViewDataSource {
 
 extension RecipeView: RecipeReciver {
     
-    func recieve(dish: Dish) {
+    func recieve(dish: Dish)
+    {
+        self.dish = dish
         steps = dish.recipe
         dishName = dish.name
         request(dish.imagePath).responseImage { response in

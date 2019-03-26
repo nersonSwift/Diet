@@ -34,8 +34,11 @@ class RealmData{
                 
             }
             
-            dishModels = realm.objects(DishModel.self)
+            dishModelsUpdate()
             
         }catch{}
+    }
+    func dishModelsUpdate(){
+        dishModels = realm.objects(DishModel.self)
     }
 }

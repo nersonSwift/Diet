@@ -51,7 +51,7 @@ class Die: UIView{
     var button: UIButtonP!
     private var foundation: UIView!
     private var imageV: UIImageView!
-    private var titleV: UILabel!
+    var titleV: UILabel!
     private var descriptV: UILabel!
     private var recomendV: UIView!
 
@@ -124,18 +124,19 @@ class Die: UIView{
         let titleVFrame = CGRect(x: frame.width * 0.05,
                                  y: imageVFrame.maxY,
                                  width: frame.width * 0.9,
-                                 height: frame.height * 0.17)
+                                 height: frame.height * 0.2)
         titleV = UILabel(frame: titleVFrame)
         titleV.text = "..."
         titleV.font = UIFont(descriptor: UIFontDescriptor(name: "Helvetica Neue Regular", size: 0),
                              size: ((frame.height + frame.width) / 2) / 12)
         titleV.textColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
+        titleV.numberOfLines = 0
         foundation.addSubview(titleV)
         
         let descriptVFrame = CGRect(x: frame.width * 0.05,
                                     y: titleVFrame.maxY,
                                     width: frame.width * 0.9,
-                                    height: frame.height * 0.17)
+                                    height: frame.height * 0.2)
         descriptV = UILabel(frame: descriptVFrame)
         descriptV.font = UIFont(descriptor: UIFontDescriptor(name: "Helvetica Light", size: 0),
                              size: ((frame.height + frame.width) / 2) / 17)
