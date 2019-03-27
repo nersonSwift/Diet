@@ -156,7 +156,12 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
                 loadingVc.remove()
                 if self.navigation.subData.activeSub{
                     
-                    self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                    if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                        self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                    }else{
+                        self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                    }
+                    
                     if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                         self.navigation.realmData.userModel.trial = false
                         EventManager.sendEvent(with: AFEventStartTrial)
@@ -177,7 +182,11 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
     
     @IBAction func restoreButtonPressed(_ sender: Any) {
         if navigation.subData.activeSub{
-            self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+            if navigation.realmData.userModel!.obesityTypeSelect == ""{
+                navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+            }else{
+                navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+            }
         }else{
             self.showErrorAlert(for: .noActiveSubscription)
         }

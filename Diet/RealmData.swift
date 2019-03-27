@@ -17,11 +17,12 @@ class RealmData{
     init(){
         do{
             var config = Realm.Configuration()
-            config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("UserModel.realm")
+            config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("UserModel1.realm")
             print(config.fileURL!)
             
             realm = try Realm(configuration: config)
             Realm.Configuration.defaultConfiguration = config
+    
             let results = realm.objects(UserModel.self)
             if results.count != 1{
                 print(results.count)

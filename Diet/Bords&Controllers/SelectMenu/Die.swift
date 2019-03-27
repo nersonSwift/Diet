@@ -17,6 +17,9 @@ class Die: UIView{
     }
     var title: String!{
         didSet {
+            if title.hasPrefix(" "){
+                title.removeFirst()
+            }
             titleV.text = title
         }
     }
@@ -36,8 +39,8 @@ class Die: UIView{
                 recomendV.isHidden = false
                 self.layer.shadowRadius = 6
                 self.layer.shadowOpacity = 1
-                self.layer.shadowColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
-                self.layer.borderColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
+                self.layer.shadowColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
+                self.layer.borderColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
                 self.layer.borderWidth = 3
             }else{
                 recomendV.isHidden = true
@@ -98,7 +101,7 @@ class Die: UIView{
                                     height: foundation.frame.height * 0.1)
         recomendV = UIView(frame: recomendVFrame)
         recomendV.isHidden = true
-        recomendV.backgroundColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
+        recomendV.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
         foundation.addSubview(recomendV)
         
         let recomendVMaskPath = UIBezierPath(roundedRect: recomendV.bounds,

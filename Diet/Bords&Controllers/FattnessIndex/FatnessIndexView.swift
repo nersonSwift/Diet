@@ -121,10 +121,20 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
         }
         tap = true
         if navigation.subData.activeSub{
-            navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+            if navigation.realmData.userModel!.obesityTypeSelect == ""{
+                navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+            }else{
+                navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+            }
         }else{
-            navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
-            //navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+            /*
+            if navigation.realmData.userModel!.obesityTypeSelect == ""{
+                navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+            }else{
+                navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+            }
+            */
+            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
         }
         tap = false
     }

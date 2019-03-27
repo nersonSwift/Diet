@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pb5-AJ-tzc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pb5-AJ-tzc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,7 +53,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CF-Kx-XwQ">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
-                                        <color key="backgroundColor" red="0.011764705882352941" green="0.89803921568627454" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.12156862745098039" green="0.81960784313725488" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="eMD-sF-PhD"/>
                                         </constraints>
@@ -127,7 +127,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iW-sQ-fa3" customClass="TestResultLabel" customModule="Diet" customModuleProvider="target">
-                                <rect key="frame" x="314" y="384" width="29" height="40"/>
+                                <rect key="frame" x="314" y="384" width="29" height="38.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,8 +141,8 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your height" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92n-Y0-JfP">
-                                <rect key="frame" x="33" y="384" width="141" height="36"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
+                                <rect key="frame" x="33" y="384" width="131.5" height="34.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -160,9 +160,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0BI-bZ-0xl" secondAttribute="trailing" constant="17" id="DZr-NW-Eaf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0iW-sQ-fa3" secondAttribute="trailing" constant="16" id="GDM-ao-4Rb"/>
                             <constraint firstItem="0iW-sQ-fa3" firstAttribute="top" secondItem="55y-b6-LQc" secondAttribute="bottom" constant="30.5" id="JNI-qE-xfD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="92n-Y0-JfP" secondAttribute="trailing" constant="185" id="RRc-lO-3bP"/>
                             <constraint firstItem="92n-Y0-JfP" firstAttribute="top" secondItem="Xhe-nG-t0l" secondAttribute="bottom" constant="32.5" id="Wrv-rF-CJd"/>
-                            <constraint firstItem="0iW-sQ-fa3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="92n-Y0-JfP" secondAttribute="trailing" constant="193.5" id="Zva-jy-Uj1"/>
                             <constraint firstItem="BLc-UY-KdP" firstAttribute="centerX" secondItem="ERu-xN-HCN" secondAttribute="centerX" id="bOx-cu-gK2"/>
                             <constraint firstItem="0iW-sQ-fa3" firstAttribute="centerY" secondItem="92n-Y0-JfP" secondAttribute="centerY" constant="2" id="bcE-rx-rKG"/>
                             <constraint firstItem="mFW-3X-xD2" firstAttribute="leading" secondItem="ERu-xN-HCN" secondAttribute="leadingMargin" constant="17" id="kYN-WM-HST"/>

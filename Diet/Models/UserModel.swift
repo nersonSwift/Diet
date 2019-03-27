@@ -18,6 +18,7 @@ class UserModel: Object{
     @objc dynamic var obesityTypeS = ""
     @objc dynamic var trialS = true
     @objc dynamic var subS = true
+    @objc dynamic var obesityTypeSelectS = ""
     
     var age : Int{
         set(age) {
@@ -84,6 +85,18 @@ class UserModel: Object{
         }
         get{
             return obesityTypeS
+        }
+    }
+    
+    var obesityTypeSelect : String{
+        set(obesityTypeSelect) {
+            
+            try! Realm().write {
+                obesityTypeSelectS = obesityTypeSelect
+            }
+        }
+        get{
+            return obesityTypeSelectS
         }
     }
     

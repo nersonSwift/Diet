@@ -36,7 +36,7 @@ class TestResultsView: UIViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set(true, forKey: "testShown")
+        UserDefaults.standard.set(true, forKey: "testShown1")
         setAlpha(0)
         takeTestAgainButton.layer.borderWidth = 1
         takeTestAgainButton.layer.borderColor = UIColor(red: 227 / 255, green: 227 / 255, blue: 227 / 255, alpha: 1).cgColor

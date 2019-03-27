@@ -14,8 +14,9 @@ class FavoritesView: UIViewController, NavigationProtocol{
     var navigation: Navigation!
     var search: UITextField!
     var searchFoundation: UIView!
-    var sub: Bool! = false
+    var sub: Bool! = true
     var dies: [Die] = []
+    var trig = false
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {
         let storyboard = UIStoryboard(name: "\(self)", bundle: nil)
@@ -48,7 +49,7 @@ class FavoritesView: UIViewController, NavigationProtocol{
                                  width: view.frame.width,
                                  height: view.frame.height * 0.16)
         header = UIView(frame: headerFrame)
-        header.backgroundColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
+        header.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
         header.layer.shadowRadius = 3
         header.layer.shadowOpacity = 0.2
         header.layer.borderWidth = 0
@@ -56,8 +57,26 @@ class FavoritesView: UIViewController, NavigationProtocol{
         header.layer.shadowOffset = CGSize(width: 0, height: 4.0)
         scrollView.addSubview(header)
         
+        let backButtonFrame = CGRect(x: view.frame.width * 0.1,
+                                     y: 0,
+                                     width: view.frame.width * 0.05,
+                                     height: (view.frame.width * 0.05) * 1.7)
+        let backButton = UIButtonP(frame: backButtonFrame)
+        backButton.center.y = header.center.y
+        backButton.layer.contents = UIImage(named: "arrow")?.cgImage
+        backButton.alpha = 0.7
+        backButton.layer.shadowRadius = 3
+        backButton.layer.shadowOpacity = 0.4
+        backButton.layer.borderWidth = 0
+        backButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        backButton.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        backButton.addClosure(event: .touchUpInside){
+            self.navigation.back(animated: true, completion: nil, special: nil)
+        }
+        header.addSubview(backButton)
+        
         let headerLable = UILabel(frame: headerFrame)
-        headerLable.text = "Избранные рецепты:"
+        headerLable.text = "Selected recipes:".localized
         headerLable.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         headerLable.textAlignment = .center
         headerLable.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
@@ -92,6 +111,10 @@ class FavoritesView: UIViewController, NavigationProtocol{
         search.delegate = self
         searchFoundation.addSubview(search)
         createDie()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(offPad))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -135,6 +158,9 @@ class FavoritesView: UIViewController, NavigationProtocol{
                 die.descript = "\(dishModels[i].calories)" + " kCal.".localized
                 
                 die.button.addClosure(event: .touchUpInside){
+                    if self.trig{
+                        return
+                    }
                     var recipes: [RecieptSteps] = []
                     for j in dishModels[i].recipe{
                         let recipe = RecieptSteps(name: j.name,
@@ -181,6 +207,15 @@ class FavoritesView: UIViewController, NavigationProtocol{
                 scrollView.contentSize = CGSize(width: view.frame.width,
                                                 height: dieFrame.maxY + 20)
             }
+        }
+    }
+    
+    @objc func offPad(){
+        if self.search.isEditing{
+            view.endEditing(true)
+            trig = true
+        }else{
+            trig = false
         }
     }
 

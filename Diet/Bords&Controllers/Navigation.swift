@@ -23,17 +23,23 @@ class Navigation{
         controllers.append(viewController)
         let main = controllers[0] as! Main
         let launchView = main.launchView
-        launchView?.removeFromSuperview()
-        transitionToView(viewControllerType: FavoritesView(), animated: false, special: nil)
-        return
+        //launchView?.removeFromSuperview()
+        //transitionToView(viewControllerType: FavoritesView(), animated: false, special: nil)
+        //return
         if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown"){
-            if UserDefaults.standard.bool(forKey: "testShown"){
+            if UserDefaults.standard.bool(forKey: "testShown1"){
                 subData.refrash(){
                     
                     if self.subData.activeSub{
-                        self.transitionToView(viewControllerType: SelectMenu(), animated: false, completion: { nextViewController in
-                            launchView?.removeFromSuperview()
-                        }, special: nil)
+                        if self.realmData.userModel!.obesityTypeSelect == ""{
+                            self.transitionToView(viewControllerType: SelectMenu(), animated: false, completion: { nextViewController in
+                                launchView?.removeFromSuperview()
+                            }, special: nil)
+                        }else{
+                            self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
+                                launchView?.removeFromSuperview()
+                            }, special: nil)
+                        }
                     }else{
                         self.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
                         self.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in

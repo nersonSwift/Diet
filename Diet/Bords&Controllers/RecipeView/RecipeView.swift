@@ -73,10 +73,10 @@ class RecipeView: UIViewController, NavigationProtocol{
                                      height: 50)
         let backButton = UIButtonP(frame: backButtonFrame)
         
-        let imageButtonFrame = CGRect(x: 7.5,
-                                      y: 7.5,
-                                      width: 35,
-                                      height: 35)
+        let imageButtonFrame = CGRect(x: 10,
+                                      y: 10,
+                                      width: 30,
+                                      height: 30)
         imageButton = UIImageView(frame: imageButtonFrame)
         check()
         backButton.addSubview(imageButton)

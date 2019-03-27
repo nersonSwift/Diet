@@ -31,19 +31,19 @@ class SelectMenu: UIViewController, NavigationProtocol{
     var header: UIView!
     var dies: [Die] = []
     var dieInfo = [DieInfo(dieLabel:     "Superfit 1000",
-                           dieDescript:  "Идеально подходит для быстрого сброса веса.",
+                           dieDescript:  "Ration at 1000 kcal/daily is way for quick weight loss.".localized,
                            dieImageName: "superfit"),
                    DieInfo(dieLabel:     "Fit 1500",
-                           dieDescript:  "Для здорового похудения и поддержания себя в тонусе.",
+                           dieDescript:  "Ration at 1500 kcal/daily for healthy weight loss.".localized,
                            dieImageName: "fit"),
                    DieInfo(dieLabel:     "Daily 1800",
-                           dieDescript:  "Для поддержания текущей формы или спокойного похудения.",
+                           dieDescript:  "Ration at 1800 kcal/daily to maintain current form or calm weight loss.".localized,
                            dieImageName: "daily"),
                    DieInfo(dieLabel:     "Balance 2000",
-                           dieDescript:  "Для тех, кто ведет активный образ жизни.",
+                           dieDescript:  "Ration at 2000 kcal/daily for those who lead an active lifestyle.".localized,
                            dieImageName: "balans"),
                    DieInfo(dieLabel:     "Power 2500",
-                           dieDescript:  "Для тех, кто активно занимается спортом.",
+                           dieDescript:  "Ration at 2500 kcal/daily for those who are actively practise dtsports.".localized,
                            dieImageName: "Power")]
 
     override func viewDidLoad() {
@@ -61,9 +61,9 @@ class SelectMenu: UIViewController, NavigationProtocol{
         let headerFrame = CGRect(x: 0,
                                  y: 0,
                                  width: view.frame.width,
-                                 height: view.frame.height * 0.14)
+                                 height: view.frame.height * 0.16)
         header = UIView(frame: headerFrame)
-        header.backgroundColor = #colorLiteral(red: 0.4941176471, green: 0.8274509804, blue: 0.1294117647, alpha: 1)
+        header.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
         header.layer.shadowRadius = 3
         header.layer.shadowOpacity = 0.2
         header.layer.borderWidth = 0
@@ -72,7 +72,7 @@ class SelectMenu: UIViewController, NavigationProtocol{
         scrollView.addSubview(header)
         
         let headerLable = UILabel(frame: headerFrame)
-        headerLable.text = "Выберете рацион для себя:"
+        headerLable.text = "Choose a diet for yourself:".localized
         headerLable.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         headerLable.textAlignment = .center
         headerLable.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
@@ -108,9 +108,12 @@ class SelectMenu: UIViewController, NavigationProtocol{
             die.title = dieInfo[i].dieLabel
             die.descript = dieInfo[i].dieDescript
             die.button.addClosure(event: .touchUpInside){
+                
                 self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true){ next in
                     let dietsWeek = next as! DietsWeek
-                    dietsWeek.body = body[i]
+                    self.navigation.realmData.userModel!.obesityTypeSelect = "\(body[i])"
+                    print(self.navigation.realmData.userModel!.obesityTypeSelect)
+                    dietsWeek.createView()
                 }
             }
             dies.append(die)

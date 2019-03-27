@@ -28,6 +28,8 @@
 		51F2E32F223BEEAA00C08D0E /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E32E223BEEAA00C08D0E /* RealmData.swift */; };
 		51F2E330223D957F00C08D0E /* FatnessIndexView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51F2E332223D957F00C08D0E /* FatnessIndexView.storyboard */; };
 		51F2E336223F977D00C08D0E /* SubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2E335223F977D00C08D0E /* SubData.swift */; };
+		51FB1D4D224A463F00272C4F /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FB1D4C224A463F00272C4F /* ProfilView.swift */; };
+		51FB1D4F224A468800272C4F /* ProfilView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51FB1D4E224A468800272C4F /* ProfilView.storyboard */; };
 		84724CC972B6ECE071A678C4 /* Pods_Diet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */; };
 		A50250CC2178B84B00F674B3 /* SelectingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */; };
 		A50250CE2178BCFC00F674B3 /* SelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */; };
@@ -128,6 +130,8 @@
 		51F2E331223D957F00C08D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FatnessIndexView.storyboard; sourceTree = "<group>"; };
 		51F2E334223D958300C08D0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FatnessIndexView.strings; sourceTree = "<group>"; };
 		51F2E335223F977D00C08D0E /* SubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubData.swift; sourceTree = "<group>"; };
+		51FB1D4C224A463F00272C4F /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
+		51FB1D4E224A468800272C4F /* ProfilView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfilView.storyboard; sourceTree = "<group>"; };
 		65EA9E04DFA8B088562DC952 /* Pods_Diet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Diet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50250CB2178B84B00F674B3 /* SelectingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectingViewController.storyboard; sourceTree = "<group>"; };
 		A50250CD2178BCFC00F674B3 /* SelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				5127038D223A724500F98370 /* TestPageView */,
 				51C37BE322450AC4003EF665 /* SelectMenu */,
 				5141CE742248F9B600CD2DBA /* FavoritesView */,
+				51FB1D4B224A45C900272C4F /* Profil */,
 			);
 			path = "Bords&Controllers";
 			sourceTree = "<group>";
@@ -294,6 +299,15 @@
 				51C37BE822450D8B003EF665 /* Die.swift */,
 			);
 			path = SelectMenu;
+			sourceTree = "<group>";
+		};
+		51FB1D4B224A45C900272C4F /* Profil */ = {
+			isa = PBXGroup;
+			children = (
+				51FB1D4E224A468800272C4F /* ProfilView.storyboard */,
+				51FB1D4C224A463F00272C4F /* ProfilView.swift */,
+			);
+			path = Profil;
 			sourceTree = "<group>";
 		};
 		80B4B8AE01EA24BACB2ED1A0 /* Frameworks */ = {
@@ -632,6 +646,7 @@
 				A58CC546216CF65200B20CE9 /* LaunchScreen.storyboard in Resources */,
 				A58CC543216CF65200B20CE9 /* Assets.xcassets in Resources */,
 				A5D4F22E21D0FDCF002195C5 /* SubscriptionOfferView.storyboard in Resources */,
+				51FB1D4F224A468800272C4F /* ProfilView.storyboard in Resources */,
 				A597BE60220C669500389207 /* DishCell.xib in Resources */,
 				51CF50D92242369100A2ABC9 /* DietsWeek.storyboard in Resources */,
 				A58CC541216CF65100B20CE9 /* Main.storyboard in Resources */,
@@ -722,6 +737,7 @@
 				A548E9D22177744200FC62EE /* UIViewControllerExtension.swift in Sources */,
 				A55BFF9121FA0AFD00D4364F /* Configuring.swift in Sources */,
 				A5A0C7AA21BE96A300C9035C /* Subscription.swift in Sources */,
+				51FB1D4D224A463F00272C4F /* ProfilView.swift in Sources */,
 				A55BFF9321FA0AFD00D4364F /* ConstraintsHelper.swift in Sources */,
 				A55E85AC220DC29E007714E3 /* StepCell.swift in Sources */,
 				5141CE7A2248FB9800CD2DBA /* DishModel.swift in Sources */,
