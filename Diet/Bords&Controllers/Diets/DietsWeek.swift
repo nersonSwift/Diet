@@ -20,6 +20,7 @@ class DietsWeek: UIViewController, NavigationProtocol {
             }
         }
     }
+    var backButton: UIButtonP!
     var aninEnd = true
     let loadingVc = LoadingViewController()
     var blurEffectView: UIVisualEffectView!
@@ -39,8 +40,8 @@ class DietsWeek: UIViewController, NavigationProtocol {
     var menue: UIView!
     let animator = UIViewPropertyAnimator(duration: 0.6, curve: .linear)
     var discrintion: [String: String] = ["\(CategoryName.severeObesity)": "Ration at 1000 kcal/daily is way for quick weight loss. Consume less calories than you spend.".localized,
-                                         "\(CategoryName.obesity)": "Ration at 1500 kcal/daily for healthy weight loss and keeping yourself in good form. Eat systematically and you will get the result.".localized,
-                                         "\(CategoryName.excessObesity)": "Ration at 1800 kcal/daily to maintain current form or calm weight loss. Full meals without a strong feeling of hunger.".localized,
+                                         "\(CategoryName.obesity)": "Ration at 1200 kcal/daily for healthy weight loss and keeping yourself in good form. Eat systematically and you will get the result.".localized,
+                                         "\(CategoryName.excessObesity)": "Ration at 1400 kcal/daily to maintain current form or calm weight loss. Full meals without a strong feeling of hunger.".localized,
                                          "\(CategoryName.normal)": "Ration at 2000 kcal/daily for those who lead an active lifestyle, play sports and at the same time want to be fit.".localized,
                                          "\(CategoryName.underweight)": "Ration at 2500 kcal/daily for those who are actively practise dtsports and want to gain muscle mass. Consume more calories than you spend.".localized]
    
@@ -73,7 +74,9 @@ class DietsWeek: UIViewController, NavigationProtocol {
         scrollView.delegate = self
         view.addSubview(scrollView)
         
-        
+        if blurEffectView != nil{
+            blurEffectView.removeFromSuperview()
+        }
         blurEffectView = UIVisualEffectView(effect: nil)
         blurEffectView.frame = view.frame
         blurEffectView.isHidden = true
@@ -89,11 +92,15 @@ class DietsWeek: UIViewController, NavigationProtocol {
         
         animator.fractionComplete = 0.2
         
+        if backButton != nil{
+            backButton.removeFromSuperview()
+        }
+        
         let backButtonFrame = CGRect(x: view.frame.width * 0.015,
                                      y: view.frame.height * 0.04,
                                      width: view.frame.width * 0.05 * 2,
                                      height: (view.frame.width * 0.05) * 2)
-        let backButton = UIButtonP(frame: backButtonFrame)
+        backButton = UIButtonP(frame: backButtonFrame)
         backButton.layer.contents = UIImage(named: "Hamburger")?.cgImage
         backButton.layer.shadowRadius = 3
         backButton.layer.shadowOpacity = 0.4
