@@ -16,7 +16,7 @@ class NetworkService {
     weak var dietServiceDelegate: DietNetworkServiceDelegate?
     weak var errorHandler: FetchincErrorHandler?
     fileprivate let downloader = ImageDownloader(configuration: .default, downloadPrioritization: .fifo, maximumActiveDownloads: 5, imageCache: nil)
-    fileprivate let imageBaseUrl = "http://dietsforbuddies.com/"
+    fileprivate let imageBaseUrl = "http://dietsforbuddies.com/newImage/"
     fileprivate let daysOfWeek = ["Monday","Tuesday",
                                   "Wednesday","Thursday",
                                   "Friday","Saturday",
@@ -42,7 +42,7 @@ class NetworkService {
         for i in 0..<dietDays.count {
             for j in 0..<dietDays[i].dishes.count {
                 for k in 0..<dietDays[i].dishes[j].recipe.count {
-                    let newPath = imageBaseUrl + dietType + separator + daysOfWeek[i] + separator + "dishes\(j + 1)" + separator + "step\(k + 1).jpg"
+                    let newPath = imageBaseUrl + dietType + separator + daysOfWeek[i] + separator + "dishes\(j + 1)" + separator + "step\(k).jpg"
                     dietDays[i].dishes[j].recipe[k].imagePaths[0] = newPath
                 }
             }

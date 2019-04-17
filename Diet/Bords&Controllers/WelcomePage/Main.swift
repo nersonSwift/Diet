@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AppsFlyerLib
+import SwiftyStoreKit
+import SafariServices
 
 struct ModelMainView {
     var foundationView: UIView!
@@ -45,7 +48,7 @@ class Main: UIViewController, NavigationProtocol {
     
     fileprivate static let titleFont = UIFont(name: "Helvetica-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
     fileprivate static let descriptionFont = UIFont(name: "Helvetica-Regular", size: 25.0) ?? UIFont.systemFont(ofSize: 14.0)
-    fileprivate let items = [
+    fileprivate var items = [
         OnboardingItemInfo(informationImage: UIImage(named: "door")!,
                            title: "Welcome!".localized,
                            description: "Swipe left or tap on the button to learn about the main features of our application.".localized,
@@ -72,6 +75,12 @@ class Main: UIViewController, NavigationProtocol {
                            description: "Every week we will send new recipes, turn on notifications to not miss them.".localized,
                            pageIcon: UIImage(named: "resip")!,
                            color: #colorLiteral(red: 0.262745098, green: 0.5058823529, blue: 0.7568627451, alpha: 1),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
+        OnboardingItemInfo(informationImage: UIImage(named: "starW")!,
+                           title: "Try Free!".localized,
+                           description: "Проведи тест-драйв приложения в течение 3 дней совершенно бесплатно! ... руб/неделя после 3 дней.".localized,
+                           pageIcon: UIImage(named: "resip")!,
+                           color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
                            titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont)
     ]
     
@@ -86,6 +95,12 @@ class Main: UIViewController, NavigationProtocol {
         launchView = loadingVC.view
         view.addSubview(launchView)
         addSwipe()
+        SwiftyStoreKit.retrieveProductsInfo([ProductId.popular.rawValue]) { result in
+            if let popPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.popular.rawValue }).first{
+                let popularPlan = popPlan
+                self.items[4].description = "Test our app for 3 days for free! ".localized + popularPlan.localizedPrice! + "/week after 3 days.".localized
+            }
+        }
     }
     
     func addSwipe() {
@@ -102,7 +117,7 @@ class Main: UIViewController, NavigationProtocol {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case .left:
-                if counter < 3 && !anim{
+                if counter < 4 && !anim{
                     self.counter += 1
                     self.nextView = self.createView(namberView: counter)
                     self.animView(namberView: counter - 1)
@@ -120,36 +135,122 @@ class Main: UIViewController, NavigationProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigation = Navigation(viewController: self)
+        if navigation == nil{
+            navigation = Navigation(viewController: self)
+        }
     }
     
     func createView(namberView: Int) -> ModelMainView{
         var modelMainView = ModelMainView()
-        let foundationView = UIView(frame: view.frame)
+        var foundationView = UIView(frame: view.frame)
+        var disText: UILabel? = nil
+        var buttonTermsAndService: UIButtonP?
+        var privacyPolicy: UIButtonP?
+        if namberView == 4{
+            let scrollViewFrame = CGRect(x: 0,
+                                         y: -20,
+                                         width: view.frame.width,
+                                         height: view.frame.height + 20)
+            foundationView = UIScrollView(frame: scrollViewFrame)
+            let scrollView = foundationView as! UIScrollView
+            
+            let disTextFrame = CGRect(x: view.frame.width * 0.06,
+                                      y: view.frame.height * 0.93,
+                                      width: view.frame.width * 0.88,
+                                      height: 15)
+            disText = UILabel(frame: disTextFrame)
+            let sizeFont = ((self.view.frame.height + self.view.frame.width) / 2) / 35
+            disText!.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Medium", size: 0),
+                                   size: sizeFont)
+            disText!.textAlignment = .justified
+            disText!.textColor = #colorLiteral(red: 0.6078431373, green: 0.6078431373, blue: 0.6078431373, alpha: 1)
+            disText!.numberOfLines = 0
+            disText!.alpha = 0
+            disText!.text = "After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription.".localized
+            disText!.sizeToFit()
+            scrollView.addSubview(disText!)
+            
+            let buttonTermsAndServiceFrame = CGRect(x: disText!.frame.minX,
+                                                    y: disText!.frame.maxY + view.frame.height * 0.02,
+                                                    width: view.frame.width * 0.35,
+                                                    height: view.frame.width * 0.13)
+            buttonTermsAndService = UIButtonP(frame: buttonTermsAndServiceFrame)
+            buttonTermsAndService!.setTitle("Terms of Service", for: .normal)
+            buttonTermsAndService!.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            buttonTermsAndService!.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            buttonTermsAndService!.titleLabel!.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Medium", size: 0),
+                                                             size: sizeFont)
+            buttonTermsAndService!.layer.cornerRadius = buttonTermsAndServiceFrame.width / 10
+            buttonTermsAndService!.addClosure(event: .touchUpInside){
+                guard let url = URL(string: "https://sfbtech.org/terms") else { return }
+                let webView = SFSafariViewController(url: url)
+                self.present(webView, animated: true, completion: nil)
+            }
+            scrollView.addSubview(buttonTermsAndService!)
+            
+            let privacyPolicyFrame = CGRect(x: disText!.frame.maxX - view.frame.width * 0.35,
+                                            y: disText!.frame.maxY + view.frame.height * 0.02,
+                                            width: view.frame.width * 0.35,
+                                            height: view.frame.width * 0.13)
+            privacyPolicy = UIButtonP(frame: privacyPolicyFrame)
+            privacyPolicy!.setTitle("Privacy Policy", for: .normal)
+            privacyPolicy!.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            privacyPolicy!.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            privacyPolicy!.titleLabel!.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Medium", size: 0),
+                                                     size: sizeFont)
+            privacyPolicy!.layer.cornerRadius = privacyPolicyFrame.width / 10
+            privacyPolicy!.addClosure(event: .touchUpInside){
+                guard let url = URL(string: "https://sfbtech.org/policy") else { return }
+                let webView = SFSafariViewController(url: url)
+                self.present(webView, animated: true, completion: nil)
+            }
+            scrollView.addSubview(privacyPolicy!)
+            
+            scrollView.contentSize = CGSize(width: view.frame.width,
+                                            height: buttonTermsAndService!.frame.maxY + view.frame.height * 0.05)
+            
+            animText(view: disText!)
+        }
+        
         view.addSubview(foundationView)
         modelMainView.foundationView = foundationView
         
         let backView = UIView()
         backView.backgroundColor = items[namberView].color
         foundationView.addSubview(backView)
+        
+        
+        if let dis = disText{
+            foundationView.bringSubviewToFront(dis)
+            foundationView.bringSubviewToFront(buttonTermsAndService!)
+            foundationView.bringSubviewToFront(privacyPolicy!)
+        }
+        
         modelMainView.backView = backView
         
         var imageViewSelectW = view.frame.width * 0.35
         var sizeFont = ((self.view.frame.height + self.view.frame.width) / 2) / 18
-        
+        var imageViewSelectH = imageViewSelectW * 1.4
         switch namberView {
         case 1:
-            imageViewSelectW = view.frame.width * 0.40
+            imageViewSelectW = view.frame.width * 0.4
             sizeFont *= 0.7
+            imageViewSelectH = imageViewSelectW * 1.4
         case 2:
             imageViewSelectW = view.frame.width * 0.35
             sizeFont *= 0.9
+            imageViewSelectH = imageViewSelectW * 1.4
         case 3:
             imageViewSelectW = view.frame.width * 0.45
             sizeFont *= 0.68
+            imageViewSelectH = imageViewSelectW * 1.4
+        case 4:
+            imageViewSelectW = view.frame.width * 0.4
+            imageViewSelectH = imageViewSelectW * 1.1
+            sizeFont *= 0.68
+            
         default:break
         }
-        let imageViewSelectH = imageViewSelectW * 1.4
         let imageViewSelectFrame = CGRect(x: view.center.x - (imageViewSelectW / 2),
                                           y: (view.center.y / 2) - (imageViewSelectH / 2) ,
                                           width: imageViewSelectW,
@@ -170,6 +271,9 @@ class Main: UIViewController, NavigationProtocol {
         titleView.alpha = 0
         titleView.text = items[namberView].title
         titleView.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        if namberView == 4{
+            titleView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
         titleView.textAlignment = .center
         titleView.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0), size: sizeFont)
         foundationView.addSubview(titleView)
@@ -184,6 +288,9 @@ class Main: UIViewController, NavigationProtocol {
         descriptionView.alpha = 0
         descriptionView.text = items[namberView].description
         descriptionView.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        if namberView == 4{
+            descriptionView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
         descriptionView.textAlignment = .center
         descriptionView.numberOfLines = 0
         descriptionView.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Medium", size: 0), size: ((self.view.frame.height + self.view.frame.width) / 2) / 29)
@@ -198,9 +305,9 @@ class Main: UIViewController, NavigationProtocol {
         buttonNext.transform.ty = view.frame.height * 0.03
         buttonNext.alpha = 0
         buttonNext.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
-        buttonNext.setTitle("NEXT".localized, for: .normal)
-        if namberView == 3{
-            buttonNext.setTitle("Finish".localized, for: .normal)
+        buttonNext.setTitle("Next".localized, for: .normal)
+        if namberView == 4{
+            buttonNext.setTitle("Start!".localized, for: .normal)
         }
         buttonNext.layer.cornerRadius = buttonNextFrame.height / 5
         buttonNext.layer.shadowRadius = 4
@@ -216,13 +323,50 @@ class Main: UIViewController, NavigationProtocol {
             if self.anim{
                 return
             }
-            if self.counter < 3{
-            self.counter += 1
-            self.nextView = self.createView(namberView: self.counter)
-            self.animView(namberView: self.counter - 1)
+            if self.counter < 4{
+                self.counter += 1
+                self.nextView = self.createView(namberView: self.counter)
+                self.animView(namberView: self.counter - 1)
             }else{
                 EventManager.sendEvent(with: "User saw welcome screen")
-                self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                let loadingVc = LoadingViewController()
+                self.add(loadingVc)
+                if self.navigation.subData.activeSub{
+                    if UserDefaults.standard.bool(forKey: "testShown1"){
+                        if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                            self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                        }else{
+                            self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                        }
+                    }else{
+                        self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                    }
+                    
+                    if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
+                        self.navigation.realmData.userModel.trial = false
+                        EventManager.sendEvent(with: AFEventStartTrial)
+                    }
+                }else{
+                    self.navigation.subData.goSub(){
+                        loadingVc.remove()
+                        if self.navigation.subData.activeSub{
+                            if UserDefaults.standard.bool(forKey: "testShown1"){
+                                if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                                    self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                                }else{
+                                    self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                                }
+                            }else{
+                                self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                            }
+                            
+                            if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
+                                self.navigation.realmData.userModel.trial = false
+                                EventManager.sendEvent(with: AFEventStartTrial)
+                            }
+                        }
+                    }
+                }
             }
         }
         buttonNext.addClosure(event: .touchUpOutside){
@@ -257,7 +401,7 @@ class Main: UIViewController, NavigationProtocol {
         storegeBolls = UIView(frame: storegeBollsFrame)
         view.addSubview(storegeBolls)
         
-        for i in 0...3{
+        for i in 0...4{
             let bollFrame = CGRect(x: ((storegeBollsFrame.width / 8) - bollSizeS / 2) + (storegeBollsFrame.width / 4) * CGFloat(i),
                                    y: (bollSizeL / 2) - (bollSizeS / 2),
                                    width: bollSizeS,
@@ -286,6 +430,11 @@ class Main: UIViewController, NavigationProtocol {
         }
         
     }
+    func animText(view: UIView){
+        UIView.animate(withDuration: 0.6, animations: {
+            view.alpha = 1
+        })
+    }
     
     func strafeBolls(namberView: Int){
         let bollSizeL = (view.frame.height + view.frame.width) / 2 * 0.03
@@ -304,7 +453,7 @@ class Main: UIViewController, NavigationProtocol {
         let bollSizeL = (view.frame.height + view.frame.width) / 2 * 0.03
         let storegeBollsWidth = view.frame.width * 0.3
         
-        for i in 0...3{
+        for i in 0...4{
             let boll = bolls[i]
             var bollFrame = CGRect(x: ((storegeBollsWidth / 8) - bollSizeS / 2) + (storegeBollsWidth / 4) * CGFloat(i),
                                    y: (bollSizeL / 2) - (bollSizeS / 2),
@@ -346,7 +495,9 @@ class Main: UIViewController, NavigationProtocol {
         modelMainView.buttonNext.alpha = 1
         modelMainView.buttonNext.transform.ty = 0
         
-        view.bringSubviewToFront(storegeBolls)
+        if modelMainView.backView.backgroundColor != #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0){
+            view.bringSubviewToFront(storegeBolls)
+        }
     }
     
     func hideView(modelMainView: ModelMainView){

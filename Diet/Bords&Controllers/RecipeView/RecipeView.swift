@@ -11,7 +11,6 @@ import Alamofire
 import AlamofireImage
 
 protocol RecipeReciver: class {
-    
     func recieve(dish: Dish)
 }
 
@@ -182,10 +181,11 @@ extension RecipeView: UITableViewDataSource {
         }
         let step = steps[indexPath.row]
         
-        cell.stepNameLabel.text = step.name
+        //cell.stepNameLabel.text = step.name
         cell.stepDescriptionLabel.text = step.description
         
         guard let imagePath = step.imagePaths.first else { return cell }
+        print(imagePath)
         
         fetchingQueue.async {
             request(imagePath).responseImage { (response) in
@@ -195,6 +195,29 @@ extension RecipeView: UITableViewDataSource {
                 }
                 DispatchQueue.main.async {
                     cell.stepImageView.image = image
+                    //cell.stepImageView.image = UIImage(named: "step4")
+                    let stepTextViewFrame = CGRect(x: cell.stepImageView.frame.width * 0.62,
+                                                   y: cell.stepImageView.frame.height * 0.675,
+                                                   width: cell.stepImageView.frame.width * 0.41,
+                                                   height: cell.stepImageView.frame.height * 0.22)
+                    let stepTextView = UIView(frame: stepTextViewFrame)
+                    stepTextView.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
+                    stepTextView.layer.cornerRadius = stepTextView.frame.width / 11
+                    cell.stepImageView.addSubview(stepTextView)
+                    
+                    let stepTextFrame = CGRect(x: 0,
+                                               y: 0,
+                                               width: stepTextViewFrame.width,
+                                               height: stepTextViewFrame.height)
+                    let stepText = UILabel(frame: stepTextFrame)
+                    stepText.text = step.name
+                    stepText.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    stepText.textAlignment = .center
+                    stepText.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Medium", size: 0),
+                                           size: ((self.view.frame.height + self.view.frame.width) / 2) / 29)
+                    stepTextView.addSubview(stepText)
+                    
+                    
                     self.cachedImage.setObject(image, forKey: imagePath as AnyObject)
                 }
             }

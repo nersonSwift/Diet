@@ -11,7 +11,6 @@ import UIKit
 class StepCell: UITableViewCell {
 
     @IBOutlet weak var stepDescriptionLabel: UILabel!
-    @IBOutlet weak var stepNameLabel: UILabel!
     @IBOutlet weak var stepImageView: UIImageView!
     
     static var identifier = "StepCell"

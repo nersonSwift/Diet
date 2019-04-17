@@ -11,7 +11,7 @@ import UIKit
 public struct OnboardingItemInfo {
     public let informationImage: UIImage
     public let title: String
-    public let description: String
+    public var description: String
     public let pageIcon: UIImage
     public let color: UIColor
     public let titleColor: UIColor

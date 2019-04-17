@@ -15,7 +15,7 @@ protocol TestResultOutput: class {
 }
 
 class TestPageView: UIPageViewController, NavigationProtocol {
-    var sub: Bool! = false
+    var sub: Bool! = true
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {
@@ -56,7 +56,6 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set(true, forKey: "wereWelcomePagesShown")
         self.view.backgroundColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
         fillPages()
         
@@ -159,7 +158,7 @@ class TestPageView: UIPageViewController, NavigationProtocol {
             self.scrollToNextViewController()
             userModel.currentWeight = self.currentWeightSelectionPageData.pickerData[index]
         }
-    
+        
         
         heightSelectionPage.nextButtonPressed = { [unowned self] index in
             self.navigation.transitionToView(viewControllerType: TestResultsView(), animated: true){ nextViewController in

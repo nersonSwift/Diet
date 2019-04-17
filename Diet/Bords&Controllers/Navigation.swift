@@ -8,10 +8,14 @@
 
 import UIKit
 import SwiftyStoreKit
+import Alamofire
+import SwiftyJSON
+import SafariServices
 
 class Navigation{
     let realmData = RealmData()
     let subData = SubData()
+    let ssil = "http://dietsforbuddies.com/NewApi/version.json"
     
     var controllers: [UIViewController] = []
     var selectView: UIViewController{
@@ -24,36 +28,95 @@ class Navigation{
         let main = controllers[0] as! Main
         let launchView = main.launchView
         //launchView?.removeFromSuperview()
-        //transitionToView(viewControllerType: FavoritesView(), animated: false, special: nil)
-        //return
-        if UserDefaults.standard.bool(forKey: "wereWelcomePagesShown"){
-            if UserDefaults.standard.bool(forKey: "testShown1"){
-                subData.refrash(){
+        subData.refrash(){
+            if self.subData.activeSub{
+                if UserDefaults.standard.bool(forKey: "testShown1"){
                     
-                    if self.subData.activeSub{
-                        if self.realmData.userModel!.obesityTypeSelect == ""{
-                            self.transitionToView(viewControllerType: SelectMenu(), animated: false, completion: { nextViewController in
-                                launchView?.removeFromSuperview()
-                            }, special: nil)
-                        }else{
-                            self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
-                                launchView?.removeFromSuperview()
-                            }, special: nil)
-                        }
+                    if self.realmData.userModel!.obesityTypeSelect == ""{
+                        self.transitionToView(viewControllerType: SelectMenu(), animated: false, completion: { nextViewController in
+                            launchView?.removeFromSuperview()
+                        }, special: nil)
                     }else{
-                        self.transitionToView(viewControllerType: TestResultsView(), animated: false, special: nil)
-                        self.transitionToView(viewControllerType: SubscriptionOfferView(), animated: false, completion: { nextViewController in
+                        self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
                         }, special: nil)
                     }
+                }else{
+                    self.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: false, completion: { nextViewController in
+                        launchView?.removeFromSuperview()
+                    }, special: nil)
                 }
             }else{
-                transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: false, completion: { nextViewController in
-                    launchView?.removeFromSuperview()
-                }, special: nil)
+                launchView?.removeFromSuperview()
             }
-        }else{
-            launchView?.removeFromSuperview()
+            self.checkVersoin()
+        }
+    }
+    
+    private func checkVersoin(){
+        let queue = DispatchQueue.global(qos: .utility)
+        request(ssil).response(queue: queue, responseSerializer: DataRequest.jsonResponseSerializer()) { response in
+            guard let responseValue = response.result.value else {return}
+            let json = JSON(responseValue)
+            if json["version"].string! != "2.1.5"{
+                print(json["version"].string!)
+                DispatchQueue.main.async {
+                    if let a = self.selectView as? Main{
+                        a.anim = true
+                    }
+                    let newView = UIView(frame: self.selectView.view.frame)
+                    newView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+                    self.selectView.view.addSubview(newView)
+                    
+                    let blurEffectView = UIVisualEffectView(effect: nil)
+                    blurEffectView.frame = newView.frame
+                    blurEffectView.effect = UIBlurEffect(style: .regular)
+                    newView.addSubview(blurEffectView)
+                    
+                    let natifFrame = CGRect(x: 0,
+                                            y: 0,
+                                            width: newView.frame.width * 0.8,
+                                            height: newView.frame.width * 0.6)
+                    let natif = UIView(frame: natifFrame)
+                    natif.center = newView.center
+                    natif.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    natif.layer.cornerRadius = natifFrame.width / 5
+                    natif.layer.shadowRadius = 4
+                    natif.layer.shadowOpacity = 0.2
+                    natif.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+                    newView.addSubview(natif)
+                    
+                    let textAppFrame = CGRect(x: 0,
+                                              y: natifFrame.width * 0.1,
+                                              width: natifFrame.width * 0.9,
+                                              height: 0)
+                    let textApp = UILabel(frame: textAppFrame)
+                    textApp.text = "Critical update released.\nPlease update the app.".localized
+                    textApp.textColor = #colorLiteral(red: 0.09721875936, green: 0.09664844722, blue: 0.0976620093, alpha: 1)
+                    textApp.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Medium", size: 0),
+                                          size: ((blurEffectView.frame.height + blurEffectView.frame.width) / 2) / 28)
+                    textApp.numberOfLines = 0
+                    textApp.textAlignment = .center
+                    textApp.sizeToFit()
+                    textApp.center.x = natif.center.x - natif.frame.minX
+                    natif.addSubview(textApp)
+                    
+                    let buttonFrame = CGRect(x: (natifFrame.width / 2) - (natifFrame.width * 0.4 / 2),
+                                             y: natifFrame.height * 0.65,
+                                             width: natifFrame.width * 0.4,
+                                             height: natifFrame.height * 0.2)
+                    let button = UIButtonP(frame: buttonFrame)
+                    button.setTitle("OK", for: .normal)
+                    button.setTitleColor(#colorLiteral(red: 0.2825991809, green: 0.3677995801, blue: 1, alpha: 1), for: .normal)
+                    button.addClosure(event: .touchUpInside){
+                        guard let url = URL(string: "https://itunes.apple.com/us/app/diet-diary/id1445711141?l=ru&ls=1&mt=8") else { return }
+                        let webView = SFSafariViewController(url: url)
+                        self.selectView.present(webView, animated: true, completion: nil)
+                    }
+                    textApp.center.y = button.frame.minY / 2
+                    natif.addSubview(button)
+                }
+            }
         }
     }
     

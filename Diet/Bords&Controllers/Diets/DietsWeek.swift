@@ -57,6 +57,16 @@ class DietsWeek: UIViewController, NavigationProtocol {
         createView()
     }
     
+    func peremotka(){
+        let toDay = Calendar.current.dateComponents([.weekday], from: Date())
+
+        scrollView.scrollRectToVisible(CGRect(x: 0,
+                                              y: weekColleticonsResipe[toDay.weekday! - 2].collectionView.center.y - view.frame.height / 2,
+                                              width: view.frame.width,
+                                              height: view.frame.height), animated: true)
+        
+    }
+    
     func createView(){
         add(loadingVc)
         
@@ -313,10 +323,28 @@ class DietsWeek: UIViewController, NavigationProtocol {
         textDiscription.sizeToFit()
         lableFoundation.addSubview(textDiscription)
         
+        let toDayButtonFrame = CGRect(x: lableFoundationFrame.width * 0.05,
+                                      y: textDiscription.frame.maxY + lableFoundationFrame.width * 0.05,
+                                      width: lableFoundationFrame.width * 0.9,
+                                      height: view.frame.height * 0.07)
+        let toDayButton = UIButtonP(frame: toDayButtonFrame)
+        toDayButton.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
+        toDayButton.layer.cornerRadius = toDayButton.frame.height / 5
+        toDayButton.layer.shadowRadius = 4
+        toDayButton.layer.shadowOpacity = 0.2
+        toDayButton.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        toDayButton.setTitle("Recipes for today".localized, for: .normal)
+        toDayButton.titleLabel!.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
+                                              size: ((view.frame.height + view.frame.width) / 2) / 25)
+        toDayButton.addClosure(event: .touchUpInside){
+            self.peremotka()
+        }
+        lableFoundation.addSubview(toDayButton)
+        
         lableFoundation.frame = CGRect(x: lableFoundationFrame.minX,
                                        y: lableFoundationFrame.minY,
                                        width: lableFoundationFrame.width,
-                                       height: textDiscription.frame.maxY + lableFoundationFrame.width * 0.05)
+                                       height: toDayButton.frame.maxY + lableFoundationFrame.width * 0.05)
         lableFoundation.layer.cornerRadius = lableFoundation.frame.width / 14
         let heightCollectionView: CGFloat = 270.0
         for i in weekColleticonsResipe{

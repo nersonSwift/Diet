@@ -17,7 +17,7 @@ struct FatnessCategory {
 }
 
 class FatnessIndexView: UIViewController, NavigationProtocol{
-    var sub: Bool! = false
+    var sub: Bool! = true
     var navigation: Navigation!
     
     static func storyboardInstance(navigation: Navigation) -> UIViewController? {
@@ -120,21 +120,10 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
             return
         }
         tap = true
-        if navigation.subData.activeSub{
-            if navigation.realmData.userModel!.obesityTypeSelect == ""{
-                navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
-            }else{
-                navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
-            }
+        if navigation.realmData.userModel!.obesityTypeSelect == ""{
+            navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
         }else{
-            /*
-            if navigation.realmData.userModel!.obesityTypeSelect == ""{
-                navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
-            }else{
-                navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
-            }
-            */
-            navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+            navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
         }
         tap = false
     }

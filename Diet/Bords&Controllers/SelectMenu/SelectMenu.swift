@@ -29,6 +29,7 @@ class SelectMenu: UIViewController, NavigationProtocol{
     
     var scrollView: UIScrollView!
     var header: UIView!
+    var recomendDie: Die!
     var dies: [Die] = []
     var dieInfo = [DieInfo(dieLabel:     "Superfit 1000",
                            dieDescript:  "Ration at 1000 kcal/daily is way for quick weight loss.".localized,
@@ -78,7 +79,6 @@ class SelectMenu: UIViewController, NavigationProtocol{
         headerLable.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
                            size: ((view.frame.height + view.frame.width) / 2) / 23)
         header.addSubview(headerLable)
-        
         var recomendDiet = 0
         let bodyCategory = CategoryName.init(rawValue: navigation.realmData.userModel!.obesityType)!
         switch bodyCategory {
@@ -118,8 +118,10 @@ class SelectMenu: UIViewController, NavigationProtocol{
             }
             dies.append(die)
             scrollView.addSubview(die)
+            
             if i == recomendDiet{
                 die.recomend = true
+                recomendDie = die
             }
             if i == 4{
                 scrollView.contentSize = CGSize(width: view.frame.width,
@@ -127,7 +129,13 @@ class SelectMenu: UIViewController, NavigationProtocol{
             }
         }
         
-        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollView.scrollRectToVisible(CGRect(x: 0,
+                                              y: recomendDie.center.y - view.frame.height / 2,
+                                              width: view.frame.width,
+                                              height: view.frame.height), animated: true)
     }
 
 }

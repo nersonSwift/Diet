@@ -12,7 +12,6 @@ import FacebookCore
 import Purchases
 import SwiftyStoreKit
 import AppsFlyerLib
-import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -59,32 +58,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppEventsLogger.activate(application)
         AppsFlyerTracker.shared().trackAppLaunch()
-        
+        if let main = window?.rootViewController as? Main{
+            if let navigation = main.navigation{
+                navigation.subData.refrash(){
+                    print(navigation.subData.activeSub)
+                    if navigation.realmData.userModel.sub && navigation.subData.activeSub && !navigation.subData.activeTrial{
+                        EventManager.sendEvent(with: AFEventSubscribe)
+                        navigation.realmData.userModel.sub = false
+                    }
+                }
+            }
+        }
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
         
         if let main = window?.rootViewController as? Main{
             
-            let navigation = main.navigation!
-            if navigation.realmData.userModel.sub && navigation.subData.activeSub && !navigation.subData.activeTrial{
-                EventManager.sendEvent(with: AFEventSubscribe)
-                navigation.realmData.userModel.sub = false
-            }
-            let navigationView = navigation.selectView as! NavigationProtocol
-            if navigationView.sub{
-                navigation.subData.refrash(){
-                    
+            if let navigation = main.navigation{
+                let navigationView = navigation.selectView as! NavigationProtocol
+                if navigationView.sub{
                     print(navigation.subData.activeSub)
-                    
                     if !navigation.subData.activeSub{
                         DispatchQueue.main.async {
                             if navigationView.sub{
-                                navigation.transitionToView(viewControllerType: SubscriptionOfferView(), animated: true, special: nil)
+                                navigation.transitionToView(viewControllerType: Main(), animated: false, special: nil)
                             }
                         }
                     }
                 }
             }
         }
-        
     }
     
     

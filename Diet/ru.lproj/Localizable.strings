@@ -1,10 +1,10 @@
-/* 
-  Localized.strings
-  Diet
-
-  Created by Даниил on 20/12/2018.
-  Copyright © 2018 Даниил. All rights reserved.
-*/
+/*
+ Localized.strings
+ Diet
+ 
+ Created by Даниил on 20/12/2018.
+ Copyright © 2018 Даниил. All rights reserved.
+ */
 
 // Notifications
 "New recipes!" = "Новые рецепты";
@@ -47,8 +47,13 @@
 "skip" = "пропустить";
 
 "Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "Оплата будет произведена по вашему iTunes аккаунту после подверждения покупки. Подписка будет автоматически обновлена, если не была отменена в течение 24 часов перед окончанием текущего периода. Автообновление подписки может быть отключено в настройках аккаунта после покупки. Любая неиспользованная часть пробного периода будет аннулирована после покупки подписки.";
-"FINISH" = "Начать тест";
-"NEXT" = "Дальше";
+"Start!" = "Начать!";
+
+"After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "После пробного периода подписка автоматически обновится, если не будет отменена перед окончанием бесплатного периода. Оплата будет произведена по вашему iTunes аккаунту после подверждения покупки. Подписка будет автоматически обновлена, если не была отменена в течение 24 часов перед окончанием текущего периода. Автообновление подписки может быть отключено в настройках аккаунта после покупки. Любая неиспользованная часть пробного периода будет аннулирована после покупки подписки.";
+
+"Try Free!" = "Попробуй бесплатно!";
+"Test our app for 3 days for free! " = "Проведи тест-драйв приложения в течение 3 дней совершенно бесплатно! ";
+"/week after 3 days." = "/неделя после 3 дней.";
 
 // Test pages
 "Select your age" = "Укажите ваш возраст";
@@ -85,6 +90,7 @@
 "Sunday" = "Воскресенье";
 " kCal." = " ККал.";
 "g." = "г.";
+"Recipes for today" = "Рецепты на сегодня";
 
 // Recipe screen
 "Close" = "Закрыть";
@@ -118,3 +124,6 @@
 "Ration at 1400 kcal/daily to maintain current form or calm weight loss. Full meals without a strong feeling of hunger." = "Рацион на 1400 ккал/день для поддержания текущей формы или спокойного похудения. Полноценные приемы пищи без сильного чувства голода.";
 "Ration at 2000 kcal/daily for those who lead an active lifestyle, play sports and at the same time want to be fit." = "Рацион на 2000 ккал/день для тех, кто ведет активный образ жизни, занимается спортом и при этом хочет быть в форме.";
 "Ration at 2500 kcal/daily for those who are actively practise dtsports and want to gain muscle mass. Consume more calories than you spend." = "Рацион на 2500 ккал/день для тех, кто активно занимается спортом и хочет набрат мышечную массу. Потребляйте больше калорий, чем тратите.";
+
+
+"Critical update released.\nPlease update the app." = "Выпущено критическое обновление. \nПожалуйста, обновите приложение.";

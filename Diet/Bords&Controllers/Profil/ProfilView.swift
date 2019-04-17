@@ -155,8 +155,6 @@ class ProfilView: UIViewController, NavigationProtocol{
                                size: ((view.frame.height + view.frame.width) / 2) / 19)
         fieldAge.sizeToFit()
         fieldAge.transform.tx -= fieldAge.frame.width
-        //fieldAge.layer.borderColor = #colorLiteral(red: 0.5921568627, green: 0.5921568627, blue: 0.5921568627, alpha: 1)
-        //fieldAge.layer.borderWidth = 3
         view.addSubview(fieldAge)
         
         let fieldWeightFrame = CGRect(x: view.frame.width * 0.94,
