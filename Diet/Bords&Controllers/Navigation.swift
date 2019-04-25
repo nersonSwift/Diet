@@ -26,8 +26,18 @@ class Navigation{
         
         controllers.append(viewController)
         let main = controllers[0] as! Main
-        let launchView = main.launchView
+        var launchView = main.launchView
+        main.anim = true
         //launchView?.removeFromSuperview()
+        let _ = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { timer in
+            if launchView == nil{
+                return
+            }
+            launchView?.removeFromSuperview()
+            launchView = nil
+            main.anim = false
+        }
+        
         subData.refrash(){
             if self.subData.activeSub{
                 if UserDefaults.standard.bool(forKey: "testShown1"){
@@ -35,19 +45,27 @@ class Navigation{
                     if self.realmData.userModel!.obesityTypeSelect == ""{
                         self.transitionToView(viewControllerType: SelectMenu(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
+                            launchView = nil
+                            main.anim = false
                         }, special: nil)
                     }else{
                         self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
+                            launchView = nil
+                            main.anim = false
                         }, special: nil)
                     }
                 }else{
                     self.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: false, completion: { nextViewController in
                         launchView?.removeFromSuperview()
+                        launchView = nil
+                        main.anim = false
                     }, special: nil)
                 }
             }else{
                 launchView?.removeFromSuperview()
+                launchView = nil
+                main.anim = false
             }
             self.checkVersoin()
         }

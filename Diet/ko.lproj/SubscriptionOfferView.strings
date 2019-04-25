@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "New dishes every week"; ObjectID = "0Sq-HV-hjK"; */
+"0Sq-HV-hjK.text" = "New dishes every week";
+
+/* Class = "UIButton"; normalTitle = "restore"; ObjectID = "CBd-iV-Lkl"; */
+"CBd-iV-Lkl.normalTitle" = "restore";
+
+/* Class = "UILabel"; text = "After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription."; ObjectID = "G7O-T3-jYe"; */
+"G7O-T3-jYe.text" = "After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription.";
+
+/* Class = "UIButton"; normalTitle = "back"; ObjectID = "GCm-jB-NmT"; */
+"GCm-jB-NmT.normalTitle" = "back";
+
+/* Class = "UIButton"; normalTitle = "START"; ObjectID = "Hzg-AN-dym"; */
+"Hzg-AN-dym.normalTitle" = "START";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "MpP-u6-VJZ"; */
+"MpP-u6-VJZ.normalTitle" = "Terms of Service";
+
+/* Class = "UILabel"; text = "Unlimited access to all diets"; ObjectID = "WsZ-83-k8T"; */
+"WsZ-83-k8T.text" = "Unlimited access to all diets";
+
+/* Class = "UILabel"; text = "Features full access"; ObjectID = "ZSo-Td-d2I"; */
+"ZSo-Td-d2I.text" = "Features full access";
+
+/* Class = "UILabel"; text = "Detailed cooking recipes"; ObjectID = "anf-uY-YEm"; */
+"anf-uY-YEm.text" = "Detailed cooking recipes";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "iHp-gU-ril"; */
+"iHp-gU-ril.text" = "...";
+
+/* Class = "UILabel"; text = "Weekly plan"; ObjectID = "n1i-VE-mSC"; */
+"n1i-VE-mSC.text" = "Weekly plan";
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "ppq-7Y-nbj"; */
+"ppq-7Y-nbj.normalTitle" = "Privacy Policy";

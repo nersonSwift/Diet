@@ -1,0 +1,26 @@
+/*
+ Localized.strings
+ Diet
+ 
+ Created by Даниил on 20/12/2018.
+ Copyright © 2018 Даниил. All rights reserved.
+ */
+
+"Welcome!" = "Herzlich willkommen!";
+"Swipe left or tap on the button to learn about the main features of our application." = "Streichen Sie nach links oder tippen Sie auf den Knopf, um mehr über die Hauptmerkmale unserer Anwendung zu erfahren.";
+"BMI & daily caloric intake" =  "Body-Mass-Index und tägliche Kalorienzufuhr";
+"We calculate your body mass index and tell about the condition of the body it signals." = "Wir berechnen Ihren Körpermasseindex und informieren Sie über den Zustand des Körpers, den er signalisiert.";
+"Personal ration" = "Persönliche Ration";
+"After the test is will be done, you will know your daily calorie intake and we will make the right diet plan." = "Nachdem der Test durchgeführt wird, werden Sie Ihre tägliche Kalorienaufnahme wissen, und wir machen den richtigen Diätplan.";
+"New recipes every week" = "Neue Rezepte jede Woche";
+"Every week we will send new recipes, turn on notifications to not miss them." = "Jede Woche werden wir neue Rezepte senden, schalten Sie Benachrichtigungen ein, damit Sie ihnen nicht entgehen.";
+//"skip" = "skip";
+
+"Start!" = "Start!";
+"Next" = "Nächster";
+
+"After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "Nach einer kostenlosen Testphase erneuert sich das Abonnement automatisch, es sei denn, dass es vor dem Ende der Probe gekündigt wird. Die Zahlung wird Ihrem iTunes-Konto bei der Bestätigung des Kaufs in Rechnung gestellt. Abonnements werden automatisch erneuert, außer wenn sie nicht innerhalb von 24 Stunden vor Ablauf des aktuellen Zeitraums gekündigt werden. Die automatische Erneuerung des Abonnements kann nach dem Kauf in den Kontoeinstellungen deaktiviert werden. Jeder nicht verwendete Teil einer kostenlosen Testprobe verfällt beim Kauf eines Abonnements.";
+
+"Try Free!" = "Versuchen Sie es!";
+"Test our app for 3 days for free! " = "Testen Sie unsere Anwendung für 3 Tage kostenlos! ";
+"/week after 3 days." = "/Woche nach 3 Tagen";

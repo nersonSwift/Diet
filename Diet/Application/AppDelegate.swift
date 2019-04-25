@@ -58,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppEventsLogger.activate(application)
         AppsFlyerTracker.shared().trackAppLaunch()
+        
         if let main = window?.rootViewController as? Main{
             if let navigation = main.navigation{
                 navigation.subData.refrash(){

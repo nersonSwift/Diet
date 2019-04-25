@@ -1,0 +1,26 @@
+/*
+ Localized.strings
+ Diet
+ 
+ Created by Даниил on 20/12/2018.
+ Copyright © 2018 Даниил. All rights reserved.
+ */
+
+"Welcome!" = "ようこそ!";
+"Swipe left or tap on the button to learn about the main features of our application." = "アプリの主な機能について学ぶために左にスワイプまたはボタンをタップしてください。";
+"BMI & daily caloric intake" =  "BMIと毎日のカロリー摂取量";
+"We calculate your body mass index and tell about the condition of the body it signals." = "あなたの肥満度指数を計算し、身体の状態について教えます。";
+"Personal ration" = "個人設定";
+"After the test is will be done, you will know your daily calorie intake and we will make the right diet plan." = "測定後、あなたの毎日のカロリー摂取量に従って私たちがダイエットプランを作らさせていただきます。";
+"New recipes every week" = "毎週新レシピ";
+"Every week we will send new recipes, turn on notifications to not miss them." = "毎週新しいレシピを送るので見逃さないように通知をオンに！";
+//"skip" = "skip";
+
+"Start!" = "開始!";
+"Next" = "次";
+
+"After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "무료 평가판 기간이 지나면 평가판 종료 전에 취소하지 않으면 자동으로 갱신됩니다. 지불 확인시 iTunes 계정으로 요금이 청구됩니다. 현재 기간이 끝나기 24 시간 이내에 취소하지 않으면 구독 정보가 자동으로 갱신됩니다. 구매 후 계정 설정으로 이동하여 구독 자동 갱신을 사용 중지 할 수 있습니다. 무료 평가판의 사용되지 않은 부분은 구독을 구입할 때 자격이 상실됩니다.";
+
+"Try Free!" = "お試し!";
+"Test our app for 3 days for free! " = "無料で3日間私たちのアプリをテストします! ";
+"/week after 3 days." = "/週 3日後に";

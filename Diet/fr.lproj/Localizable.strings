@@ -1,0 +1,27 @@
+/*
+ Localized.strings
+ Diet
+ 
+ Created by Даниил on 20/12/2018.
+ Copyright © 2018 Даниил. All rights reserved.
+ */
+
+// Notifications
+"Welcome!" = "Bienvenue!";
+"Swipe left or tap on the button to learn about the main features of our application." = "Faites glisser votre doigt vers la gauche ou appuyez sur le bouton pour en savoir plus sur les principales fonctionnalités de notre application.";
+"BMI & daily caloric intake" =  "IMC et apport calorique quotidien";
+"We calculate your body mass index and tell about the condition of the body it signals." = "Nous calculons votre indice de masse corporelle et parlons de l’état du corps qu’il signale.";
+"Personal ration" = "Ration personnelle";
+"After the test is will be done, you will know your daily calorie intake and we will make the right diet plan." = "Une fois le test effectué, vous connaîtrez votre apport calorique quotidien et nous établirons le bon régime alimentaire.";
+"New recipes every week" = "Nouvelles recettes chaque semaine";
+"Every week we will send new recipes, turn on notifications to not miss them." = "Chaque semaine, nous enverrons de nouvelles recettes, activer les notifications pour ne pas les manquer.";
+//"skip" = "skip";
+
+"Start!" = "Start!";
+"Next" = "Folgjende";
+
+"After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "Après une période d'essai gratuite, l'abonnement se renouvelle automatiquement sauf en cas d'annulation avant la fin de l'essai. Le paiement sera débité de votre compte iTunes lors de la confirmation de l'achat. Les abonnements seront automatiquement renouvelés à moins d'être annulés dans les 24 heures avant la fin de la période en cours. Le renouvellement automatique de l'abonnement peut être désactivé en accédant aux paramètres du compte après l'achat. Toute portion inutilisée d'un essai gratuit sera perdue lors de l'achat d'un abonnement.";
+
+"Try Free!" = "Essayer!";
+"Test our app for 3 days for free! " = "Testez notre application pendant 3 jours gratuitement! ";
+"/week after 3 days." = "/semaine après 3 jours.";

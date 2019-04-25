@@ -1,0 +1,26 @@
+/*
+ Localized.strings
+ Diet
+ 
+ Created by Даниил on 20/12/2018.
+ Copyright © 2018 Даниил. All rights reserved.
+ */
+
+"Welcome!" = "Bienvenido!";
+"Swipe left or tap on the button to learn about the main features of our application." = "Deslice el dedo hacia la izquierda o toque el botón para conocer las principales características de nuestra aplicación";
+"BMI & daily caloric intake" =  "IMC e ingesta calórica diaria";
+"We calculate your body mass index and tell about the condition of the body it signals." = "Calculamos su índice de masa corporal y le informamos sobre el estado del cuerpo que indica.";
+"Personal ration" = "Calificación personal";
+"After the test is will be done, you will know your daily calorie intake and we will make the right diet plan." = "Después de que se realice la prueba, sabrá su ingesta diaria de calorías y haremos el plan de dieta correcto.";
+"New recipes every week" = "Nuevas recetas cada semana";
+"Every week we will send new recipes, turn on notifications to not miss them." = "Cada semana le enviaremos nuevas recetas, tiene que activar las notificaciones para no perderlas.";
+//"skip" = "skip";
+
+"Start!" = "Сomienzo!";
+"Next" = "Siguiente";
+
+"After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "Después de un período de prueba gratuito, la suscripción se renueva automáticamente, a menos que se cancele antes del final de la prueba. El pago se cargará a su cuenta de iTunes en la confirmación de la compra. Las suscripciones se renovarán automáticamente, a menos que se cancelen dentro de las 24 horas anteriores al final del período actual. La renovación automática de la suscripción se puede desactivar accediendo a la Configuración de la cuenta después de la compra. Cualquier parte no utilizada de una prueba gratuita se perderá cuando compre una suscripción.";
+
+"Try Free!" = "Tratar!";
+"Test our app for 3 days for free! " = "¡Prueba nuestra aplicación durante 3 días gratis! ";
+"/week after 3 days." = "/semana después de 3 días.";

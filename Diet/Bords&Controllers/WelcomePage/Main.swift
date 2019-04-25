@@ -44,6 +44,7 @@ class Main: UIViewController, NavigationProtocol {
     
     var storegeBolls: UIView!
     var bolls: [UIView] = []
+    var descriptionView: UILabel!
     
     
     fileprivate static let titleFont = UIFont(name: "Helvetica-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
@@ -87,6 +88,11 @@ class Main: UIViewController, NavigationProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         createstStoregeBolls()
+        
+        if UserDefaults.standard.bool(forKey: "checkSub"){
+            counter = 4
+        }
+        
         resizeStorageBolls(namberView: counter - 1)
         selectView = createView(namberView: counter)
         presentView(modelMainView: selectView)
@@ -98,7 +104,14 @@ class Main: UIViewController, NavigationProtocol {
         SwiftyStoreKit.retrieveProductsInfo([ProductId.popular.rawValue]) { result in
             if let popPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.popular.rawValue }).first{
                 let popularPlan = popPlan
-                self.items[4].description = "Test our app for 3 days for free! ".localized + popularPlan.localizedPrice! + "/week after 3 days.".localized
+                DispatchQueue.main.async {
+                    self.items[4].description = "Test our app for 3 days for free! ".localized + popularPlan.localizedPrice! + "/week after 3 days.".localized
+                    if self.counter == 4{
+                        if self.descriptionView != nil{
+                            self.descriptionView.text = self.items[4].description
+                        }
+                    }
+                }
             }
         }
     }
@@ -141,6 +154,15 @@ class Main: UIViewController, NavigationProtocol {
     }
     
     func createView(namberView: Int) -> ModelMainView{
+        let textEvent = "User saw welcome screen - \(self.counter + 1)"
+        if !UserDefaults.standard.bool(forKey: textEvent){
+            UserDefaults.standard.set(true, forKey: textEvent)
+            EventManager.sendEvent(with: textEvent)
+        }
+        if counter == 4{
+            UserDefaults.standard.set(true, forKey: "checkSub")
+        }
+        
         var modelMainView = ModelMainView()
         var foundationView = UIView(frame: view.frame)
         var disText: UILabel? = nil
@@ -283,7 +305,7 @@ class Main: UIViewController, NavigationProtocol {
                                       y: titleFrame.maxY + view.frame.height * 0.02,
                                       width: view.frame.width * 0.92,
                                       height: view.frame.height * 0.15)
-        let descriptionView = UILabel(frame: descriptionFrame)
+        descriptionView = UILabel(frame: descriptionFrame)
         descriptionView.transform.ty = view.frame.height * 0.04
         descriptionView.alpha = 0
         descriptionView.text = items[namberView].description
@@ -328,7 +350,11 @@ class Main: UIViewController, NavigationProtocol {
                 self.nextView = self.createView(namberView: self.counter)
                 self.animView(namberView: self.counter - 1)
             }else{
-                EventManager.sendEvent(with: "User saw welcome screen")
+                let textIvent = "User clicked button sub"
+                if !UserDefaults.standard.bool(forKey: textIvent){
+                    UserDefaults.standard.set(true, forKey: textIvent)
+                    EventManager.sendEvent(with: textIvent)
+                }
                 let loadingVc = LoadingViewController()
                 self.add(loadingVc)
                 if self.navigation.subData.activeSub{

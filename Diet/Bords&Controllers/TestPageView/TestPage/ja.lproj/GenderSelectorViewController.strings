@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Select your gender"; ObjectID = "Chf-6g-dIg"; */
+"Chf-6g-dIg.text" = "Select your gender";
+
+/* Class = "UIButton"; normalTitle = "Male"; ObjectID = "U7B-JA-h75"; */
+"U7B-JA-h75.normalTitle" = "Male";
+
+/* Class = "UIButton"; normalTitle = "Female"; ObjectID = "gad-ph-mU7"; */
+"gad-ph-mU7.normalTitle" = "Female";
+
+/* Class = "UILabel"; text = "Step 1 of 4"; ObjectID = "hqW-yj-0Rn"; */
+"hqW-yj-0Rn.text" = "Step 1 of 4";

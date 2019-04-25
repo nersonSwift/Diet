@@ -1,0 +1,26 @@
+/*
+ Localized.strings
+ Diet
+ 
+ Created by Даниил on 20/12/2018.
+ Copyright © 2018 Даниил. All rights reserved.
+ */
+
+"Welcome!" = "أهلا بك";
+"Swipe left or tap on the button to learn about the main features of our application." = "اسحب لليسار أو اضغط على الزر للتعرف على الميزات الرئيسية لتطبيقنا";
+"BMI & daily caloric intake" =  "مؤشر كتلة الجسم و السعرات الحرارية اليومية";
+"We calculate your body mass index and tell about the condition of the body it signals." = " نحسب مؤشر كتلة الجسم الخاص بك ونخبرك عن حالة الجسم التي يشير إليها.";
+"Personal ration" = "النسبة الشخصية";
+"After the test is will be done, you will know your daily calorie intake and we will make the right diet plan." = "بعد الانتهاء من الاختبار ، ستتعرفع على كمية السعرات الحرارية اليومية التى تحصل عليها وسنضع خطة النظام الغذائي الصحيح.";
+"New recipes every week" = "وصفات جديدة كل أسبوع";
+"Every week we will send new recipes, turn on notifications to not miss them." = "كل أسبوع سوف نرسل وصفات جديدة ، قم بتشغيل الإخطارات حتى لا تفوتك";
+//"skip" = "skip";
+
+"Start!" = "بداية";
+"Next" = "التالى";
+
+"After a free trial period subscription renews automaticly unless canceled before the end of the trial. Payment will be charged to your iTunes Account at confirmation of purchase. Subscriptions will automatically renew unless canceled within 24-hours before the end of the current period. Subscription auto-renewal may be turned off by going to the Account Settings after purchase. Any unused portion of a free trial will be forfeited when you purchase a subscription." = "بعد الفترة التجريبية المجانية ، يتم تجديد الاشتراك تلقائيًا ما لم يتم إلغاؤه قبل نهاية النسخة التجريبية. سيتم فرض الدفع على حساب اى تيونز الخاص بك عند تأكيد الشراء. سيتم تجديد الاشتراكات تلقائيًا ما لم يتم إلغاؤها في غضون 24 ساعة قبل نهاية الفترة الحالية. قد يتم إيقاف التجديد التلقائي للاشتراك عن طريق الانتقال إلى إعدادات الحساب بعد الشراء. سيتم مصادرة أي جزء غير مستخدم من النسخة التجريبية المجانية عند شراء اشتراك";
+
+"Try Free!" = "تجربة !";
+"Test our app for 3 days for free! " = "Test our app for 3 days for free! ";
+"/week after 3 days." = "/week after 3 days.";

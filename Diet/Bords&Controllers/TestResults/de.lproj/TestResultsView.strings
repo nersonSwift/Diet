@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "0"; ObjectID = "0BI-bZ-0xl"; */
+"0BI-bZ-0xl.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "0iW-sQ-fa3"; */
+"0iW-sQ-fa3.text" = "0";
+
+/* Class = "UILabel"; text = "gender"; ObjectID = "2uR-pL-6TI"; */
+"2uR-pL-6TI.text" = "gender";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "55y-b6-LQc"; */
+"55y-b6-LQc.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Ok? Go!"; ObjectID = "8CF-Kx-XwQ"; */
+"8CF-Kx-XwQ.normalTitle" = "Ok? Go!";
+
+/* Class = "UILabel"; text = "Your height"; ObjectID = "92n-Y0-JfP"; */
+"92n-Y0-JfP.text" = "Your height";
+
+/* Class = "UILabel"; text = "Your weight"; ObjectID = "Xhe-nG-t0l"; */
+"Xhe-nG-t0l.text" = "Your weight";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "iVs-kn-Pdz"; */
+"iVs-kn-Pdz.text" = "Label";
+
+/* Class = "UILabel"; text = "Your age"; ObjectID = "mFW-3X-xD2"; */
+"mFW-3X-xD2.text" = "Your age";
+
+/* Class = "UIButton"; normalTitle = "Take the test again"; ObjectID = "xze-AY-Q0v"; */
+"xze-AY-Q0v.normalTitle" = "Take the test again";
