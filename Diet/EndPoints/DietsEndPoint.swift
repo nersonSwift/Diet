@@ -27,7 +27,7 @@ enum DietApi {
 extension DietApi: EndPointType {
     
     static var baseUrl: String {
-        return "http://dietsforbuddies.com/NewApi/getDiets.php"
+        return "http://dietsforbuddies.com/NewApi/1.json"
     }
     
     var parameters: [String : Any] {

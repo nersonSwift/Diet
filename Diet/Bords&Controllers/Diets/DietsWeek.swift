@@ -30,6 +30,7 @@ class DietsWeek: UIViewController, NavigationProtocol {
     var scrollView: UIScrollView!
     var cachedImage = NSCache<AnyObject, AnyObject>()
     var cellTapped: ((_ dish: Dish) -> Void)?
+    var nameRas = ""
     var couter = 0
     var body: CategoryName!
     var weekColleticonsResipe: [ColletcionResipe] = []
@@ -215,14 +216,19 @@ class DietsWeek: UIViewController, NavigationProtocol {
         switch body!{
         case .underweight:
             networkService.getDiet(.power)
+            nameRas = DietType.power.description
         case .normal:
             networkService.getDiet(.balance)
+            nameRas = DietType.balance.description
         case .excessObesity:
             networkService.getDiet(.daily)
+            nameRas = DietType.daily.description
         case .obesity:
             networkService.getDiet(.fit)
+            nameRas = DietType.fit.description
         case .severeObesity:
             networkService.getDiet(.superFit)
+            nameRas = DietType.superFit.description
         case .undefined:
             networkService.getDiet(.balance)
         }
@@ -306,8 +312,8 @@ class DietsWeek: UIViewController, NavigationProtocol {
                                     height: 0)
         let textLabel = UILabel(frame: textLabelFrame)
         textLabel.numberOfLines = 0
-        textLabel.text = diet!.name
-        textLabel.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Medium", size: 0), size: ((self.view.frame.height + self.view.frame.width) / 2) / 25)
+        textLabel.text = nameRas
+        textLabel.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Medium", size: 0), size: ((self.view.frame.height + self.view.frame.width) / 2) / 20)
         textLabel.sizeToFit()
         lableFoundation.addSubview(textLabel)
         

@@ -1,0 +1,86 @@
+{
+  "en": {
+    "name": "Omelet with green peas and cheese",
+    "reciept": [
+      {
+        "description": "For cooking you will need : chicken Egg 2 PCs, Milk 50 ml, Cheese solid 20 g, green Peas 50 g, Butter 20 g, Salt to taste, Black pepper to taste , Beat eggs with milk ",
+        "name": "Step 1"
+      },
+      {
+        "description": "Add salt and freshly ground pepper",
+        "name": "Step 2"
+      },
+      {
+        "name": "Step 3",
+        "description": "Melt the butter"
+      },
+      {
+        "description": "Pour the egg mass",
+        "name": "Step 4"
+      },
+      {
+        "name": "Step 5",
+        "description": "Add peas. Cook over low heat for 8-10 minutes."
+      },
+      {
+        "name": "Step 6",
+        "description": "Add grated cheese, cook for another 2 minutes."
+      }
+    ]
+  },
+  "fats": "9",
+  "calories": "320",
+  "carbs": "37",
+  "image": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-omlet-s-zelenym-goroshkom-i-syrom.jpg",
+  "steps": [
+    {
+      "step1": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_big/recept/recept-omlet-s-zelenym-goroshkom-i-syrom-shag.jpg"
+    },
+    {
+      "step2": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-omlet-s-zelenym-goroshkom-i-syrom-shag_0.jpg"
+    },
+    {
+      "step3": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-omlet-s-zelenym-goroshkom-i-syrom-shag_1.jpg"
+    },
+    {
+      "step4": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_big/recept/recept-omlet-s-zelenym-goroshkom-i-syrom-shag_2.jpg"
+    },
+    {
+      "step5": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_big/recept/recept-omlet-s-zelenym-goroshkom-i-syrom-shag_3.jpg"
+    },
+    {
+      "step6": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-omlet-s-zelenym-goroshkom-i-syrom-shag_4.jpg"
+    }
+  ],
+  "ru": {
+    "reciept": [
+      {
+        "description": "Для приготовления вам понадобится : Яйцо куриное 2 шт, Молоко 50 мл, Сыр твердый 20 г, Горошек зеленый 50 г, Масло сливочное 20 г, Соль по вкусу, Перец черный молотый по вкусу , Яйца взбить с молоком ",
+        "name": "Шаг 1"
+      },
+      {
+        "description": "Добавить соль и свежесмолотый перец",
+        "name": "Шаг 2"
+      },
+      {
+        "name": "Шаг 3",
+        "description": "Растопить сливочное масло"
+      },
+      {
+        "description": "Вылить яичную массу",
+        "name": "Шаг 4"
+      },
+      {
+        "name": "Шаг 5",
+        "description": "Добавить горошек. Готовить на медленном огне 8-10 минут."
+      },
+      {
+        "name": "Шаг 6",
+        "description": "Добавить натертый сыр, готовить еще 2 минуты."
+      }
+    ],
+    "name": "Омлет с зеленым горошком и сыром"
+  },
+  "id": "a1",
+  "protein": "21"
+}

@@ -1,0 +1,64 @@
+{
+  "protein": "10",
+  "image": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-brusketta-s-avokado-i-pomidorami-cherri.jpg",
+  "steps": [
+    {
+      "step1": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_big/recept/recept-brusketta-s-avokado-i-pomidorami-cherri-shag.jpg"
+    },
+    {
+      "step2": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-brusketta-s-avokado-i-pomidorami-cherri-shag_0.jpg"
+    },
+    {
+      "step3": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-brusketta-s-avokado-i-pomidorami-cherri-shag_1.jpg"
+    },
+    {
+      "step4": "http://tvoirecepty.ru/files/imagecache/recept_page_photo_two_col/recept/recept-brusketta-s-avokado-i-pomidorami-cherri-shag_2.jpg"
+    }
+  ],
+  "fats": "60",
+  "carbs": "30",
+  "id": "a6",
+  "en": {
+    "name": "Bruschetta with avocado and cherry tomatoes   ",
+    "reciept": [
+      {
+        "name": "Step 1",
+        "description": "For preparation you will need : Olive oil, 0.5 tbsp Garlic clove 0.5, 0.5 Avocado pieces, cherry 2.5 PCs Baguette 2 pieces, Salt to taste, black Pepper to taste, Parsley (green) 0.5 tbsp, Slice the baguette into pieces"
+      },
+      {
+        "name": "Step 2",
+        "description": "Avocado cut into cubes. Cherry on 4 parts."
+      },
+      {
+        "description": "Dry the baguette pieces in the oven or on a dry pan",
+        "name": "Step 3"
+      },
+      {
+        "description": "add olive oil, finely chopped garlic and parsley To the avocado and tomatoes. Salt and pepper to taste. Put the vegetable mixture on a baguette.",
+        "name": "Step 4"
+      }
+    ]
+  },
+  "ru": {
+    "reciept": [
+      {
+        "name": "Шаг 1",
+        "description": "Для приготовления вам понадобится : Оливковое масло 0.5 ст.л, Чеснок 0.5 зубчик, Авокадо 0.5 шт, Черри 2.5 шт, Багет 2 шт, Соль по вкусу, Перец черный молотый по вкусу, Петрушка (зелень) 0.5 ст.л, Нарезать багет на кусочки"
+      },
+      {
+        "name": "Шаг 2",
+        "description": "Авокадо порезать кубиками. Черри на 4 части."
+      },
+      {
+        "description": "Подсушить кусочки багета в духовке или на сухой сковороде",
+        "name": "Шаг 3"
+      },
+      {
+        "description": "К авокадо и помидорам добавить оливковое масло, мелко порубленные чеснок и петрушку. Посолить, поперчить по вкусу. Выложить овощную смесь на багет.",
+        "name": "Шаг 4"
+      }
+    ],
+    "name": "Брускетта с авокадо и помидорами черри   "
+  },
+  "calories": "500"
+}

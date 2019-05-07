@@ -56,54 +56,103 @@ extension NetworkService: DietNetworkService {
     func getDiet(_ type: DietType) {
         
         let queue = DispatchQueue.global(qos: .utility)
-        let parameters = DietApi.diet(type: type).parameters
+        //let parameters = DietApi.diet(type: type).parameters
         
         print(DietApi.baseUrl)
+        var count = 0
+        var locale = NSLocale.preferredLanguages.first!.filter { (a) -> Bool in
+            if count <= 1{
+                count += 1
+                return true
+            }
+            return false
+        }
+        print(locale)
+        if locale != "ru"{
+            locale = "en"
+        }
         
-        request(DietApi.baseUrl,
-                method: .get,
-                parameters: parameters,
-                encoding: URLEncoding.default,
-                headers: nil)
-            .response(queue: queue, responseSerializer: DataRequest.jsonResponseSerializer()) { [weak self] response in
+        request(DietApi.baseUrl).response(queue: queue, responseSerializer: DataRequest.jsonResponseSerializer()) { [weak self] response in
                 
-                guard let unwrappedSelf = self else { print("self is nil"); return }
-                
-                guard let responseValue = response.result.value else {
-                    print("Diet raw json is nil")
-                    return
+            guard let unwrappedSelf = self else { print("self is nil"); return }
+            
+            guard let responseValue = response.result.value else {
+                print("Diet raw json is nil")
+                return
+            }
+            
+            let json = JSON(responseValue)[type.description]
+            let json1 = JSON(responseValue)[type.description]
+            
+            var days1: [DietWeek.Day] = []{
+                didSet {
+                    print(days1.count)
+                    if days1.count == 7{
+                        let diet = Diet.init(name: "",
+                                             description: "",
+                                             type: type.description,
+                                             weeks: [DietWeek.init(nutritionalValue: NutritionalValue(calories: 0,
+                                                                                                      protein: 0,
+                                                                                                      carbs: 0,
+                                                                                                      fats: 0),
+                                                                   days: days1)])
+                        
+                        unwrappedSelf.dietServiceDelegate?.dietNetworkServiceDidGet(diet)
+                    }
                 }
-                
-                let json = JSON(responseValue)["diet"]
-                
-                let days = json["weeks"][0]["days"].array?.map { jsonDays -> DietWeek.Day in
-                    DietWeek.Day(name:   "",
-                                 dishes: jsonDays.array?.map { jsonDish -> Dish in
-                        Dish.init(name:           jsonDish["name"].stringValue,
-                                  imagePath:      jsonDish["image"].stringValue,
-                                  nutritionValue: NutritionalValue.init(calories: jsonDish["calories"].doubleValue,
-                                                                        protein:  jsonDish["protein"].doubleValue,
-                                                                        carbs:    jsonDish["carbs"].doubleValue,
-                                                                        fats:     jsonDish["fats"].doubleValue),
-                                  recipe: jsonDish["reciept"].array?.map { jsonRecipe -> RecieptSteps in
-                                    RecieptSteps.init(name:        jsonRecipe["name"].stringValue,
-                                                      description: jsonRecipe["description"].stringValue,
-                                                      imagePaths:  [jsonRecipe["images"].stringValue])
-                                  } ?? [])
-                    } ?? [])
+            }
+            
+            for i in unwrappedSelf.daysOfWeek{
+                var dishes1: [Dish] = []{
+                    didSet {
+                        if dishes1.count == json1[i].array!.count{
+                            print(i)
+                            let day = DietWeek.Day(name: i,
+                                                   dishes: dishes1)
+                            days1.append(day)
+                        }else{
+                            print("\(i) - \(dishes1.count)/\(json1[i].array!.count) - \(dishes1.last!.name)")
+                        }
+                    }
                 }
-                
-                guard var unwrappedDays = days else { print("days are nil after being parsed"); return }
-                
-                let jsonWeek = json["weeks"][0]
-                let weekNutritionValue = NutritionalValue.init(calories: jsonWeek["totalCalories"].doubleValue, protein: jsonWeek["totalProtein"].doubleValue, carbs: jsonWeek["totalCarbs"].doubleValue, fats: jsonWeek["totalFats"].doubleValue)
-                
-                self?.setDishesImagePaths(for: &unwrappedDays, dietType: json["type"].stringValue)
-                self?.setRecipesImagesPaths(for: &unwrappedDays, dietType: json["type"].stringValue)
-                
-                let diet = Diet.init(name: json["title"].stringValue, description: json["description"].stringValue, type: json["type"].stringValue, weeks: [DietWeek.init(nutritionalValue: weekNutritionValue, days: unwrappedDays)])
-                
-                unwrappedSelf.dietServiceDelegate?.dietNetworkServiceDidGet(diet)
+                for resId in json1[i]{
+                    request("http://dietsforbuddies.com/NewApi/id/id\(resId.1.string!).json").response(queue: queue, responseSerializer: DataRequest.jsonResponseSerializer()) { response in
+                        
+                        guard let responseValue = response.result.value else {
+                            print("http://dietsforbuddies.com/NewApi/id/id\(resId.1.string!).json ++")
+                            return
+                        }
+                        let jsonId = JSON(responseValue)
+                        var translit = jsonId[locale]
+                        //print(translit)
+                        //print(translit["reciept"])
+                        
+                        var recieptSteps: [RecieptSteps] = []
+                        if translit["reciept"].array == nil{
+                            print("\(jsonId["id"]) --")
+                            print("http://dietsforbuddies.com/NewApi/id/id\(resId.1.string!).json ++")
+                            return
+                        }
+                        for j in 0..<translit["reciept"].array!.count{
+                            let recieptStep = RecieptSteps(name: translit["reciept"][j]["name"].string!,
+                                                           description: translit["reciept"][j]["description"].string!,
+                                                           imagePaths: [jsonId["steps"][j]["step\(j+1)"].string!])
+                            recieptSteps.append(recieptStep)
+                        }
+                        let dish = Dish(name: translit["name"].string!,
+                                        imagePath: "http://dietsforbuddies.com/NewApi/Image/image\(resId.1.string!).jpg",
+                                        nutritionValue: NutritionalValue(calories: Double(jsonId["calories"].string!)!,
+                                                                         protein:  Double(jsonId["protein"].string!)!,
+                                                                         carbs:    Double(jsonId["carbs"].string!)!,
+                                                                         fats:     Double(jsonId["fats"].string!)!),
+                                        recipe: recieptSteps)
+                        print(dish.name)
+                        DispatchQueue.main.async {
+                            dishes1.append(dish)
+                        }
+                    }
+                }
+            }
         }
     }
 }
