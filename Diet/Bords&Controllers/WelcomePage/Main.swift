@@ -16,8 +16,23 @@ struct ModelMainView {
     var backView: UIView!
     var imageViewSelect: UIImageView!
     var titleView: UILabel!
-    var descriptionView: UILabel!
-    var buttonNext: UIButtonP!
+    var descriptionView: UIView!
+    var buttonNext: UIView!
+    var colors: [UIColor]!
+}
+
+public struct OnboardingItemInfo {
+    public let informationImage: UIImage
+    public let title: String
+    public var description: String
+    public let colors: [UIColor]
+    
+    public init (informationImage: UIImage, title: String, description: String, colors: [UIColor]) {
+        self.informationImage = informationImage
+        self.title = title
+        self.description = description
+        self.colors = colors
+    }
 }
 
 class Main: UIViewController, NavigationProtocol {
@@ -32,9 +47,6 @@ class Main: UIViewController, NavigationProtocol {
     }
     var launchView: UIView!
     
-    @IBOutlet weak var nextButtomBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var paperOnboardingView: PaperOnboarding!
-    @IBOutlet weak var nextButton: UIButton!
     
     var counter = 0
     var anim = false
@@ -45,7 +57,10 @@ class Main: UIViewController, NavigationProtocol {
     var storegeBolls: UIView!
     var bolls: [UIView] = []
     var descriptionView: UILabel!
+    var productId: ProductId! = .quarterly
     
+    var infoView: InfoView!
+    var infoView1: InfoView!
     
     fileprivate static let titleFont = UIFont(name: "Helvetica-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
     fileprivate static let descriptionFont = UIFont(name: "Helvetica-Regular", size: 25.0) ?? UIFont.systemFont(ofSize: 14.0)
@@ -53,40 +68,40 @@ class Main: UIViewController, NavigationProtocol {
         OnboardingItemInfo(informationImage: UIImage(named: "door")!,
                            title: "Welcome!".localized,
                            description: "Swipe left or tap on the button to learn about the main features of our application.".localized,
-                           pageIcon: UIImage(named: "stretch")!,
-                           color: #colorLiteral(red: 0, green: 0.7921568627, blue: 0.4549019608, alpha: 1),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
+                           colors: [#colorLiteral(red: 0.5723839402, green: 0.2453544438, blue: 1, alpha: 1),#colorLiteral(red: 0.3374865055, green: 0.1396096647, blue: 0.6071564555, alpha: 1)]),
         
         OnboardingItemInfo(informationImage: UIImage(named: "imt")!,
                            title: "BMI & daily caloric intake".localized,
                            description: "We calculate your body mass index and tell about the condition of the body it signals.".localized,
-                           pageIcon: UIImage(named: "clipboard")!,
-                           color: #colorLiteral(red: 0.007843137255, green: 0.5019607843, blue: 0.5647058824, alpha: 1),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
+                           colors: [#colorLiteral(red: 0.9999803901, green: 0.9894250035, blue: 0, alpha: 1),#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)]),
         
         OnboardingItemInfo(informationImage: UIImage(named: "rocion")!,
                            title: "Personal ration".localized,
                            description: "After the test is will be done, you will know your daily calorie intake and we will make the right diet plan.".localized,
-                           pageIcon: UIImage(named: "chat_mini")!,
-                           color: #colorLiteral(red: 0.937254902, green: 0.4352941176, blue: 0.4235294118, alpha: 1),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
+                           colors: [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1),#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)]),
         
         OnboardingItemInfo(informationImage: UIImage(named: "resip")!,
                            title: "New recipes every week".localized,
                            description: "Every week we will send new recipes, turn on notifications to not miss them.".localized,
-                           pageIcon: UIImage(named: "resip")!,
-                           color: #colorLiteral(red: 0.262745098, green: 0.5058823529, blue: 0.7568627451, alpha: 1),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont),
+                           colors: [#colorLiteral(red: 0, green: 1, blue: 0.7865307927, alpha: 1),#colorLiteral(red: 0.3249981403, green: 0.5330184698, blue: 0.7418434024, alpha: 1)]),
+                           
         OnboardingItemInfo(informationImage: UIImage(named: "starW")!,
-                           title: "Try Free!".localized,
-                           description: "Проведи тест-драйв приложения в течение 3 дней совершенно бесплатно! ... руб/неделя после 3 дней.".localized,
-                           pageIcon: UIImage(named: "resip")!,
-                           color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: Main.titleFont, descriptionFont: Main.descriptionFont)
+                           title: "Your nutrition plan ready!".localized,
+                           description: "",
+                           colors: [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)])
+                           
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let loadingVC = LoadingViewController()
+        loadingVC.view.backgroundColor = .lightGray
+        launchView = loadingVC.view
+        view.addSubview(launchView)
+        
+    }
+    
+    func start(){
         createstStoregeBolls()
         
         if UserDefaults.standard.bool(forKey: "checkSub"){
@@ -94,26 +109,11 @@ class Main: UIViewController, NavigationProtocol {
         }
         
         resizeStorageBolls(namberView: counter - 1)
+        strafeBolls(namberView: counter - 1)
+        createSubInfo()
         selectView = createView(namberView: counter)
         presentView(modelMainView: selectView)
-        let loadingVC = LoadingViewController()
-        loadingVC.view.backgroundColor = .lightGray
-        launchView = loadingVC.view
-        view.addSubview(launchView)
         addSwipe()
-        SwiftyStoreKit.retrieveProductsInfo([ProductId.popular.rawValue]) { result in
-            if let popPlan = result.retrievedProducts.filter({ product in product.productIdentifier == ProductId.popular.rawValue }).first{
-                let popularPlan = popPlan
-                DispatchQueue.main.async {
-                    self.items[4].description = "Test our app for 3 days for free! ".localized + popularPlan.localizedPrice! + "/week after 3 days.".localized
-                    if self.counter == 4{
-                        if self.descriptionView != nil{
-                            self.descriptionView.text = self.items[4].description
-                        }
-                    }
-                }
-            }
-        }
     }
     
     func addSwipe() {
@@ -238,7 +238,9 @@ class Main: UIViewController, NavigationProtocol {
         modelMainView.foundationView = foundationView
         
         let backView = UIView()
-        backView.backgroundColor = items[namberView].color
+        backView.applyGradient(colours: items[namberView].colors)
+        backView.layer.masksToBounds = true
+        modelMainView.colors = items[namberView].colors
         foundationView.addSubview(backView)
         
         
@@ -269,7 +271,7 @@ class Main: UIViewController, NavigationProtocol {
         case 4:
             imageViewSelectW = view.frame.width * 0.4
             imageViewSelectH = imageViewSelectW * 1.1
-            sizeFont *= 0.68
+            sizeFont *= 0.8
             
         default:break
         }
@@ -298,43 +300,56 @@ class Main: UIViewController, NavigationProtocol {
         }
         titleView.textAlignment = .center
         titleView.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0), size: sizeFont)
+        titleView.sizeToFit()
         foundationView.addSubview(titleView)
         modelMainView.titleView = titleView
         
-        let descriptionFrame = CGRect(x: view.frame.width * 0.04,
-                                      y: titleFrame.maxY + view.frame.height * 0.02,
-                                      width: view.frame.width * 0.92,
-                                      height: view.frame.height * 0.15)
+        let descriptionFoudationFrame = CGRect(x: view.frame.width * 0.04,
+                                               y: titleFrame.maxY + view.frame.height * 0.04,
+                                               width: view.frame.width * 0.92,
+                                               height: view.frame.height * 0.15)
+        let descriptionFoudation = UIView(frame: descriptionFoudationFrame)
+        descriptionFoudation.transform.ty = view.frame.height * 0.04
+        descriptionFoudation.alpha = 0
+        
+        let descriptionFrame = CGRect(x: 0,
+                                      y: 0,
+                                      width: descriptionFoudationFrame.width,
+                                      height: descriptionFoudationFrame.height)
         descriptionView = UILabel(frame: descriptionFrame)
-        descriptionView.transform.ty = view.frame.height * 0.04
-        descriptionView.alpha = 0
         descriptionView.text = items[namberView].description
         descriptionView.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         if namberView == 4{
-            descriptionView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            descriptionFoudation.addSubview(infoView)
+            descriptionFoudation.addSubview(infoView1)
         }
         descriptionView.textAlignment = .center
         descriptionView.numberOfLines = 0
-        descriptionView.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Medium", size: 0), size: ((self.view.frame.height + self.view.frame.width) / 2) / 29)
-        foundationView.addSubview(descriptionView)
-        modelMainView.descriptionView = descriptionView
+        descriptionView.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Medium", size: 0),
+                                      size: ((self.view.frame.height + self.view.frame.width) / 2) / 29)
+        descriptionFoudation.addSubview(descriptionView)
+        foundationView.addSubview(descriptionFoudation)
+        modelMainView.descriptionView = descriptionFoudation
         
-        let buttonNextFrame = CGRect(x: view.frame.width * 0.06,
-                                     y: descriptionFrame.maxY + view.frame.height * 0.07,
-                                     width: view.frame.width * 0.88,
+        let buttonNextFrame = CGRect(x: view.frame.width * 0.09,
+                                     y: descriptionFoudationFrame.maxY + view.frame.height * 0.06,
+                                     width: view.frame.width * 0.82,
                                      height: view.frame.height * 0.09)
         let buttonNext = UIButtonP(frame: buttonNextFrame)
-        buttonNext.transform.ty = view.frame.height * 0.03
-        buttonNext.alpha = 0
         buttonNext.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.8196078431, blue: 0.1921568627, alpha: 1)
-        buttonNext.setTitle("Next".localized, for: .normal)
-        if namberView == 4{
-            buttonNext.setTitle("Start!".localized, for: .normal)
-        }
         buttonNext.layer.cornerRadius = buttonNextFrame.height / 5
         buttonNext.layer.shadowRadius = 4
         buttonNext.layer.shadowOpacity = 0.2
         buttonNext.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        let animB = AnimRingView(subView: buttonNext)
+        animB.transform.ty = view.frame.height * 0.03
+        animB.alpha = 0
+        
+        
+        buttonNext.setTitle("Next".localized, for: .normal)
+        if namberView == 4{
+            buttonNext.setTitle("Start!".localized, for: .normal)
+        }
         buttonNext.titleLabel!.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
                                              size: ((self.view.frame.height + self.view.frame.width) / 2) / 25)
         buttonNext.addClosure(event: .touchDown){
@@ -373,7 +388,7 @@ class Main: UIViewController, NavigationProtocol {
                         EventManager.sendEvent(with: AFEventStartTrial)
                     }
                 }else{
-                    self.navigation.subData.goSub(){
+                    self.navigation.subData.goSub(productId: self.productId.rawValue){
                         loadingVc.remove()
                         if self.navigation.subData.activeSub{
                             if UserDefaults.standard.bool(forKey: "testShown1"){
@@ -389,7 +404,85 @@ class Main: UIViewController, NavigationProtocol {
                             if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                                 self.navigation.realmData.userModel.trial = false
                                 EventManager.sendEvent(with: AFEventStartTrial)
+                                EventManager.sendEvent(with: "Trial")
                             }
+                        }else{
+                            let textIvent = "User saw a special offer"
+                            if !UserDefaults.standard.bool(forKey: textIvent){
+                                UserDefaults.standard.set(true, forKey: textIvent)
+                                EventManager.sendEvent(with: textIvent)
+                            }
+                            let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+                            blurEffectView.frame = self.view.frame
+                            self.view.addSubview(blurEffectView)
+                            
+                            let scrollFound = UIScrollView(frame: self.view.frame)
+                            self.view.addSubview(scrollFound)
+                            scrollFound.contentSize = CGSize(width: self.view.frame.width,
+                                                             height: buttonTermsAndService!.frame.maxY + self.view.frame.height * 0.05)
+                            
+                            let infoViewFrame = CGRect(x: self.view.frame.width * 0.05,
+                                                       y: 100,
+                                                       width: self.view.frame.width * 0.90,
+                                                       height: self.view.frame.width * 0.90 * 1.2)
+                            let infoView = InfoImageView(frame: infoViewFrame,
+                                                         lableText: "Please wait!".localized,
+                                                         subLableText: "Before you go we have special offer for you".localized,
+                                                         descriptionText: "FREE FOR 7 DAYS".localized,
+                                                         subDescriptionText: "\(self.navigation.subData.prises[.moonT]!)" + "/month after free period".localized,
+                                                         image: UIImage(named: "gift")!,
+                                                         textButton: "CONTINUE".localized)
+                            {
+                                let textIvent = "User clicked button sub++"
+                                if !UserDefaults.standard.bool(forKey: textIvent){
+                                    UserDefaults.standard.set(true, forKey: textIvent)
+                                    EventManager.sendEvent(with: textIvent)
+                                }
+                                let loadingVc = LoadingViewController()
+                                self.add(loadingVc)
+                                if self.navigation.subData.activeSub{
+                                    if UserDefaults.standard.bool(forKey: "testShown1"){
+                                        if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                                            self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                                        }else{
+                                            self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                                        }
+                                    }else{
+                                        self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                                    }
+                                    
+                                    if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
+                                        self.navigation.realmData.userModel.trial = false
+                                        EventManager.sendEvent(with: AFEventStartTrial)
+                                    }
+                                }else{
+                                    self.navigation.subData.goSub(productId: ProductId.moonT.rawValue){
+                                        loadingVc.remove()
+                                        if self.navigation.subData.activeSub{
+                                            if UserDefaults.standard.bool(forKey: "testShown1"){
+                                                if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                                                    self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                                                }else{
+                                                    self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                                                }
+                                            }else{
+                                                self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                                            }
+                                            
+                                            if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
+                                                self.navigation.realmData.userModel.trial = false
+                                                EventManager.sendEvent(with: AFEventStartTrial)
+                                                EventManager.sendEvent(with: "Trial++")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            infoView.center = self.view.center
+                            scrollFound.addSubview(infoView)
+                            scrollFound.addSubview(buttonTermsAndService!)
+                            scrollFound.addSubview(privacyPolicy!)
+                            scrollFound.addSubview(disText!)
                         }
                     }
                 }
@@ -398,8 +491,9 @@ class Main: UIViewController, NavigationProtocol {
         buttonNext.addClosure(event: .touchUpOutside){
             buttonNext.setTitleColor(buttonNext.titleLabel?.textColor.withAlphaComponent(1), for: .normal)
         }
-        foundationView.addSubview(buttonNext)
-        modelMainView.buttonNext = buttonNext
+        
+        foundationView.addSubview(animB)
+        modelMainView.buttonNext = animB
         
         let selectBollFrame = storegeBolls.subviews[namberView].frame
         backView.frame = CGRect(x: storegeBolls.frame.minX + selectBollFrame.midX,
@@ -414,6 +508,101 @@ class Main: UIViewController, NavigationProtocol {
         backView.layer.cornerRadius = backView.frame.width / 2
         
         return modelMainView
+    }
+    
+    func createSubInfo(){
+        let descriptionFoudationFrame = CGRect(x: view.frame.width * 0.04,
+                                               y: view.center.y + view.frame.height * 0.05 + view.frame.height * 0.04,
+                                               width: view.frame.width * 0.92,
+                                               height: view.frame.height * 0.15)
+        let infoViewFrame = CGRect(x: 0,
+                                   y: (descriptionFoudationFrame.height / 2) - (view.frame.width * 0.44 * 0.65) / 2,
+                                   width: view.frame.width * 0.44,
+                                   height: view.frame.width * 0.44 * 0.65)
+        infoView = InfoView(frame: infoViewFrame,
+                            lableText: "3 day trial".localized,
+                            subLableText: "$3.75 / неделя".localized,
+                            descriptionText: self.navigation.subData.prises[.moon]! + "/ month".localized,
+                            subDescriptionText: "after free 3-day trial period".localized)
+        
+        let infoView1Frame = CGRect(x: view.frame.width * 0.92 - view.frame.width * 0.44,
+                                    y: (descriptionFoudationFrame.height / 2) - (view.frame.width * 0.44 * 0.65) / 2,
+                                    width: view.frame.width * 0.44,
+                                    height: view.frame.width * 0.44 * 0.65)
+        infoView1 = InfoView(frame: infoView1Frame,
+                             lableText: "Quarterly".localized,
+                             subLableText: "$2.50 / неделя".localized,
+                             descriptionText: self.navigation.subData.prises[.quarterly]! + "/ quarter".localized,
+                             subDescriptionText: "billed every 3th month".localized)
+        infoView1.createDopView(textDopView: "SAVE 33.3%".localized)
+        infoView1.active = true
+        
+        let infoViewButtonFrame = CGRect(x: 0,
+                                         y: 0,
+                                         width: view.frame.width * 0.44,
+                                         height: view.frame.width * 0.44 * 0.65)
+        let infoViewButton = UIButtonP(frame: infoViewButtonFrame)
+        infoViewButton.addClosure(event: .touchUpInside){
+            self.infoView.active = true
+            self.infoView1.active = false
+            self.productId = .moon
+        }
+        infoView.addSubview(infoViewButton)
+        
+        let infoView1Button = UIButtonP(frame: infoViewButtonFrame)
+        infoView1Button.addClosure(event: .touchUpInside){
+            self.infoView1.active = true
+            self.infoView.active = false
+            self.productId = .quarterly
+        }
+        infoView1.addSubview(infoView1Button)
+                DispatchQueue.main.async {
+                    var prise = ""
+                    var valut = ""
+                    for a in self.navigation.subData.prises[.moon]!{
+                        if (Int("\(a)") != nil){
+                            prise += "\(a)"
+                        }else if a == ","{
+                            prise += "."
+                        }else if a != Character(" "){
+                            valut += "\(a)"
+                        }
+                        
+                    }
+                    var format = "%@\(valut)"
+                    let weekPrise = (Float(prise) ?? 0) / 4.0
+                    prise = prise.filter({ (a) in a != Character(".")})
+                    if String(format: format, prise) != self.navigation.subData.prises[.moon]!.filter({ (a) in (a != Character(" ")) && (a != Character(","))}){
+                        format = "\(valut)%@"
+                    }
+                    self.infoView.infoSubLable.text = String(format: format, String(format:"%.2f", weekPrise)) + "/ week".localized
+                    self.infoView.infoSubLable.sizeToFit()
+                }
+        
+                DispatchQueue.main.async {
+                    var prise = ""
+                    var valut = ""
+                    for a in self.navigation.subData.prises[.quarterly]!{
+                        if (Int("\(a)") != nil){
+                            prise += "\(a)"
+                        }else if a == ","{
+                            prise += "."
+                        }else if a != Character(" "){
+                            valut += "\(a)"
+                        }
+                        
+                    }
+                    var format = "%@\(valut)"
+                    let weekPrise = (Float(prise) ?? 0) / 12.0
+                    prise = prise.filter({ (a) in a != Character(".")})
+                    if String(format: format, prise) != self.navigation.subData.prises[.quarterly]!.filter({ (a) in (a != Character(" ")) && (a != Character(","))}){
+                        format = "\(valut)%@"
+                    }
+                    self.infoView1.infoSubLable.text = String(format: format, String(format:"%.2f", weekPrise)) + "/ week".localized
+                    self.infoView1.infoSubLable.sizeToFit()
+                }
+        
+        
     }
     
     func createstStoregeBolls(){
@@ -472,6 +661,11 @@ class Main: UIViewController, NavigationProtocol {
                                        width: view.frame.width * 0.3,
                                        height: bollSizeL)
         storegeBolls.frame = storegeBollsFrame
+        if namberView == 3{
+            for i in bolls{
+                i.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            }
+        }
     }
     
     func resizeStorageBolls(namberView: Int){
@@ -507,7 +701,7 @@ class Main: UIViewController, NavigationProtocol {
                                               width: view.frame.height * 2,
                                               height: view.frame.height * 2)
         modelMainView.backView.layer.cornerRadius = modelMainView.backView.frame.height / 2
-        
+        modelMainView.backView.applyGradient(colours: modelMainView.colors)
         
         modelMainView.imageViewSelect.alpha = 1
         modelMainView.imageViewSelect.transform.ty = 0
@@ -542,25 +736,5 @@ class Main: UIViewController, NavigationProtocol {
         modelMainView.buttonNext.alpha = 0
         modelMainView.buttonNext.transform.ty = -(view.frame.height * 0.05)
     }
-    
-    private func setupPaperOnboardingView() {
-        
-        paperOnboardingView.dataSource = self
-        paperOnboardingView.delegate = self
-        
-        view.bringSubviewToFront(nextButton)
-        nextButton.setTitle("NEXT".localized, for: .normal)
-        nextButton.layer.cornerRadius = nextButton.frame.height / 2
-        
-        for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
-            let constraint = NSLayoutConstraint(item: paperOnboardingView,
-                                                attribute: attribute,
-                                                relatedBy: .equal,
-                                                toItem: view,
-                                                attribute: attribute,
-                                                multiplier: 1,
-                                                constant: 0)
-            view.addConstraint(constraint)
-        }
-    }
+
 }

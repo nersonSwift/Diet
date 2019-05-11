@@ -18,6 +18,9 @@
 		5170EDA3223AB1DA00585F96 /* RecipeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */; };
 		5170EDA5223AE95B00585F96 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA4223AE95B00585F96 /* Navigation.swift */; };
 		5170EDA7223AE96800585F96 /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170EDA6223AE96800585F96 /* NavigationProtocol.swift */; };
+		517D8E702282DD82004A64A8 /* AnimRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D8E6F2282DD82004A64A8 /* AnimRingView.swift */; };
+		517D8E742283093A004A64A8 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D8E732283093A004A64A8 /* InfoView.swift */; };
+		517D8E7822854245004A64A8 /* InfoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D8E7722854244004A64A8 /* InfoImageView.swift */; };
 		51C37BE522450B5D003EF665 /* SelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C37BE422450B5D003EF665 /* SelectMenu.swift */; };
 		51C37BE722450B71003EF665 /* SelectMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C37BE622450B71003EF665 /* SelectMenu.storyboard */; };
 		51C37BE922450D8B003EF665 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C37BE822450D8B003EF665 /* Die.swift */; };
@@ -48,18 +51,6 @@
 		A54DC0D42204466100D7EEE9 /* CGFloatExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DC0D32204466100D7EEE9 /* CGFloatExtention.swift */; };
 		A555353B22033206008A79DF /* DefaultPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A555353A22033206008A79DF /* DefaultPickerView.swift */; };
 		A556C12521CD0EE0000317E4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A556C12421CD0EE0000317E4 /* StoreKit.framework */; };
-		A55BFF9021FA0AFD00D4364F /* PageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8421FA0AFC00D4364F /* PageViewItem.swift */; };
-		A55BFF9121FA0AFD00D4364F /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8521FA0AFC00D4364F /* Configuring.swift */; };
-		A55BFF9221FA0AFD00D4364F /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8621FA0AFC00D4364F /* GestureControl.swift */; };
-		A55BFF9321FA0AFD00D4364F /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8721FA0AFC00D4364F /* ConstraintsHelper.swift */; };
-		A55BFF9421FA0AFD00D4364F /* FillAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8821FA0AFC00D4364F /* FillAnimationView.swift */; };
-		A55BFF9521FA0AFD00D4364F /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8921FA0AFC00D4364F /* PageContainer.swift */; };
-		A55BFF9621FA0AFD00D4364F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8A21FA0AFC00D4364F /* PageView.swift */; };
-		A55BFF9721FA0AFD00D4364F /* OnboardingContantViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8B21FA0AFC00D4364F /* OnboardingContantViewItem.swift */; };
-		A55BFF9821FA0AFD00D4364F /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8C21FA0AFC00D4364F /* OnboardingContentView.swift */; };
-		A55BFF9921FA0AFD00D4364F /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8D21FA0AFD00D4364F /* PaperOnboarding.swift */; };
-		A55BFF9A21FA0AFD00D4364F /* PaperOnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8E21FA0AFD00D4364F /* PaperOnboardingDataSource.swift */; };
-		A55BFF9B21FA0AFD00D4364F /* PaperOnboardingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BFF8F21FA0AFD00D4364F /* PaperOnboardingDelegate.swift */; };
 		A55E85AC220DC29E007714E3 /* StepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E85AA220DC29E007714E3 /* StepCell.swift */; };
 		A55E85AD220DC29E007714E3 /* StepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55E85AB220DC29E007714E3 /* StepCell.xib */; };
 		A5657E0121E647AE00B688CC /* ImageAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5657E0021E647AE00B688CC /* ImageAttachment.swift */; };
@@ -119,6 +110,9 @@
 		5170EDA2223AB1DA00585F96 /* RecipeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeView.storyboard; sourceTree = "<group>"; };
 		5170EDA4223AE95B00585F96 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		5170EDA6223AE96800585F96 /* NavigationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
+		517D8E6F2282DD82004A64A8 /* AnimRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimRingView.swift; sourceTree = "<group>"; };
+		517D8E732283093A004A64A8 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		517D8E7722854244004A64A8 /* InfoImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoImageView.swift; sourceTree = "<group>"; };
 		51C37BE422450B5D003EF665 /* SelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMenu.swift; sourceTree = "<group>"; };
 		51C37BE622450B71003EF665 /* SelectMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectMenu.storyboard; sourceTree = "<group>"; };
 		51C37BE822450D8B003EF665 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
@@ -194,18 +188,6 @@
 		A556C12421CD0EE0000317E4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A556C13221CD22CA000317E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GenderSelectorViewController.storyboard; sourceTree = "<group>"; };
 		A55BFF8221F9C68900D4364F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		A55BFF8421FA0AFC00D4364F /* PageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
-		A55BFF8521FA0AFC00D4364F /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
-		A55BFF8621FA0AFC00D4364F /* GestureControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
-		A55BFF8721FA0AFC00D4364F /* ConstraintsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
-		A55BFF8821FA0AFC00D4364F /* FillAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillAnimationView.swift; sourceTree = "<group>"; };
-		A55BFF8921FA0AFC00D4364F /* PageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
-		A55BFF8A21FA0AFC00D4364F /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
-		A55BFF8B21FA0AFC00D4364F /* OnboardingContantViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContantViewItem.swift; sourceTree = "<group>"; };
-		A55BFF8C21FA0AFC00D4364F /* OnboardingContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
-		A55BFF8D21FA0AFD00D4364F /* PaperOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
-		A55BFF8E21FA0AFD00D4364F /* PaperOnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDataSource.swift; sourceTree = "<group>"; };
-		A55BFF8F21FA0AFD00D4364F /* PaperOnboardingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDelegate.swift; sourceTree = "<group>"; };
 		A55E85AA220DC29E007714E3 /* StepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCell.swift; sourceTree = "<group>"; };
 		A55E85AB220DC29E007714E3 /* StepCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepCell.xib; sourceTree = "<group>"; };
 		A5657E0021E647AE00B688CC /* ImageAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAttachment.swift; sourceTree = "<group>"; };
@@ -398,25 +380,6 @@
 			path = Appearance;
 			sourceTree = "<group>";
 		};
-		A55BFF8321FA0AE600D4364F /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				A55BFF8521FA0AFC00D4364F /* Configuring.swift */,
-				A55BFF8721FA0AFC00D4364F /* ConstraintsHelper.swift */,
-				A55BFF8821FA0AFC00D4364F /* FillAnimationView.swift */,
-				A55BFF8621FA0AFC00D4364F /* GestureControl.swift */,
-				A55BFF8B21FA0AFC00D4364F /* OnboardingContantViewItem.swift */,
-				A55BFF8C21FA0AFC00D4364F /* OnboardingContentView.swift */,
-				A55BFF8921FA0AFC00D4364F /* PageContainer.swift */,
-				A55BFF8A21FA0AFC00D4364F /* PageView.swift */,
-				A55BFF8421FA0AFC00D4364F /* PageViewItem.swift */,
-				A55BFF8D21FA0AFD00D4364F /* PaperOnboarding.swift */,
-				A55BFF8E21FA0AFD00D4364F /* PaperOnboardingDataSource.swift */,
-				A55BFF8F21FA0AFD00D4364F /* PaperOnboardingDelegate.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		A55E85AE220DC2A6007714E3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,15 +448,17 @@
 				5104D29A2237C5D8007AFE08 /* EventManager.swift */,
 				5127038C223A722900F98370 /* Bords&Controllers */,
 				A5A1182A21C2AA8E003843A1 /* SubscriptionOffer */,
-				A55BFF8321FA0AE600D4364F /* Onboarding */,
 				A58CC53F21E89DFB00361EA9 /* LoadingViewController.swift */,
 				A5A0C7AB21BE96CD00C9035C /* Subscription */,
 				A548E9D9217787A800FC62EE /* Appearance */,
 				A5E0C331216F951E0045975E /* Extensions */,
 				A58CC547216CF65200B20CE9 /* Info.plist */,
 				51F2E335223F977D00C08D0E /* SubData.swift */,
+				517D8E7722854244004A64A8 /* InfoImageView.swift */,
 				5159E98B2241055E0049B6B4 /* UIButtonP.swift */,
 				51F2E32E223BEEAA00C08D0E /* RealmData.swift */,
+				517D8E732283093A004A64A8 /* InfoView.swift */,
+				517D8E6F2282DD82004A64A8 /* AnimRingView.swift */,
 				A58CC54D216CF69400B20CE9 /* Application */,
 				A5EA83902170F8C80088F8FE /* Services */,
 				A5EA838F2170F8C00088F8FE /* Models */,
@@ -780,13 +745,10 @@
 				A5EA83882170F7370088F8FE /* NetworkService.swift in Sources */,
 				5170EDA5223AE95B00585F96 /* Navigation.swift in Sources */,
 				A5662AC921BAB79100DCD511 /* UIViewExtensions.swift in Sources */,
-				A55BFF9921FA0AFD00D4364F /* PaperOnboarding.swift in Sources */,
 				A50250D32178CB7200F674B3 /* TestViewData.swift in Sources */,
 				A548E9D22177744200FC62EE /* UIViewControllerExtension.swift in Sources */,
-				A55BFF9121FA0AFD00D4364F /* Configuring.swift in Sources */,
 				A5A0C7AA21BE96A300C9035C /* Subscription.swift in Sources */,
 				51FB1D4D224A463F00272C4F /* ProfilView.swift in Sources */,
-				A55BFF9321FA0AFD00D4364F /* ConstraintsHelper.swift in Sources */,
 				A55E85AC220DC29E007714E3 /* StepCell.swift in Sources */,
 				5141CE7A2248FB9800CD2DBA /* DishModel.swift in Sources */,
 				A51CC74E21BFD75100FFCFD5 /* VisualEffectBlur.swift in Sources */,
@@ -798,7 +760,6 @@
 				A5657E0121E647AE00B688CC /* ImageAttachment.swift in Sources */,
 				A589FB0221C7AFAC0035E80D /* NutritionValue.swift in Sources */,
 				51F2E32F223BEEAA00C08D0E /* RealmData.swift in Sources */,
-				A55BFF9721FA0AFD00D4364F /* OnboardingContantViewItem.swift in Sources */,
 				A50250D02178C79D00F674B3 /* TestPageView.swift in Sources */,
 				51CF50DB224236C200A2ABC9 /* DietsWeek.swift in Sources */,
 				A53B1B4721B58A770036AD00 /* FatnessIndexView.swift in Sources */,
@@ -806,8 +767,9 @@
 				5104D29B2237C5D8007AFE08 /* EventManager.swift in Sources */,
 				5141CE7C2248FD6C00CD2DBA /* RecipeModel.swift in Sources */,
 				A53698D82211CB8F00612697 /* DishNameHeaderView.swift in Sources */,
-				A55BFF9421FA0AFD00D4364F /* FillAnimationView.swift in Sources */,
+				517D8E7822854245004A64A8 /* InfoImageView.swift in Sources */,
 				A5A0C7B321BE99B600C9035C /* SubscriptionService.swift in Sources */,
+				517D8E742283093A004A64A8 /* InfoView.swift in Sources */,
 				A589FAFD21C7ACF80035E80D /* Dish.swift in Sources */,
 				A5F86BF4220478B200B5AF26 /* TestResultLabel.swift in Sources */,
 				A5E0C330216F95170045975E /* StringExtentions.swift in Sources */,
@@ -819,25 +781,21 @@
 				A5EE1880220AED7400C00157 /* SKProductExtension.swift in Sources */,
 				A5A0C7AF21BE979100C9035C /* Session.swift in Sources */,
 				A5A0C7B121BE97BE00C9035C /* PaidSubscription.swift in Sources */,
+				517D8E702282DD82004A64A8 /* AnimRingView.swift in Sources */,
 				A5B02C68217A29C900A9E3A4 /* GenderSelectorViewController.swift in Sources */,
-				A55BFF9821FA0AFD00D4364F /* OnboardingContentView.swift in Sources */,
 				5141CE762248FA0A00CD2DBA /* FavoritesView.swift in Sources */,
 				A5D858BE21AEE69D008A5A2D /* TestResult.swift in Sources */,
 				51F2E32D223BECF000C08D0E /* UserModel.swift in Sources */,
 				A5EA838E2170F8830088F8FE /* RecieptSteps.swift in Sources */,
 				A555353B22033206008A79DF /* DefaultPickerView.swift in Sources */,
-				A55BFF9A21FA0AFD00D4364F /* PaperOnboardingDataSource.swift in Sources */,
 				A58CC54021E89DFB00361EA9 /* LoadingViewController.swift in Sources */,
 				A548E9D62177783800FC62EE /* Main.swift in Sources */,
-				A55BFF9021FA0AFD00D4364F /* PageViewItem.swift in Sources */,
 				A589FB0421C7B2AB0035E80D /* Diet.swift in Sources */,
 				A597BE5F220C669500389207 /* DishCell.swift in Sources */,
-				A55BFF9221FA0AFD00D4364F /* GestureControl.swift in Sources */,
 				A58CC53C216CF65100B20CE9 /* AppDelegate.swift in Sources */,
 				51C37BE922450D8B003EF665 /* Die.swift in Sources */,
 				5170EDA7223AE96800585F96 /* NavigationProtocol.swift in Sources */,
 				A50250D52178E79000F674B3 /* TriangleView.swift in Sources */,
-				A55BFF9521FA0AFD00D4364F /* PageContainer.swift in Sources */,
 				A5A1182921C2AA88003843A1 /* SubscriptionOfferView.swift in Sources */,
 				A5EF446721CA96D5009B4635 /* RecipeView.swift in Sources */,
 				A589FB0021C7AF8D0035E80D /* DietWeek.swift in Sources */,
@@ -846,8 +804,6 @@
 				A5A0C7AD21BE977B00C9035C /* SubscriptionNetworkService.swift in Sources */,
 				A5E69C5621CA434F001649DD /* DietNetworkService.swift in Sources */,
 				A5D858C021AF055A008A5A2D /* DoubleExtentions.swift in Sources */,
-				A55BFF9621FA0AFD00D4364F /* PageView.swift in Sources */,
-				A55BFF9B21FA0AFD00D4364F /* PaperOnboardingDelegate.swift in Sources */,
 				A5A1DD22217E26100099A1BD /* TestResultsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

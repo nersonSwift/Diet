@@ -8,29 +8,7 @@
 
 import UIKit
 
-public struct OnboardingItemInfo {
-    public let informationImage: UIImage
-    public let title: String
-    public var description: String
-    public let pageIcon: UIImage
-    public let color: UIColor
-    public let titleColor: UIColor
-    public let descriptionColor: UIColor
-    public let titleFont: UIFont
-    public let descriptionFont: UIFont
-    
-    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont) {
-        self.informationImage = informationImage
-        self.title = title
-        self.description = description
-        self.pageIcon = pageIcon
-        self.color = color
-        self.titleColor = titleColor
-        self.descriptionColor = descriptionColor
-        self.titleFont = titleFont
-        self.descriptionFont = descriptionFont
-    }
-}
+
 
 /// An instance of PaperOnboarding which display collection of information.
 open class PaperOnboarding: UIView {
@@ -190,7 +168,7 @@ extension PaperOnboarding {
 extension PaperOnboarding {
 
     fileprivate func backgroundColor(_ index: Int) -> UIColor {
-        guard let color = itemsInfo?[index].color else {
+        //guard let color = itemsInfo?[index].color else {
             return .black
         }
         return color

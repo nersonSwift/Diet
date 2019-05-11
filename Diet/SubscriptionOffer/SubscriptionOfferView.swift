@@ -152,7 +152,7 @@ class SubscriptionOfferView: UIViewController, NavigationProtocol {
         if !navigation.subData.activeSub{
             let loadingVc = LoadingViewController()
             add(loadingVc)
-            navigation.subData.goSub(){
+            navigation.subData.goSub(productId: ProductId.popular.rawValue){
                 loadingVc.remove()
                 if self.navigation.subData.activeSub{
                     

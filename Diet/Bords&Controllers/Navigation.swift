@@ -36,6 +36,7 @@ class Navigation{
             launchView?.removeFromSuperview()
             launchView = nil
             main.anim = false
+            main.start()
         }
         
         subData.refrash(){
@@ -47,12 +48,14 @@ class Navigation{
                             launchView?.removeFromSuperview()
                             launchView = nil
                             main.anim = false
+                            main.start()
                         }, special: nil)
                     }else{
                         self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
                             launchView = nil
                             main.anim = false
+                            main.start()
                         }, special: nil)
                     }
                 }else{
@@ -60,12 +63,14 @@ class Navigation{
                         launchView?.removeFromSuperview()
                         launchView = nil
                         main.anim = false
+                        main.start()
                     }, special: nil)
                 }
             }else{
                 launchView?.removeFromSuperview()
                 launchView = nil
                 main.anim = false
+                main.start()
             }
             self.checkVersoin()
         }
