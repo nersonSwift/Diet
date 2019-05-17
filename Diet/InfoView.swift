@@ -84,7 +84,7 @@ class InfoView: UIView {
         infoDescription.text = descriptionText
         infoDescription.textColor = #colorLiteral(red: 0.5529411765, green: 0.5529411765, blue: 0.5529411765, alpha: 1)
         infoDescription.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
-                                   size: self.frame.width / 13)
+                                   size: self.frame.width / 15)
         infoDescription.sizeToFit()
         self.addSubview(infoDescription)
         

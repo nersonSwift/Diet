@@ -53,7 +53,6 @@ class SubData{
     
     func refrash(completion: (()->())?){
         activeSub = false
-        activeTrial = false
         var comp = 0{
             didSet{
                 if comp == 2{
@@ -82,6 +81,7 @@ class SubData{
                         self.activeSub = true
                         let trial = receiptItems.filter { $0.isTrialPeriod == true}
                         if trial.count > 0{
+                            
                             let dateEndTrial = trial[0].purchaseDate + TimeInterval(60 * 60 * 24 * i.trial)
                             if dateEndTrial > Date(){
                                 self.activeTrial = true
