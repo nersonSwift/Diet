@@ -386,9 +386,6 @@ class Main: UIViewController, NavigationProtocol {
                     if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                         self.navigation.realmData.userModel.trial = false
                         EventManager.sendEvent(with: AFEventStartTrial)
-                        print("++")
-                        print(AFEventStartTrial)
-                        print("++")
                     }
                 }else{
                     self.navigation.subData.goSub(productId: self.productId.rawValue){
@@ -408,9 +405,6 @@ class Main: UIViewController, NavigationProtocol {
                                 self.navigation.realmData.userModel.trial = false
                                 EventManager.sendEvent(with: AFEventStartTrial)
                                 EventManager.sendEvent(with: "Trial")
-                                print("++")
-                                print(AFEventStartTrial)
-                                print("++")
                             }
                         }else{
                             let textIvent = "User saw a special offer"
@@ -460,9 +454,6 @@ class Main: UIViewController, NavigationProtocol {
                                     if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                                         self.navigation.realmData.userModel.trial = false
                                         EventManager.sendEvent(with: AFEventStartTrial)
-                                        print("++")
-                                        print(AFEventStartTrial)
-                                        print("++")
                                     }
                                 }else{
                                     self.navigation.subData.goSub(productId: ProductId.moonT.rawValue){
@@ -482,9 +473,6 @@ class Main: UIViewController, NavigationProtocol {
                                                 self.navigation.realmData.userModel.trial = false
                                                 EventManager.sendEvent(with: AFEventStartTrial)
                                                 EventManager.sendEvent(with: "Trial++")
-                                                print("++")
-                                                print(AFEventStartTrial)
-                                                print("++")
                                             }
                                         }
                                     }
