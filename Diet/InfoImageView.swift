@@ -82,7 +82,7 @@ class InfoImageView: UIView {
         infoDescription.textColor = #colorLiteral(red: 0.968627451, green: 0.262745098, blue: 0.2980392157, alpha: 1)
         infoDescription.textAlignment = .center
         infoDescription.font = UIFont(descriptor: UIFontDescriptor(name: "Avenir Next Demi Bold", size: 0),
-                                      size: self.frame.width / 11.8)
+                                      size: self.frame.width / 15)
         infoDescription.sizeToFit()
         infoDescription.center.x = self.frame.width / 2
         self.addSubview(infoDescription)

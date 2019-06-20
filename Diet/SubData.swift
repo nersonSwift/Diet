@@ -17,7 +17,9 @@ enum ProductId: String {
     case moon = "com.sfbtech.diets.sub.moon.allaccess"
     case moonT = "com.sfbtech.diets.sub.moont.allaccess"
     case quarterly = "com.sfbtech.diets.sub.quarterly.allaccess"
+    case week = "com.sfbtech.diets.sub.week.plus.allaccess"
     case sharedSecret = "41b8fe92dbd9448ab3e06f3507b01371"
+    
     
     var trial: Int{
         
@@ -45,7 +47,8 @@ class SubData{
     var activeTrial = false
     var prises: [ProductId: String] = [.moon: "...",
                                        .moonT: "...",
-                                       .quarterly: "..."]
+                                       .quarterly: "...",
+                                       .week: "..."]
  
     init(){
         refrash(completion: nil)
@@ -53,7 +56,6 @@ class SubData{
     
     func refrash(completion: (()->())?){
         activeSub = false
-        activeTrial = false
         var comp = 0{
             didSet{
                 if comp == 2{
@@ -61,7 +63,7 @@ class SubData{
                 }
             }
         }
-        SwiftyStoreKit.retrieveProductsInfo([ProductId.moonT.rawValue, ProductId.moon.rawValue, ProductId.quarterly.rawValue]) { result in
+        SwiftyStoreKit.retrieveProductsInfo([ProductId.moonT.rawValue, ProductId.moon.rawValue, ProductId.quarterly.rawValue, ProductId.week.rawValue]) { result in
             for plan in result.retrievedProducts{
                 self.prises[ProductId(rawValue: plan.productIdentifier)!] = plan.localizedPrice
             }
@@ -71,7 +73,7 @@ class SubData{
         SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
             
             if case .success(let receipt) = result {
-                for i in [ProductId.popular, ProductId.cheap, ProductId.moon, ProductId.moonT, ProductId.quarterly]{
+                for i in [ProductId.popular, ProductId.cheap, ProductId.moon, ProductId.moonT, ProductId.quarterly, ProductId.week]{
                     let purchaseResult = SwiftyStoreKit.verifySubscription(ofType: .autoRenewable,
                                                                            productId: i.rawValue,
                                                                            inReceipt: receipt)
@@ -82,6 +84,7 @@ class SubData{
                         self.activeSub = true
                         let trial = receiptItems.filter { $0.isTrialPeriod == true}
                         if trial.count > 0{
+                            
                             let dateEndTrial = trial[0].purchaseDate + TimeInterval(60 * 60 * 24 * i.trial)
                             if dateEndTrial > Date(){
                                 self.activeTrial = true

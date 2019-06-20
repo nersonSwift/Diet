@@ -404,9 +404,145 @@ class Main: UIViewController, NavigationProtocol {
                             if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                                 self.navigation.realmData.userModel.trial = false
                                 EventManager.sendEvent(with: AFEventStartTrial)
-                                EventManager.sendEvent(with: "Trial")
+                            }
+                            let textIvent = "\(self.productId!)"
+                            if !UserDefaults.standard.bool(forKey: textIvent){
+                                UserDefaults.standard.set(true, forKey: textIvent)
+                                EventManager.sendEvent(with: textIvent)
                             }
                         }else{
+                            let presentFrame = CGRect(x: self.view.frame.width,
+                                                      y: self.view.frame.width * 0.2,
+                                                      width: self.view.frame.width * 0.2,
+                                                      height: self.view.frame.width * 0.18)
+                            let present = UIView(frame: presentFrame)
+                            present.layer.borderWidth = 2
+                            present.layer.borderColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                            present.layer.cornerRadius = presentFrame.height / 7
+                            present.layer.shadowRadius = 4
+                            present.layer.shadowOpacity = 0.2
+                            present.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+                            present.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                            foundationView.addSubview(present)
+                            UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                                present.frame.origin.x = self.view.frame.width * 0.82
+                            }, completion: {_ in
+                                let textIvent = "User saw a present"
+                                if !UserDefaults.standard.bool(forKey: textIvent){
+                                    UserDefaults.standard.set(true, forKey: textIvent)
+                                    EventManager.sendEvent(with: textIvent)
+                                }
+                            })
+                            
+                            let buttonPresentFrame = CGRect(x: 0,
+                                                            y: 0,
+                                                            width: present.frame.width * 0.5,
+                                                            height: present.frame.width * 0.5)
+                            let buttonPresent = UIButtonP(frame: buttonPresentFrame)
+                            buttonPresent.center.x = present.frame.width / 2
+                            buttonPresent.center.y = present.frame.height / 2
+                            buttonPresent.layer.contents = UIImage(named: "gift")?.cgImage
+                            present.addSubview(buttonPresent)
+                            buttonPresent.addClosure(event: .touchUpInside){
+                                let textIvent = "User saw a special offer WEEK"
+                                if !UserDefaults.standard.bool(forKey: textIvent){
+                                    UserDefaults.standard.set(true, forKey: textIvent)
+                                    EventManager.sendEvent(with: textIvent)
+                                }
+                                let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+                                blurEffectView.frame = self.view.frame
+                                self.view.addSubview(blurEffectView)
+                                
+                                let scrollFound = UIScrollView(frame: self.view.frame)
+                                self.view.addSubview(scrollFound)
+                                scrollFound.contentSize = CGSize(width: self.view.frame.width,
+                                                                 height: buttonTermsAndService!.frame.maxY + self.view.frame.height * 0.05)
+                                
+                                let infoViewFrame = CGRect(x: self.view.frame.width * 0.05,
+                                                           y: 100,
+                                                           width: self.view.frame.width * 0.90,
+                                                           height: self.view.frame.width * 0.90 * 1.2)
+                                let infoView = InfoImageView(frame: infoViewFrame,
+                                                             lableText: "Please wait!".localized,
+                                                             subLableText: "Before you go we have special offer for you".localized,
+                                                             descriptionText: " \(self.navigation.subData.prises[.week]!) " + "/ WEEK".localized,
+                                                             subDescriptionText: "This offer is available only once.".localized,
+                                                             image: UIImage(named: "gift")!,
+                                                             textButton: "CONTINUE".localized)
+                                {
+                                    let textIvent = "User clicked button sub WEEK"
+                                    if !UserDefaults.standard.bool(forKey: textIvent){
+                                        UserDefaults.standard.set(true, forKey: textIvent)
+                                        EventManager.sendEvent(with: textIvent)
+                                    }
+                                    let loadingVc = LoadingViewController()
+                                    self.add(loadingVc)
+                                    if self.navigation.subData.activeSub{
+                                        if UserDefaults.standard.bool(forKey: "testShown1"){
+                                            if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                                                self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                                            }else{
+                                                self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                                            }
+                                        }else{
+                                            self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                                        }
+                                    }else{
+                                        self.navigation.subData.goSub(productId: ProductId.week.rawValue){
+                                            loadingVc.remove()
+                                            if self.navigation.subData.activeSub{
+                                                if UserDefaults.standard.bool(forKey: "testShown1"){
+                                                    if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                                                        self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+                                                    }else{
+                                                        self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+                                                    }
+                                                }else{
+                                                    self.navigation.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: true, special: nil)
+                                                }
+                                                
+                                                let textIvent = "\(ProductId.week)"
+                                                if !UserDefaults.standard.bool(forKey: textIvent){
+                                                    UserDefaults.standard.set(true, forKey: textIvent)
+                                                    EventManager.sendEvent(with: textIvent)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                blurEffectView.alpha = 0
+                                scrollFound.alpha = 0
+                                UIView.animate(withDuration: 0.3){
+                                    blurEffectView.alpha = 1
+                                    scrollFound.alpha = 1
+                                }
+                                let buttonKFrame = CGRect(x: infoView.frame.width * 0.85,
+                                                          y:  infoView.frame.width * 0.1,
+                                                          width: infoView.frame.width * 0.05,
+                                                          height: infoView.frame.width * 0.05)
+                                let buttonK = UIButtonP(frame: buttonKFrame)
+                                buttonK.layer.contents = UIImage(named: "k")?.cgImage
+                                infoView.addSubview(buttonK)
+                                buttonK.addClosure(event: .touchUpInside){
+                                    UIView.animate(withDuration: 0.3, animations:{
+                                        blurEffectView.alpha = 0
+                                        scrollFound.alpha = 0
+                                    }){_ in
+                                        foundationView.addSubview(buttonTermsAndService!)
+                                        foundationView.addSubview(privacyPolicy!)
+                                        foundationView.addSubview(disText!)
+                                        blurEffectView.removeFromSuperview()
+                                        scrollFound.removeFromSuperview()
+                                    }
+                                }
+                                
+                                infoView.center = self.view.center
+                                scrollFound.addSubview(infoView)
+                                scrollFound.addSubview(buttonTermsAndService!)
+                                scrollFound.addSubview(privacyPolicy!)
+                                scrollFound.addSubview(disText!)
+                            }
+                            /*
                             let textIvent = "User saw a special offer"
                             if !UserDefaults.standard.bool(forKey: textIvent){
                                 UserDefaults.standard.set(true, forKey: textIvent)
@@ -454,6 +590,9 @@ class Main: UIViewController, NavigationProtocol {
                                     if self.navigation.subData.activeTrial && (self.navigation.realmData.userModel.trial){
                                         self.navigation.realmData.userModel.trial = false
                                         EventManager.sendEvent(with: AFEventStartTrial)
+                                        print("++")
+                                        print(AFEventStartTrial)
+                                        print("++")
                                     }
                                 }else{
                                     self.navigation.subData.goSub(productId: ProductId.moonT.rawValue){
@@ -473,6 +612,9 @@ class Main: UIViewController, NavigationProtocol {
                                                 self.navigation.realmData.userModel.trial = false
                                                 EventManager.sendEvent(with: AFEventStartTrial)
                                                 EventManager.sendEvent(with: "Trial++")
+                                                print("++")
+                                                print(AFEventStartTrial)
+                                                print("++")
                                             }
                                         }
                                     }
@@ -483,6 +625,7 @@ class Main: UIViewController, NavigationProtocol {
                             scrollFound.addSubview(buttonTermsAndService!)
                             scrollFound.addSubview(privacyPolicy!)
                             scrollFound.addSubview(disText!)
+                             */
                         }
                     }
                 }

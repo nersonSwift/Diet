@@ -243,17 +243,3 @@ extension RecipeView: RecipeReciver {
         }
     }
 }
-
-extension RecipeView: LoadingTimeoutHandler {
-    
-    func didTimeoutOccured() {
-//
-//        let timeoutMessageParagraphStyle = NSMutableParagraphStyle()
-//        timeoutMessageParagraphStyle.alignment = .center
-//        timeoutMessageParagraphStyle.paragraphSpacingBefore = 100
-//
-//        let timeoutHappendMessage = NSAttributedString(string: "Could not load data.".localized, attributes: [NSAttributedString.Key.paragraphStyle : timeoutMessageParagraphStyle])
-//
-//        recipeLabel.attributedText = timeoutHappendMessage
-    }
-}

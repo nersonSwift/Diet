@@ -161,6 +161,7 @@ class Navigation{
         
         if let nextViewController = type(of: viewControllerType).storyboardInstance(navigation: self) {
             special?(nextViewController)
+            
             selectView.present(nextViewController, animated: animated){
                 completion?(nextViewController)
             }
