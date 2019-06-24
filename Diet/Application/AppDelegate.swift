@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppEventsLogger.activate(application)
         AppsFlyerTracker.shared().trackAppLaunch()
         
-        if let main = window?.rootViewController as? Main{
+        if let main = window?.rootViewController as? NavigationProtocol{
             if let navigation = main.navigation{
                 navigation.subData.refrash(){
                     print(navigation.subData.activeSub)
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         
-        if let main = window?.rootViewController as? Main{
+        if let main = window?.rootViewController as? NavigationProtocol{
             
             if let navigation = main.navigation{
                 let navigationView = navigation.selectView as! NavigationProtocol

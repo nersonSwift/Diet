@@ -94,19 +94,16 @@ class Main: UIViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loadingVC = LoadingViewController()
-        loadingVC.view.backgroundColor = .lightGray
-        launchView = loadingVC.view
-        view.addSubview(launchView)
+        start()
         
     }
     
     func start(){
         createstStoregeBolls()
         
-        if UserDefaults.standard.bool(forKey: "checkSub"){
-            counter = 4
-        }
+        
+        counter = 4
+        anim = true
         
         resizeStorageBolls(namberView: counter - 1)
         strafeBolls(namberView: counter - 1)
@@ -146,12 +143,7 @@ class Main: UIViewController, NavigationProtocol {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if navigation == nil{
-            navigation = Navigation(viewController: self)
-        }
-    }
+    
     
     func createView(namberView: Int) -> ModelMainView{
         let textEvent = "User saw welcome screen - \(self.counter + 1)"
@@ -357,9 +349,7 @@ class Main: UIViewController, NavigationProtocol {
         }
         buttonNext.addClosure(event: .touchUpInside){
             buttonNext.setTitleColor(buttonNext.titleLabel?.textColor.withAlphaComponent(1), for: .normal)
-            if self.anim{
-                return
-            }
+            
             if self.counter < 4{
                 self.counter += 1
                 self.nextView = self.createView(namberView: self.counter)

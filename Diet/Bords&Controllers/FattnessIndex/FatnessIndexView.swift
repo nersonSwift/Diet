@@ -120,10 +120,14 @@ class FatnessIndexView: UIViewController, NavigationProtocol{
             return
         }
         tap = true
-        if navigation.realmData.userModel!.obesityTypeSelect == ""{
-            navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+        if navigation.subData.activeSub{
+            if self.navigation.realmData.userModel!.obesityTypeSelect == ""{
+                self.navigation.transitionToView(viewControllerType: SelectMenu(), animated: true, special: nil)
+            }else{
+                self.navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+            }
         }else{
-            navigation.transitionToView(viewControllerType: DietsWeek(), animated: true, special: nil)
+            navigation.transitionToView(viewControllerType: Main(), animated: true, special: nil)
         }
         tap = false
     }

@@ -25,17 +25,14 @@ class Navigation{
     init(viewController: UIViewController) {
         
         controllers.append(viewController)
-        let main = controllers[0] as! Main
+        let main = controllers[0] as! TestPageView
         var launchView = main.launchView
-        main.anim = true
-        //launchView?.removeFromSuperview()
         let _ = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { timer in
             if launchView == nil{
                 return
             }
             launchView?.removeFromSuperview()
             launchView = nil
-            main.anim = false
             main.start()
         }
         
@@ -47,29 +44,30 @@ class Navigation{
                         self.transitionToView(viewControllerType: SelectMenu(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
                             launchView = nil
-                            main.anim = false
                             main.start()
                         }, special: nil)
                     }else{
                         self.transitionToView(viewControllerType: DietsWeek(), animated: false, completion: { nextViewController in
                             launchView?.removeFromSuperview()
                             launchView = nil
-                            main.anim = false
                             main.start()
                         }, special: nil)
                     }
                 }else{
-                    self.transitionToView(viewControllerType: TestPageView(coder: NSCoder())!, animated: false, completion: { nextViewController in
+                    launchView?.removeFromSuperview()
+                    launchView = nil
+                    main.start()
+                }
+            }else{
+                if UserDefaults.standard.bool(forKey: "testShown1"){
+                    self.transitionToView(viewControllerType: Main(), animated: false, completion: { nextViewController in
                         launchView?.removeFromSuperview()
                         launchView = nil
-                        main.anim = false
                         main.start()
                     }, special: nil)
                 }
-            }else{
                 launchView?.removeFromSuperview()
                 launchView = nil
-                main.anim = false
                 main.start()
             }
             self.checkVersoin()

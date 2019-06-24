@@ -30,6 +30,7 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     var testResult = TestResult()
     weak var testOutput: TestResultOutput?
     var currentImagePosition: CGFloat = 0.0
+    var launchView: UIView!
     
     let genderSelectionPage = GenderSelectorViewController.controllerInStoryboard(UIStoryboard(name: "GenderSelectorViewController", bundle: nil))
     let ageSelectionPage = SelectingViewController.controllerInStoryboard(UIStoryboard(name: "SelectingViewController", bundle: nil))
@@ -56,6 +57,13 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let loadingVC = LoadingViewController()
+        loadingVC.view.backgroundColor = .lightGray
+        launchView = loadingVC.view
+        view.addSubview(launchView)
+    }
+    
+    func start(){
         self.view.backgroundColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
         fillPages()
         
@@ -99,6 +107,9 @@ class TestPageView: UIPageViewController, NavigationProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if navigation == nil{
+            navigation = Navigation(viewController: self)
+        }
         if let vc = currentViewController as? SelectingViewController {
             currentImagePosition = vc.foodImageView.frame.origin.x
         }
